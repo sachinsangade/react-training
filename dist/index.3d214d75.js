@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"hbj89":[function(require,module,exports) {
+})({"3QC3y":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "138b6a135baa4167";
+module.bundle.HMR_BUNDLE_ID = "0a8ecb283d214d75";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -2939,11 +2939,11 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"igcvL":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6024 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{}],"bB7Pu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e4e3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6024.prelude(module);
+$parcel$ReactRefreshHelpers$e4e3.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2953,558 +2953,987 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 var _bootstrapMinCss = require("bootstrap/dist/css/bootstrap.min.css");
-var _banner2Jpg = require("/assets/banner2.jpg");
-var _banner2JpgDefault = parcelHelpers.interopDefault(_banner2Jpg);
-const cardStyle = {
-    width: "18rem",
-    marginRight: "20px"
-};
-//const cloudinaryImgUrl = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
-const restaurants = [
-    {
-        "id": "253596",
-        "name": "Burger King",
-        "cloudinaryImageId": "e33e1d3ba7d6b2bb0d45e1001b731fcf",
-        "locality": "Tathawade",
-        "areaName": "Tathawade",
-        "costForTwo": "\u20B9350 for two",
-        "cuisines": [
-            "Burgers",
-            "American"
-        ],
-        "avgRating": 4.2,
-        "parentId": "166",
-        "avgRatingString": "4.2"
-    },
-    {
-        "id": "260823",
-        "name": "La Pino'z Pizza",
-        "cloudinaryImageId": "hfwa38io1akqusshdyug",
-        "locality": "Wakad",
-        "areaName": "Wakad",
-        "costForTwo": "\u20B9200 for two",
-        "cuisines": [
-            "Pizzas",
-            "Pastas",
-            "Italian",
-            "Desserts",
-            "Beverages"
-        ],
-        "avgRating": 3.9
-    },
-    {
-        "id": "191350",
-        "name": "The Biryani Life",
-        "cloudinaryImageId": "lty4isqdfahqevv9ua7e",
-        "locality": "PCMC",
-        "areaName": "Ravet",
-        "costForTwo": "\u20B9250 for two",
-        "cuisines": [
-            "Biryani",
-            "Mughlai",
-            "Lucknowi",
-            "Hyderabadi",
-            "Kebabs",
-            "Desserts",
-            "Beverages"
-        ],
-        "avgRating": 4.3
-    }
-];
+var _bootstrapEsm = require("bootstrap/dist/js/bootstrap.esm");
+var _navbar = require("./src/components/Navbar");
+var _navbarDefault = parcelHelpers.interopDefault(_navbar);
+var _productCard = require("./src/components/ProductCard");
+var _productCardDefault = parcelHelpers.interopDefault(_productCard);
+var _carousel = require("./src/components/Carousel");
+var _carouselDefault = parcelHelpers.interopDefault(_carousel);
+var _s = $RefreshSig$();
+// import restaurants from "./src/utils/mock_data";
 const App = ()=>{
+    _s();
+    // USE STATE
+    const [products, setProducts] = (0, _react.useState)([]);
+    const [categories, setCategories] = (0, _react.useState)([]);
+    // USE EFFECT
+    (0, _react.useEffect)(()=>{
+        fetchData();
+    }, []);
+    const fetchData = async ()=>{
+        const data = await fetch("https://dummyjson.com/products");
+        const jsonData = await data.json();
+        setProducts(jsonData.products);
+        jsonData.products.map((product)=>{
+            categories.push(product.category);
+        });
+        setCategories([
+            ...new Set(categories)
+        ]);
+    };
+    const filterProducts = (category)=>{
+        const newProducts = products.filter((product)=>{
+            if (category === product.category) return product;
+        });
+        setProducts(newProducts);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "container",
+        className: "container-fluid",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "row",
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navbar, {}, void 0, false, {
-                    fileName: "app.js",
-                    lineNumber: 70,
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
+                    fileName: "index.js",
+                    lineNumber: 52,
                     columnNumber: 17
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Carousel, {}, void 0, false, {
-                    fileName: "app.js",
-                    lineNumber: 72,
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _carouselDefault.default), {}, void 0, false, {
+                    fileName: "index.js",
+                    lineNumber: 54,
                     columnNumber: 17
                 }, undefined),
-                restaurants.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestaurantCard, {
-                        restaurants: restaurant
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 75,
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "row mt-5",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "col-8",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                children: "Filter Products"
+                            }, void 0, false, {
+                                fileName: "index.js",
+                                lineNumber: 69,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "btn-group",
+                                role: "group",
+                                "aria-label": "Basic outlined example",
+                                children: [
+                                    categories.map((category, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            type: "button",
+                                            className: "btn btn-primary",
+                                            onClick: (e)=>{
+                                                e.preventDefault();
+                                                filterProducts(category);
+                                            },
+                                            children: category.toUpperCase()
+                                        }, index, false, {
+                                            fileName: "index.js",
+                                            lineNumber: 73,
+                                            columnNumber: 33
+                                        }, undefined)),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        type: "button",
+                                        className: "btn btn-danger",
+                                        onClick: (e)=>{
+                                            e.preventDefault();
+                                            fetchData();
+                                        },
+                                        children: "Clear filter"
+                                    }, void 0, false, {
+                                        fileName: "index.js",
+                                        lineNumber: 76,
+                                        columnNumber: 29
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "index.js",
+                                lineNumber: 70,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "index.js",
+                        lineNumber: 68,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "index.js",
+                    lineNumber: 67,
+                    columnNumber: 17
+                }, undefined),
+                products.map((product, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
+                        product: product
+                    }, index, false, {
+                        fileName: "index.js",
+                        lineNumber: 82,
                         columnNumber: 21
                     }, undefined))
             ]
         }, void 0, true, {
-            fileName: "app.js",
-            lineNumber: 69,
+            fileName: "index.js",
+            lineNumber: 51,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
-        fileName: "app.js",
-        lineNumber: 68,
+        fileName: "index.js",
+        lineNumber: 50,
         columnNumber: 9
     }, undefined);
 };
+_s(App, "SrPJXzJi5P8Ybdwd9N89dX2ppHo=");
 _c = App;
-const Navbar = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-        className: "navbar navbar-expand-lg navbar-light bg-light",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "container",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                    className: "navbar-brand",
-                    href: "#",
-                    children: "Food Delivery"
-                }, void 0, false, {
-                    fileName: "app.js",
-                    lineNumber: 98,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "navbar-toggler",
-                    type: "button",
-                    "data-bs-toggle": "collapse",
-                    "data-bs-target": "#navbarSupportedContent",
-                    "aria-controls": "navbarSupportedContent",
-                    "aria-expanded": "false",
-                    "aria-label": "Toggle navigation",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        className: "navbar-toggler-icon"
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 102,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "app.js",
-                    lineNumber: 99,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "collapse navbar-collapse",
-                    id: "navbarSupportedContent",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                            className: "navbar-nav me-auto mb-2 mb-lg-0",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    className: "nav-item",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link active",
-                                        "aria-current": "page",
-                                        href: "#",
-                                        children: "Home"
-                                    }, void 0, false, {
-                                        fileName: "app.js",
-                                        lineNumber: 107,
-                                        columnNumber: 29
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "app.js",
-                                    lineNumber: 106,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    className: "nav-item",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link",
-                                        href: "#",
-                                        children: "Link"
-                                    }, void 0, false, {
-                                        fileName: "app.js",
-                                        lineNumber: 110,
-                                        columnNumber: 29
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "app.js",
-                                    lineNumber: 109,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    className: "nav-item dropdown",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                            className: "nav-link dropdown-toggle",
-                                            href: "#",
-                                            id: "navbarDropdown",
-                                            role: "button",
-                                            "data-bs-toggle": "dropdown",
-                                            "aria-expanded": "false",
-                                            children: "Dropdown"
-                                        }, void 0, false, {
-                                            fileName: "app.js",
-                                            lineNumber: 113,
-                                            columnNumber: 29
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                                            className: "dropdown-menu",
-                                            "aria-labelledby": "navbarDropdown",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                        className: "dropdown-item",
-                                                        href: "#",
-                                                        children: "Action"
-                                                    }, void 0, false, {
-                                                        fileName: "app.js",
-                                                        lineNumber: 118,
-                                                        columnNumber: 37
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "app.js",
-                                                    lineNumber: 118,
-                                                    columnNumber: 33
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                        className: "dropdown-item",
-                                                        href: "#",
-                                                        children: "Another action"
-                                                    }, void 0, false, {
-                                                        fileName: "app.js",
-                                                        lineNumber: 119,
-                                                        columnNumber: 37
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "app.js",
-                                                    lineNumber: 119,
-                                                    columnNumber: 33
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {
-                                                        className: "dropdown-divider"
-                                                    }, void 0, false, {
-                                                        fileName: "app.js",
-                                                        lineNumber: 121,
-                                                        columnNumber: 37
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "app.js",
-                                                    lineNumber: 120,
-                                                    columnNumber: 33
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                        className: "dropdown-item",
-                                                        href: "#",
-                                                        children: "Something else here"
-                                                    }, void 0, false, {
-                                                        fileName: "app.js",
-                                                        lineNumber: 123,
-                                                        columnNumber: 37
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "app.js",
-                                                    lineNumber: 123,
-                                                    columnNumber: 33
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "app.js",
-                                            lineNumber: 117,
-                                            columnNumber: 29
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "app.js",
-                                    lineNumber: 112,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    className: "nav-item",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link disabled",
-                                        href: "#",
-                                        tabIndex: "-1",
-                                        "aria-disabled": "true",
-                                        children: "Disabled"
-                                    }, void 0, false, {
-                                        fileName: "app.js",
-                                        lineNumber: 127,
-                                        columnNumber: 29
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "app.js",
-                                    lineNumber: 126,
-                                    columnNumber: 25
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "app.js",
-                            lineNumber: 105,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                            className: "d-flex",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    className: "form-control me-2",
-                                    type: "search",
-                                    placeholder: "Search",
-                                    "aria-label": "Search"
-                                }, void 0, false, {
-                                    fileName: "app.js",
-                                    lineNumber: 131,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    className: "btn btn-outline-success",
-                                    type: "submit",
-                                    children: "Search"
-                                }, void 0, false, {
-                                    fileName: "app.js",
-                                    lineNumber: 132,
-                                    columnNumber: 25
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "app.js",
-                            lineNumber: 130,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "app.js",
-                    lineNumber: 104,
-                    columnNumber: 17
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "app.js",
-            lineNumber: 97,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "app.js",
-        lineNumber: 96,
-        columnNumber: 9
-    }, undefined);
-};
-_c1 = Navbar;
-const Carousel = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "container",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "row",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                id: "carouselExampleControls",
-                className: "carousel slide",
-                "data-bs-ride": "carousel",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "carousel-inner",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "carousel-item active",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                src: (0, _banner2JpgDefault.default),
-                                className: "d-block w-100",
-                                alt: "..."
-                            }, void 0, false, {
-                                fileName: "app.js",
-                                lineNumber: 148,
-                                columnNumber: 29
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "app.js",
-                            lineNumber: 147,
-                            columnNumber: 25
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 145,
-                        columnNumber: 21
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "carousel-control-prev",
-                        type: "button",
-                        "data-bs-target": "#carouselExampleControls",
-                        "data-bs-slide": "prev",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "carousel-control-prev-icon",
-                                "aria-hidden": "true"
-                            }, void 0, false, {
-                                fileName: "app.js",
-                                lineNumber: 153,
-                                columnNumber: 25
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "visually-hidden",
-                                children: "Previous"
-                            }, void 0, false, {
-                                fileName: "app.js",
-                                lineNumber: 154,
-                                columnNumber: 25
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "app.js",
-                        lineNumber: 151,
-                        columnNumber: 21
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "carousel-control-next",
-                        type: "button",
-                        "data-bs-target": "#carouselExampleControls",
-                        "data-bs-slide": "next",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "carousel-control-next-icon",
-                                "aria-hidden": "true"
-                            }, void 0, false, {
-                                fileName: "app.js",
-                                lineNumber: 158,
-                                columnNumber: 25
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "visually-hidden",
-                                children: "Next"
-                            }, void 0, false, {
-                                fileName: "app.js",
-                                lineNumber: 159,
-                                columnNumber: 25
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "app.js",
-                        lineNumber: 156,
-                        columnNumber: 21
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "app.js",
-                lineNumber: 144,
-                columnNumber: 17
-            }, undefined)
-        }, void 0, false, {
-            fileName: "app.js",
-            lineNumber: 143,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "app.js",
-        lineNumber: 142,
-        columnNumber: 9
-    }, undefined);
-};
-_c2 = Carousel;
-const RestaurantCard = (props)=>{
-    const { cloudinaryImageId, name, costForTwo, cuisines, avgRating, locality } = props.restaurants;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "card gap-5 mt-5",
-        style: cardStyle,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" + cloudinaryImageId,
-                className: "card-img-top",
-                alt: "..."
-            }, void 0, false, {
-                fileName: "app.js",
-                lineNumber: 173,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "card-body",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
-                        className: "card-title",
-                        children: name
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 175,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "card-text",
-                        children: costForTwo
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 176,
-                        columnNumber: 17
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "app.js",
-                lineNumber: 174,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "list-group list-group-flush",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "list-group-item",
-                        children: cuisines.join(", ")
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 179,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "list-group-item",
-                        children: avgRating
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 180,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "list-group-item",
-                        children: locality
-                    }, void 0, false, {
-                        fileName: "app.js",
-                        lineNumber: 181,
-                        columnNumber: 17
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "app.js",
-                lineNumber: 178,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "card-body",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                    href: "#",
-                    className: "btn btn-primary",
-                    children: "Add to cart"
-                }, void 0, false, {
-                    fileName: "app.js",
-                    lineNumber: 184,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
-                fileName: "app.js",
-                lineNumber: 183,
-                columnNumber: 13
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "app.js",
-        lineNumber: 172,
-        columnNumber: 9
-    }, undefined);
-};
-_c3 = RestaurantCard;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
-    fileName: "app.js",
-    lineNumber: 193,
+    fileName: "index.js",
+    lineNumber: 94,
     columnNumber: 13
 }, undefined));
-var _c, _c1, _c2, _c3;
+var _c;
 $RefreshReg$(_c, "App");
-$RefreshReg$(_c1, "Navbar");
-$RefreshReg$(_c2, "Carousel");
-$RefreshReg$(_c3, "RestaurantCard");
 
-  $parcel$ReactRefreshHelpers$6024.postlude(module);
+  $parcel$ReactRefreshHelpers$e4e3.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-dom/client":"lOjBx","react/jsx-dev-runtime":"iTorj","bootstrap/dist/css/bootstrap.min.css":"i5LP7","/assets/banner2.jpg":"e0sPG"}],"21dqq":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","bootstrap/dist/css/bootstrap.min.css":"i5LP7","./src/components/Navbar":"5EEXV","./src/components/ProductCard":"hPL34","./src/components/Carousel":"eWA0I","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","bootstrap/dist/js/bootstrap.esm":"h36JB"}],"iTorj":[function(require,module,exports) {
+"use strict";
+module.exports = require("ee51401569654d91");
+
+},{"ee51401569654d91":"48uCM"}],"48uCM":[function(require,module,exports) {
+/**
+ * @license React
+ * react-jsx-dev-runtime.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ "use strict";
+(function() {
+    "use strict";
+    var React = require("58362d9d82be395f");
+    // ATTENTION
+    // When adding new symbols to this file,
+    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+    // The Symbol used to tag the ReactElement-like types.
+    var REACT_ELEMENT_TYPE = Symbol.for("react.element");
+    var REACT_PORTAL_TYPE = Symbol.for("react.portal");
+    var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
+    var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
+    var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+    var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
+    var REACT_CONTEXT_TYPE = Symbol.for("react.context");
+    var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+    var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
+    var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
+    var REACT_MEMO_TYPE = Symbol.for("react.memo");
+    var REACT_LAZY_TYPE = Symbol.for("react.lazy");
+    var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
+    var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
+    var FAUX_ITERATOR_SYMBOL = "@@iterator";
+    function getIteratorFn(maybeIterable) {
+        if (maybeIterable === null || typeof maybeIterable !== "object") return null;
+        var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+        if (typeof maybeIterator === "function") return maybeIterator;
+        return null;
+    }
+    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function error(format) {
+        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
+        printWarning("error", format, args);
+    }
+    function printWarning(level, format, args) {
+        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+        var stack = ReactDebugCurrentFrame.getStackAddendum();
+        if (stack !== "") {
+            format += "%s";
+            args = args.concat([
+                stack
+            ]);
+        } // eslint-disable-next-line react-internal/safe-string-coercion
+        var argsWithFormat = args.map(function(item) {
+            return String(item);
+        }); // Careful: RN currently depends on this prefix
+        argsWithFormat.unshift("Warning: " + format); // We intentionally don't use spread (or .apply) directly because it
+        // breaks IE9: https://github.com/facebook/react/issues/13610
+        // eslint-disable-next-line react-internal/no-production-logging
+        Function.prototype.apply.call(console[level], console, argsWithFormat);
+    }
+    // -----------------------------------------------------------------------------
+    var enableScopeAPI = false; // Experimental Create Event Handle API.
+    var enableCacheElement = false;
+    var enableTransitionTracing = false; // No known bugs, but needs performance testing
+    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
+    // stuff. Intended to enable React core members to more easily debug scheduling
+    // issues in DEV builds.
+    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
+    var REACT_MODULE_REFERENCE;
+    REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
+    function isValidElementType(type) {
+        if (typeof type === "string" || typeof type === "function") return true;
+         // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+        if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
+        if (typeof type === "object" && type !== null) {
+            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
+            // types supported by any Flight configuration anywhere since
+            // we don't know which Flight build this will end up being used
+            // with.
+            type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
+        }
+        return false;
+    }
+    function getWrappedName(outerType, innerType, wrapperName) {
+        var displayName = outerType.displayName;
+        if (displayName) return displayName;
+        var functionName = innerType.displayName || innerType.name || "";
+        return functionName !== "" ? wrapperName + "(" + functionName + ")" : wrapperName;
+    } // Keep in sync with react-reconciler/getComponentNameFromFiber
+    function getContextName(type) {
+        return type.displayName || "Context";
+    } // Note that the reconciler package should generally prefer to use getComponentNameFromFiber() instead.
+    function getComponentNameFromType(type) {
+        if (type == null) // Host root, text node or just invalid type.
+        return null;
+        if (typeof type.tag === "number") error("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue.");
+        if (typeof type === "function") return type.displayName || type.name || null;
+        if (typeof type === "string") return type;
+        switch(type){
+            case REACT_FRAGMENT_TYPE:
+                return "Fragment";
+            case REACT_PORTAL_TYPE:
+                return "Portal";
+            case REACT_PROFILER_TYPE:
+                return "Profiler";
+            case REACT_STRICT_MODE_TYPE:
+                return "StrictMode";
+            case REACT_SUSPENSE_TYPE:
+                return "Suspense";
+            case REACT_SUSPENSE_LIST_TYPE:
+                return "SuspenseList";
+        }
+        if (typeof type === "object") switch(type.$$typeof){
+            case REACT_CONTEXT_TYPE:
+                var context = type;
+                return getContextName(context) + ".Consumer";
+            case REACT_PROVIDER_TYPE:
+                var provider = type;
+                return getContextName(provider._context) + ".Provider";
+            case REACT_FORWARD_REF_TYPE:
+                return getWrappedName(type, type.render, "ForwardRef");
+            case REACT_MEMO_TYPE:
+                var outerName = type.displayName || null;
+                if (outerName !== null) return outerName;
+                return getComponentNameFromType(type.type) || "Memo";
+            case REACT_LAZY_TYPE:
+                var lazyComponent = type;
+                var payload = lazyComponent._payload;
+                var init = lazyComponent._init;
+                try {
+                    return getComponentNameFromType(init(payload));
+                } catch (x) {
+                    return null;
+                }
+        }
+        return null;
+    }
+    var assign = Object.assign;
+    // Helpers to patch console.logs to avoid logging during side-effect free
+    // replaying on render function. This currently only patches the object
+    // lazily which won't cover if the log function was extracted eagerly.
+    // We could also eagerly patch the method.
+    var disabledDepth = 0;
+    var prevLog;
+    var prevInfo;
+    var prevWarn;
+    var prevError;
+    var prevGroup;
+    var prevGroupCollapsed;
+    var prevGroupEnd;
+    function disabledLog() {}
+    disabledLog.__reactDisabledLog = true;
+    function disableLogs() {
+        if (disabledDepth === 0) {
+            /* eslint-disable react-internal/no-production-logging */ prevLog = console.log;
+            prevInfo = console.info;
+            prevWarn = console.warn;
+            prevError = console.error;
+            prevGroup = console.group;
+            prevGroupCollapsed = console.groupCollapsed;
+            prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
+            var props = {
+                configurable: true,
+                enumerable: true,
+                value: disabledLog,
+                writable: true
+            }; // $FlowFixMe Flow thinks console is immutable.
+            Object.defineProperties(console, {
+                info: props,
+                log: props,
+                warn: props,
+                error: props,
+                group: props,
+                groupCollapsed: props,
+                groupEnd: props
+            });
+        /* eslint-enable react-internal/no-production-logging */ }
+        disabledDepth++;
+    }
+    function reenableLogs() {
+        disabledDepth--;
+        if (disabledDepth === 0) {
+            /* eslint-disable react-internal/no-production-logging */ var props = {
+                configurable: true,
+                enumerable: true,
+                writable: true
+            }; // $FlowFixMe Flow thinks console is immutable.
+            Object.defineProperties(console, {
+                log: assign({}, props, {
+                    value: prevLog
+                }),
+                info: assign({}, props, {
+                    value: prevInfo
+                }),
+                warn: assign({}, props, {
+                    value: prevWarn
+                }),
+                error: assign({}, props, {
+                    value: prevError
+                }),
+                group: assign({}, props, {
+                    value: prevGroup
+                }),
+                groupCollapsed: assign({}, props, {
+                    value: prevGroupCollapsed
+                }),
+                groupEnd: assign({}, props, {
+                    value: prevGroupEnd
+                })
+            });
+        /* eslint-enable react-internal/no-production-logging */ }
+        if (disabledDepth < 0) error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+    }
+    var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
+    var prefix;
+    function describeBuiltInComponentFrame(name, source, ownerFn) {
+        if (prefix === undefined) // Extract the VM specific prefix used by each line.
+        try {
+            throw Error();
+        } catch (x) {
+            var match = x.stack.trim().match(/\n( *(at )?)/);
+            prefix = match && match[1] || "";
+        }
+         // We use the prefix to ensure our stacks line up with native stack frames.
+        return "\n" + prefix + name;
+    }
+    var reentry = false;
+    var componentFrameCache;
+    var PossiblyWeakMap = typeof WeakMap === "function" ? WeakMap : Map;
+    componentFrameCache = new PossiblyWeakMap();
+    function describeNativeComponentFrame(fn, construct) {
+        // If something asked for a stack inside a fake render, it should get ignored.
+        if (!fn || reentry) return "";
+        var frame = componentFrameCache.get(fn);
+        if (frame !== undefined) return frame;
+        var control;
+        reentry = true;
+        var previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
+        Error.prepareStackTrace = undefined;
+        var previousDispatcher;
+        previousDispatcher = ReactCurrentDispatcher.current; // Set the dispatcher in DEV because this might be call in the render function
+        // for warnings.
+        ReactCurrentDispatcher.current = null;
+        disableLogs();
+        try {
+            // This should throw.
+            if (construct) {
+                // Something should be setting the props in the constructor.
+                var Fake = function() {
+                    throw Error();
+                }; // $FlowFixMe
+                Object.defineProperty(Fake.prototype, "props", {
+                    set: function() {
+                        // We use a throwing setter instead of frozen or non-writable props
+                        // because that won't throw in a non-strict mode function.
+                        throw Error();
+                    }
+                });
+                if (typeof Reflect === "object" && Reflect.construct) {
+                    // We construct a different control for this case to include any extra
+                    // frames added by the construct call.
+                    try {
+                        Reflect.construct(Fake, []);
+                    } catch (x) {
+                        control = x;
+                    }
+                    Reflect.construct(fn, [], Fake);
+                } else {
+                    try {
+                        Fake.call();
+                    } catch (x) {
+                        control = x;
+                    }
+                    fn.call(Fake.prototype);
+                }
+            } else {
+                try {
+                    throw Error();
+                } catch (x) {
+                    control = x;
+                }
+                fn();
+            }
+        } catch (sample) {
+            // This is inlined manually because closure doesn't do it for us.
+            if (sample && control && typeof sample.stack === "string") {
+                // This extracts the first frame from the sample that isn't also in the control.
+                // Skipping one frame that we assume is the frame that calls the two.
+                var sampleLines = sample.stack.split("\n");
+                var controlLines = control.stack.split("\n");
+                var s = sampleLines.length - 1;
+                var c = controlLines.length - 1;
+                while(s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c])// We expect at least one stack frame to be shared.
+                // Typically this will be the root most one. However, stack frames may be
+                // cut off due to maximum stack limits. In this case, one maybe cut off
+                // earlier than the other. We assume that the sample is longer or the same
+                // and there for cut off earlier. So we should find the root most frame in
+                // the sample somewhere in the control.
+                c--;
+                for(; s >= 1 && c >= 0; s--, c--)// Next we find the first one that isn't the same which should be the
+                // frame that called our sample function and the control.
+                if (sampleLines[s] !== controlLines[c]) {
+                    // In V8, the first line is describing the message but other VMs don't.
+                    // If we're about to return the first line, and the control is also on the same
+                    // line, that's a pretty good indicator that our sample threw at same line as
+                    // the control. I.e. before we entered the sample frame. So we ignore this result.
+                    // This can happen if you passed a class to function component, or non-function.
+                    if (s !== 1 || c !== 1) do {
+                        s--;
+                        c--; // We may still have similar intermediate frames from the construct call.
+                        // The next one that isn't the same should be our match though.
+                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
+                            // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
+                            var _frame = "\n" + sampleLines[s].replace(" at new ", " at "); // If our component frame is labeled "<anonymous>"
+                            // but we have a user-provided "displayName"
+                            // splice it in to make the stack more readable.
+                            if (fn.displayName && _frame.includes("<anonymous>")) _frame = _frame.replace("<anonymous>", fn.displayName);
+                            if (typeof fn === "function") componentFrameCache.set(fn, _frame);
+                            return _frame;
+                        }
+                    }while (s >= 1 && c >= 0);
+                    break;
+                }
+            }
+        } finally{
+            reentry = false;
+            ReactCurrentDispatcher.current = previousDispatcher;
+            reenableLogs();
+            Error.prepareStackTrace = previousPrepareStackTrace;
+        } // Fallback to just using the name if we couldn't make it throw.
+        var name = fn ? fn.displayName || fn.name : "";
+        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+        if (typeof fn === "function") componentFrameCache.set(fn, syntheticFrame);
+        return syntheticFrame;
+    }
+    function describeFunctionComponentFrame(fn, source, ownerFn) {
+        return describeNativeComponentFrame(fn, false);
+    }
+    function shouldConstruct(Component) {
+        var prototype = Component.prototype;
+        return !!(prototype && prototype.isReactComponent);
+    }
+    function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
+        if (type == null) return "";
+        if (typeof type === "function") return describeNativeComponentFrame(type, shouldConstruct(type));
+        if (typeof type === "string") return describeBuiltInComponentFrame(type);
+        switch(type){
+            case REACT_SUSPENSE_TYPE:
+                return describeBuiltInComponentFrame("Suspense");
+            case REACT_SUSPENSE_LIST_TYPE:
+                return describeBuiltInComponentFrame("SuspenseList");
+        }
+        if (typeof type === "object") switch(type.$$typeof){
+            case REACT_FORWARD_REF_TYPE:
+                return describeFunctionComponentFrame(type.render);
+            case REACT_MEMO_TYPE:
+                // Memo may contain any component type so we recursively resolve it.
+                return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
+            case REACT_LAZY_TYPE:
+                var lazyComponent = type;
+                var payload = lazyComponent._payload;
+                var init = lazyComponent._init;
+                try {
+                    // Lazy may contain any component type so we recursively resolve it.
+                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+                } catch (x) {}
+        }
+        return "";
+    }
+    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    var loggedTypeFailures = {};
+    var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+    function setCurrentlyValidatingElement(element) {
+        if (element) {
+            var owner = element._owner;
+            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+            ReactDebugCurrentFrame.setExtraStackFrame(stack);
+        } else ReactDebugCurrentFrame.setExtraStackFrame(null);
+    }
+    function checkPropTypes(typeSpecs, values, location, componentName, element) {
+        // $FlowFixMe This is okay but Flow doesn't know it.
+        var has = Function.call.bind(hasOwnProperty);
+        for(var typeSpecName in typeSpecs)if (has(typeSpecs, typeSpecName)) {
+            var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
+            // fail the render phase where it didn't fail before. So we log it.
+            // After these have been cleaned up, we'll let them throw.
+            try {
+                // This is intentionally an invariant that gets caught. It's the same
+                // behavior as without this statement except with a better message.
+                if (typeof typeSpecs[typeSpecName] !== "function") {
+                    // eslint-disable-next-line react-internal/prod-error-codes
+                    var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; " + "it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`." + "This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                    err.name = "Invariant Violation";
+                    throw err;
+                }
+                error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+            } catch (ex) {
+                error$1 = ex;
+            }
+            if (error$1 && !(error$1 instanceof Error)) {
+                setCurrentlyValidatingElement(element);
+                error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
+                setCurrentlyValidatingElement(null);
+            }
+            if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
+                // Only monitor this failure once because there tends to be a lot of the
+                // same error.
+                loggedTypeFailures[error$1.message] = true;
+                setCurrentlyValidatingElement(element);
+                error("Failed %s type: %s", location, error$1.message);
+                setCurrentlyValidatingElement(null);
+            }
+        }
+    }
+    var isArrayImpl = Array.isArray; // eslint-disable-next-line no-redeclare
+    function isArray(a) {
+        return isArrayImpl(a);
+    }
+    /*
+ * The `'' + value` pattern (used in in perf-sensitive code) throws for Symbol
+ * and Temporal.* types. See https://github.com/facebook/react/pull/22064.
+ *
+ * The functions in this module will throw an easier-to-understand,
+ * easier-to-debug exception with a clear errors message message explaining the
+ * problem. (Instead of a confusing exception thrown inside the implementation
+ * of the `value` object).
+ */ // $FlowFixMe only called in DEV, so void return is not possible.
+    function typeName(value) {
+        // toStringTag is needed for namespaced types like Temporal.Instant
+        var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
+        var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
+        return type;
+    } // $FlowFixMe only called in DEV, so void return is not possible.
+    function willCoercionThrow(value) {
+        try {
+            testStringCoercion(value);
+            return false;
+        } catch (e) {
+            return true;
+        }
+    }
+    function testStringCoercion(value) {
+        // If you ended up here by following an exception call stack, here's what's
+        // happened: you supplied an object or symbol value to React (as a prop, key,
+        // DOM attribute, CSS property, string ref, etc.) and when React tried to
+        // coerce it to a string using `'' + value`, an exception was thrown.
+        //
+        // The most common types that will cause this exception are `Symbol` instances
+        // and Temporal objects like `Temporal.Instant`. But any object that has a
+        // `valueOf` or `[Symbol.toPrimitive]` method that throws will also cause this
+        // exception. (Library authors do this to prevent users from using built-in
+        // numeric operators like `+` or comparison operators like `>=` because custom
+        // methods are needed to perform accurate arithmetic or comparison.)
+        //
+        // To fix the problem, coerce this object or symbol value to a string before
+        // passing it to React. The most reliable way is usually `String(value)`.
+        //
+        // To find which value is throwing, check the browser or debugger console.
+        // Before this exception was thrown, there should be `console.error` output
+        // that shows the type (Symbol, Temporal.PlainDate, etc.) that caused the
+        // problem and how that type was used: key, atrribute, input value prop, etc.
+        // In most cases, this console output also shows the component and its
+        // ancestor components where the exception happened.
+        //
+        // eslint-disable-next-line react-internal/safe-string-coercion
+        return "" + value;
+    }
+    function checkKeyStringCoercion(value) {
+        if (willCoercionThrow(value)) {
+            error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
+            return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+        }
+    }
+    var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
+    var RESERVED_PROPS = {
+        key: true,
+        ref: true,
+        __self: true,
+        __source: true
+    };
+    var specialPropKeyWarningShown;
+    var specialPropRefWarningShown;
+    var didWarnAboutStringRefs;
+    didWarnAboutStringRefs = {};
+    function hasValidRef(config) {
+        if (hasOwnProperty.call(config, "ref")) {
+            var getter = Object.getOwnPropertyDescriptor(config, "ref").get;
+            if (getter && getter.isReactWarning) return false;
+        }
+        return config.ref !== undefined;
+    }
+    function hasValidKey(config) {
+        if (hasOwnProperty.call(config, "key")) {
+            var getter = Object.getOwnPropertyDescriptor(config, "key").get;
+            if (getter && getter.isReactWarning) return false;
+        }
+        return config.key !== undefined;
+    }
+    function warnIfStringRefCannotBeAutoConverted(config, self) {
+        if (typeof config.ref === "string" && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+            var componentName = getComponentNameFromType(ReactCurrentOwner.current.type);
+            if (!didWarnAboutStringRefs[componentName]) {
+                error('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', getComponentNameFromType(ReactCurrentOwner.current.type), config.ref);
+                didWarnAboutStringRefs[componentName] = true;
+            }
+        }
+    }
+    function defineKeyPropWarningGetter(props, displayName) {
+        var warnAboutAccessingKey = function() {
+            if (!specialPropKeyWarningShown) {
+                specialPropKeyWarningShown = true;
+                error("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
+            }
+        };
+        warnAboutAccessingKey.isReactWarning = true;
+        Object.defineProperty(props, "key", {
+            get: warnAboutAccessingKey,
+            configurable: true
+        });
+    }
+    function defineRefPropWarningGetter(props, displayName) {
+        var warnAboutAccessingRef = function() {
+            if (!specialPropRefWarningShown) {
+                specialPropRefWarningShown = true;
+                error("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
+            }
+        };
+        warnAboutAccessingRef.isReactWarning = true;
+        Object.defineProperty(props, "ref", {
+            get: warnAboutAccessingRef,
+            configurable: true
+        });
+    }
+    /**
+ * Factory method to create a new React element. This no longer adheres to
+ * the class pattern, so do not use new to call it. Also, instanceof check
+ * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+ * if something is a React Element.
+ *
+ * @param {*} type
+ * @param {*} props
+ * @param {*} key
+ * @param {string|object} ref
+ * @param {*} owner
+ * @param {*} self A *temporary* helper to detect places where `this` is
+ * different from the `owner` when React.createElement is called, so that we
+ * can warn. We want to get rid of owner and replace string `ref`s with arrow
+ * functions, and as long as `this` and owner are the same, there will be no
+ * change in behavior.
+ * @param {*} source An annotation object (added by a transpiler or otherwise)
+ * indicating filename, line number, and/or other information.
+ * @internal
+ */ var ReactElement = function(type, key, ref, self, source, owner, props) {
+        var element = {
+            // This tag allows us to uniquely identify this as a React Element
+            $$typeof: REACT_ELEMENT_TYPE,
+            // Built-in properties that belong on the element
+            type: type,
+            key: key,
+            ref: ref,
+            props: props,
+            // Record the component responsible for creating this element.
+            _owner: owner
+        };
+        // The validation flag is currently mutative. We put it on
+        // an external backing store so that we can freeze the whole object.
+        // This can be replaced with a WeakMap once they are implemented in
+        // commonly used development environments.
+        element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
+        // the validation flag non-enumerable (where possible, which should
+        // include every environment we run tests in), so the test framework
+        // ignores it.
+        Object.defineProperty(element._store, "validated", {
+            configurable: false,
+            enumerable: false,
+            writable: true,
+            value: false
+        }); // self and source are DEV only properties.
+        Object.defineProperty(element, "_self", {
+            configurable: false,
+            enumerable: false,
+            writable: false,
+            value: self
+        }); // Two elements created in two different places should be considered
+        // equal for testing purposes and therefore we hide it from enumeration.
+        Object.defineProperty(element, "_source", {
+            configurable: false,
+            enumerable: false,
+            writable: false,
+            value: source
+        });
+        if (Object.freeze) {
+            Object.freeze(element.props);
+            Object.freeze(element);
+        }
+        return element;
+    };
+    /**
+ * https://github.com/reactjs/rfcs/pull/107
+ * @param {*} type
+ * @param {object} props
+ * @param {string} key
+ */ function jsxDEV(type, config, maybeKey, source, self) {
+        var propName; // Reserved names are extracted
+        var props = {};
+        var key = null;
+        var ref = null; // Currently, key can be spread in as a prop. This causes a potential
+        // issue if key is also explicitly declared (ie. <div {...props} key="Hi" />
+        // or <div key="Hi" {...props} /> ). We want to deprecate key spread,
+        // but as an intermediary step, we will use jsxDEV for everything except
+        // <div {...props} key="Hi" />, because we aren't currently able to tell if
+        // key is explicitly declared to be undefined or not.
+        if (maybeKey !== undefined) {
+            checkKeyStringCoercion(maybeKey);
+            key = "" + maybeKey;
+        }
+        if (hasValidKey(config)) {
+            checkKeyStringCoercion(config.key);
+            key = "" + config.key;
+        }
+        if (hasValidRef(config)) {
+            ref = config.ref;
+            warnIfStringRefCannotBeAutoConverted(config, self);
+        } // Remaining properties are added to a new props object
+        for(propName in config)if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) props[propName] = config[propName];
+         // Resolve default props
+        if (type && type.defaultProps) {
+            var defaultProps = type.defaultProps;
+            for(propName in defaultProps)if (props[propName] === undefined) props[propName] = defaultProps[propName];
+        }
+        if (key || ref) {
+            var displayName = typeof type === "function" ? type.displayName || type.name || "Unknown" : type;
+            if (key) defineKeyPropWarningGetter(props, displayName);
+            if (ref) defineRefPropWarningGetter(props, displayName);
+        }
+        return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+    }
+    var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
+    var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+    function setCurrentlyValidatingElement$1(element) {
+        if (element) {
+            var owner = element._owner;
+            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+            ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
+        } else ReactDebugCurrentFrame$1.setExtraStackFrame(null);
+    }
+    var propTypesMisspellWarningShown;
+    propTypesMisspellWarningShown = false;
+    /**
+ * Verifies the object is a ReactElement.
+ * See https://reactjs.org/docs/react-api.html#isvalidelement
+ * @param {?object} object
+ * @return {boolean} True if `object` is a ReactElement.
+ * @final
+ */ function isValidElement(object) {
+        return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    function getDeclarationErrorAddendum() {
+        if (ReactCurrentOwner$1.current) {
+            var name = getComponentNameFromType(ReactCurrentOwner$1.current.type);
+            if (name) return "\n\nCheck the render method of `" + name + "`.";
+        }
+        return "";
+    }
+    function getSourceInfoErrorAddendum(source) {
+        if (source !== undefined) {
+            var fileName = source.fileName.replace(/^.*[\\\/]/, "");
+            var lineNumber = source.lineNumber;
+            return "\n\nCheck your code at " + fileName + ":" + lineNumber + ".";
+        }
+        return "";
+    }
+    /**
+ * Warn if there's no key explicitly set on dynamic arrays of children or
+ * object keys are not valid. This allows us to keep track of children between
+ * updates.
+ */ var ownerHasKeyUseWarning = {};
+    function getCurrentComponentErrorInfo(parentType) {
+        var info = getDeclarationErrorAddendum();
+        if (!info) {
+            var parentName = typeof parentType === "string" ? parentType : parentType.displayName || parentType.name;
+            if (parentName) info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+        }
+        return info;
+    }
+    /**
+ * Warn if the element doesn't have an explicit key assigned to it.
+ * This element is in an array. The array could grow and shrink or be
+ * reordered. All children that haven't already been validated are required to
+ * have a "key" property assigned to it. Error statuses are cached so a warning
+ * will only be shown once.
+ *
+ * @internal
+ * @param {ReactElement} element Element that requires a key.
+ * @param {*} parentType element's parent's type.
+ */ function validateExplicitKey(element, parentType) {
+        if (!element._store || element._store.validated || element.key != null) return;
+        element._store.validated = true;
+        var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+        if (ownerHasKeyUseWarning[currentComponentErrorInfo]) return;
+        ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
+        // property, it may be the creator of the child that's responsible for
+        // assigning it a key.
+        var childOwner = "";
+        if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) // Give the component that originally created this child.
+        childOwner = " It was passed a child from " + getComponentNameFromType(element._owner.type) + ".";
+        setCurrentlyValidatingElement$1(element);
+        error('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+        setCurrentlyValidatingElement$1(null);
+    }
+    /**
+ * Ensure that every element either is passed in a static location, in an
+ * array with an explicit keys property defined, or in an object literal
+ * with valid key property.
+ *
+ * @internal
+ * @param {ReactNode} node Statically passed child of any type.
+ * @param {*} parentType node's parent's type.
+ */ function validateChildKeys(node, parentType) {
+        if (typeof node !== "object") return;
+        if (isArray(node)) for(var i = 0; i < node.length; i++){
+            var child = node[i];
+            if (isValidElement(child)) validateExplicitKey(child, parentType);
+        }
+        else if (isValidElement(node)) // This element was passed in a valid location.
+        {
+            if (node._store) node._store.validated = true;
+        } else if (node) {
+            var iteratorFn = getIteratorFn(node);
+            if (typeof iteratorFn === "function") // Entry iterators used to provide implicit keys,
+            // but now we print a separate warning for them later.
+            {
+                if (iteratorFn !== node.entries) {
+                    var iterator = iteratorFn.call(node);
+                    var step;
+                    while(!(step = iterator.next()).done)if (isValidElement(step.value)) validateExplicitKey(step.value, parentType);
+                }
+            }
+        }
+    }
+    /**
+ * Given an element, validate that its props follow the propTypes definition,
+ * provided by the type.
+ *
+ * @param {ReactElement} element
+ */ function validatePropTypes(element) {
+        var type = element.type;
+        if (type === null || type === undefined || typeof type === "string") return;
+        var propTypes;
+        if (typeof type === "function") propTypes = type.propTypes;
+        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+        // Inner props are checked in the reconciler.
+        type.$$typeof === REACT_MEMO_TYPE)) propTypes = type.propTypes;
+        else return;
+        if (propTypes) {
+            // Intentionally inside to avoid triggering lazy initializers:
+            var name = getComponentNameFromType(type);
+            checkPropTypes(propTypes, element.props, "prop", name, element);
+        } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+            propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
+            var _name = getComponentNameFromType(type);
+            error("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", _name || "Unknown");
+        }
+        if (typeof type.getDefaultProps === "function" && !type.getDefaultProps.isReactClassApproved) error("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+    }
+    /**
+ * Given a fragment, validate that it can only be provided with fragment props
+ * @param {ReactElement} fragment
+ */ function validateFragmentProps(fragment) {
+        var keys = Object.keys(fragment.props);
+        for(var i = 0; i < keys.length; i++){
+            var key = keys[i];
+            if (key !== "children" && key !== "key") {
+                setCurrentlyValidatingElement$1(fragment);
+                error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
+                setCurrentlyValidatingElement$1(null);
+                break;
+            }
+        }
+        if (fragment.ref !== null) {
+            setCurrentlyValidatingElement$1(fragment);
+            error("Invalid attribute `ref` supplied to `React.Fragment`.");
+            setCurrentlyValidatingElement$1(null);
+        }
+    }
+    function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+        var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
+        // succeed and there will likely be errors in render.
+        if (!validType) {
+            var info = "";
+            if (type === undefined || typeof type === "object" && type !== null && Object.keys(type).length === 0) info += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.";
+            var sourceInfo = getSourceInfoErrorAddendum(source);
+            if (sourceInfo) info += sourceInfo;
+            else info += getDeclarationErrorAddendum();
+            var typeString;
+            if (type === null) typeString = "null";
+            else if (isArray(type)) typeString = "array";
+            else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+                typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />";
+                info = " Did you accidentally export a JSX literal instead of a component?";
+            } else typeString = typeof type;
+            error("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
+        }
+        var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
+        // TODO: Drop this when these are no longer allowed as the type argument.
+        if (element == null) return element;
+         // Skip key warning if the type isn't valid since our key validation logic
+        // doesn't expect a non-string/function type and can throw confusing errors.
+        // We don't want exception behavior to differ between dev and prod.
+        // (Rendering will throw with a helpful message and as soon as the type is
+        // fixed, the key warnings will appear.)
+        if (validType) {
+            var children = props.children;
+            if (children !== undefined) {
+                if (isStaticChildren) {
+                    if (isArray(children)) {
+                        for(var i = 0; i < children.length; i++)validateChildKeys(children[i], type);
+                        if (Object.freeze) Object.freeze(children);
+                    } else error("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+                } else validateChildKeys(children, type);
+            }
+        }
+        if (type === REACT_FRAGMENT_TYPE) validateFragmentProps(element);
+        else validatePropTypes(element);
+        return element;
+    } // These two functions exist to still get child warnings in dev
+    var jsxDEV$1 = jsxWithValidation;
+    exports.Fragment = REACT_FRAGMENT_TYPE;
+    exports.jsxDEV = jsxDEV$1;
+})();
+
+},{"58362d9d82be395f":"21dqq"}],"21dqq":[function(require,module,exports) {
 "use strict";
 module.exports = require("a569817e6ea559f6");
 
@@ -5374,175 +5803,7 @@ module.exports = require("a569817e6ea559f6");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("7422ead32dcc1e6b");
-function debounce(func, delay) {
-    {
-        let timeout = undefined;
-        let lastTime = 0;
-        return function(args) {
-            // Call immediately if last call was more than the delay ago.
-            // Otherwise, set a timeout. This means the first call is fast
-            // (for the common case of a single update), and subsequent updates
-            // are batched.
-            let now = Date.now();
-            if (now - lastTime > delay) {
-                lastTime = now;
-                func.call(null, args);
-            } else {
-                clearTimeout(timeout);
-                timeout = setTimeout(function() {
-                    timeout = undefined;
-                    lastTime = Date.now();
-                    func.call(null, args);
-                }, delay);
-            }
-        };
-    }
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30);
-// Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports;
-                // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
-                // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-}
-// When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        var typeID = id + " %exports% " + key;
-        Refresh.register(exportValue, typeID);
-    }
-}
-
-},{"7422ead32dcc1e6b":"786KC"}],"lOjBx":[function(require,module,exports) {
+},{}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
@@ -27024,845 +27285,724 @@ module.exports = require("ef03b89c8fe2794e");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"iTorj":[function(require,module,exports) {
+},{}],"i5LP7":[function() {},{}],"5EEXV":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8fbf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8fbf.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Navbar = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        className: "navbar navbar-expand-lg navbar-light bg-light",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                    className: "navbar-brand",
+                    href: "#",
+                    children: "Amazing.com"
+                }, void 0, false, {
+                    fileName: "src/components/Navbar.js",
+                    lineNumber: 5,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "navbar-toggler",
+                    type: "button",
+                    "data-bs-toggle": "collapse",
+                    "data-bs-target": "#navbarSupportedContent",
+                    "aria-controls": "navbarSupportedContent",
+                    "aria-expanded": "false",
+                    "aria-label": "Toggle navigation",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "navbar-toggler-icon"
+                    }, void 0, false, {
+                        fileName: "src/components/Navbar.js",
+                        lineNumber: 9,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Navbar.js",
+                    lineNumber: 6,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "collapse navbar-collapse",
+                    id: "navbarSupportedContent",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                            className: "navbar-nav me-auto mb-2 mb-lg-0",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "nav-item",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                        className: "nav-link active",
+                                        "aria-current": "page",
+                                        href: "#",
+                                        children: "Home"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Navbar.js",
+                                        lineNumber: 14,
+                                        columnNumber: 29
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Navbar.js",
+                                    lineNumber: 13,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "nav-item",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                        className: "nav-link",
+                                        href: "#",
+                                        children: "Link"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Navbar.js",
+                                        lineNumber: 17,
+                                        columnNumber: 29
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Navbar.js",
+                                    lineNumber: 16,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "nav-item dropdown",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                            className: "nav-link dropdown-toggle",
+                                            href: "#",
+                                            id: "navbarDropdown",
+                                            role: "button",
+                                            "data-bs-toggle": "dropdown",
+                                            "aria-expanded": "false",
+                                            children: "Dropdown"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Navbar.js",
+                                            lineNumber: 20,
+                                            columnNumber: 29
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                            className: "dropdown-menu",
+                                            "aria-labelledby": "navbarDropdown",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                        className: "dropdown-item",
+                                                        href: "#",
+                                                        children: "Action"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/Navbar.js",
+                                                        lineNumber: 25,
+                                                        columnNumber: 37
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/components/Navbar.js",
+                                                    lineNumber: 25,
+                                                    columnNumber: 33
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                        className: "dropdown-item",
+                                                        href: "#",
+                                                        children: "Another action"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/Navbar.js",
+                                                        lineNumber: 26,
+                                                        columnNumber: 37
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/components/Navbar.js",
+                                                    lineNumber: 26,
+                                                    columnNumber: 33
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {
+                                                        className: "dropdown-divider"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/Navbar.js",
+                                                        lineNumber: 28,
+                                                        columnNumber: 37
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/components/Navbar.js",
+                                                    lineNumber: 27,
+                                                    columnNumber: 33
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                        className: "dropdown-item",
+                                                        href: "#",
+                                                        children: "Something else here"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/Navbar.js",
+                                                        lineNumber: 30,
+                                                        columnNumber: 37
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/components/Navbar.js",
+                                                    lineNumber: 30,
+                                                    columnNumber: 33
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/Navbar.js",
+                                            lineNumber: 24,
+                                            columnNumber: 29
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/Navbar.js",
+                                    lineNumber: 19,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "nav-item",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                        className: "nav-link disabled",
+                                        href: "#",
+                                        tabIndex: "-1",
+                                        "aria-disabled": "true",
+                                        children: "Disabled"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Navbar.js",
+                                        lineNumber: 34,
+                                        columnNumber: 29
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Navbar.js",
+                                    lineNumber: 33,
+                                    columnNumber: 25
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 12,
+                            columnNumber: 21
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                            className: "d-flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    className: "form-control me-2",
+                                    type: "search",
+                                    placeholder: "Search",
+                                    "aria-label": "Search"
+                                }, void 0, false, {
+                                    fileName: "src/components/Navbar.js",
+                                    lineNumber: 38,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    className: "btn btn-outline-success",
+                                    type: "submit",
+                                    children: "Search"
+                                }, void 0, false, {
+                                    fileName: "src/components/Navbar.js",
+                                    lineNumber: 39,
+                                    columnNumber: 25
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 37,
+                            columnNumber: 21
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Navbar.js",
+                    lineNumber: 11,
+                    columnNumber: 17
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Navbar.js",
+            lineNumber: 4,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Navbar.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Navbar;
+exports.default = Navbar;
+var _c;
+$RefreshReg$(_c, "Navbar");
+
+  $parcel$ReactRefreshHelpers$8fbf.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"km3Ru":[function(require,module,exports) {
 "use strict";
-module.exports = require("ee51401569654d91");
-
-},{"ee51401569654d91":"48uCM"}],"48uCM":[function(require,module,exports) {
-/**
- * @license React
- * react-jsx-dev-runtime.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "use strict";
-(function() {
-    "use strict";
-    var React = require("58362d9d82be395f");
-    // ATTENTION
-    // When adding new symbols to this file,
-    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
-    // The Symbol used to tag the ReactElement-like types.
-    var REACT_ELEMENT_TYPE = Symbol.for("react.element");
-    var REACT_PORTAL_TYPE = Symbol.for("react.portal");
-    var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
-    var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
-    var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
-    var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
-    var REACT_CONTEXT_TYPE = Symbol.for("react.context");
-    var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
-    var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
-    var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
-    var REACT_MEMO_TYPE = Symbol.for("react.memo");
-    var REACT_LAZY_TYPE = Symbol.for("react.lazy");
-    var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
-    var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
-    var FAUX_ITERATOR_SYMBOL = "@@iterator";
-    function getIteratorFn(maybeIterable) {
-        if (maybeIterable === null || typeof maybeIterable !== "object") return null;
-        var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
-        if (typeof maybeIterator === "function") return maybeIterator;
-        return null;
-    }
-    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function error(format) {
-        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
-        printWarning("error", format, args);
-    }
-    function printWarning(level, format, args) {
-        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
-        var stack = ReactDebugCurrentFrame.getStackAddendum();
-        if (stack !== "") {
-            format += "%s";
-            args = args.concat([
-                stack
-            ]);
-        } // eslint-disable-next-line react-internal/safe-string-coercion
-        var argsWithFormat = args.map(function(item) {
-            return String(item);
-        }); // Careful: RN currently depends on this prefix
-        argsWithFormat.unshift("Warning: " + format); // We intentionally don't use spread (or .apply) directly because it
-        // breaks IE9: https://github.com/facebook/react/issues/13610
-        // eslint-disable-next-line react-internal/no-production-logging
-        Function.prototype.apply.call(console[level], console, argsWithFormat);
-    }
-    // -----------------------------------------------------------------------------
-    var enableScopeAPI = false; // Experimental Create Event Handle API.
-    var enableCacheElement = false;
-    var enableTransitionTracing = false; // No known bugs, but needs performance testing
-    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
-    // stuff. Intended to enable React core members to more easily debug scheduling
-    // issues in DEV builds.
-    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
-    var REACT_MODULE_REFERENCE;
-    REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
-    function isValidElementType(type) {
-        if (typeof type === "string" || typeof type === "function") return true;
-         // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
-        if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
-        if (typeof type === "object" && type !== null) {
-            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
-            // types supported by any Flight configuration anywhere since
-            // we don't know which Flight build this will end up being used
-            // with.
-            type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
-        }
-        return false;
-    }
-    function getWrappedName(outerType, innerType, wrapperName) {
-        var displayName = outerType.displayName;
-        if (displayName) return displayName;
-        var functionName = innerType.displayName || innerType.name || "";
-        return functionName !== "" ? wrapperName + "(" + functionName + ")" : wrapperName;
-    } // Keep in sync with react-reconciler/getComponentNameFromFiber
-    function getContextName(type) {
-        return type.displayName || "Context";
-    } // Note that the reconciler package should generally prefer to use getComponentNameFromFiber() instead.
-    function getComponentNameFromType(type) {
-        if (type == null) // Host root, text node or just invalid type.
-        return null;
-        if (typeof type.tag === "number") error("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue.");
-        if (typeof type === "function") return type.displayName || type.name || null;
-        if (typeof type === "string") return type;
-        switch(type){
-            case REACT_FRAGMENT_TYPE:
-                return "Fragment";
-            case REACT_PORTAL_TYPE:
-                return "Portal";
-            case REACT_PROFILER_TYPE:
-                return "Profiler";
-            case REACT_STRICT_MODE_TYPE:
-                return "StrictMode";
-            case REACT_SUSPENSE_TYPE:
-                return "Suspense";
-            case REACT_SUSPENSE_LIST_TYPE:
-                return "SuspenseList";
-        }
-        if (typeof type === "object") switch(type.$$typeof){
-            case REACT_CONTEXT_TYPE:
-                var context = type;
-                return getContextName(context) + ".Consumer";
-            case REACT_PROVIDER_TYPE:
-                var provider = type;
-                return getContextName(provider._context) + ".Provider";
-            case REACT_FORWARD_REF_TYPE:
-                return getWrappedName(type, type.render, "ForwardRef");
-            case REACT_MEMO_TYPE:
-                var outerName = type.displayName || null;
-                if (outerName !== null) return outerName;
-                return getComponentNameFromType(type.type) || "Memo";
-            case REACT_LAZY_TYPE:
-                var lazyComponent = type;
-                var payload = lazyComponent._payload;
-                var init = lazyComponent._init;
-                try {
-                    return getComponentNameFromType(init(payload));
-                } catch (x) {
-                    return null;
-                }
-        }
-        return null;
-    }
-    var assign = Object.assign;
-    // Helpers to patch console.logs to avoid logging during side-effect free
-    // replaying on render function. This currently only patches the object
-    // lazily which won't cover if the log function was extracted eagerly.
-    // We could also eagerly patch the method.
-    var disabledDepth = 0;
-    var prevLog;
-    var prevInfo;
-    var prevWarn;
-    var prevError;
-    var prevGroup;
-    var prevGroupCollapsed;
-    var prevGroupEnd;
-    function disabledLog() {}
-    disabledLog.__reactDisabledLog = true;
-    function disableLogs() {
-        if (disabledDepth === 0) {
-            /* eslint-disable react-internal/no-production-logging */ prevLog = console.log;
-            prevInfo = console.info;
-            prevWarn = console.warn;
-            prevError = console.error;
-            prevGroup = console.group;
-            prevGroupCollapsed = console.groupCollapsed;
-            prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
-            var props = {
-                configurable: true,
-                enumerable: true,
-                value: disabledLog,
-                writable: true
-            }; // $FlowFixMe Flow thinks console is immutable.
-            Object.defineProperties(console, {
-                info: props,
-                log: props,
-                warn: props,
-                error: props,
-                group: props,
-                groupCollapsed: props,
-                groupEnd: props
-            });
-        /* eslint-enable react-internal/no-production-logging */ }
-        disabledDepth++;
-    }
-    function reenableLogs() {
-        disabledDepth--;
-        if (disabledDepth === 0) {
-            /* eslint-disable react-internal/no-production-logging */ var props = {
-                configurable: true,
-                enumerable: true,
-                writable: true
-            }; // $FlowFixMe Flow thinks console is immutable.
-            Object.defineProperties(console, {
-                log: assign({}, props, {
-                    value: prevLog
-                }),
-                info: assign({}, props, {
-                    value: prevInfo
-                }),
-                warn: assign({}, props, {
-                    value: prevWarn
-                }),
-                error: assign({}, props, {
-                    value: prevError
-                }),
-                group: assign({}, props, {
-                    value: prevGroup
-                }),
-                groupCollapsed: assign({}, props, {
-                    value: prevGroupCollapsed
-                }),
-                groupEnd: assign({}, props, {
-                    value: prevGroupEnd
-                })
-            });
-        /* eslint-enable react-internal/no-production-logging */ }
-        if (disabledDepth < 0) error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
-    }
-    var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
-    var prefix;
-    function describeBuiltInComponentFrame(name, source, ownerFn) {
-        if (prefix === undefined) // Extract the VM specific prefix used by each line.
-        try {
-            throw Error();
-        } catch (x) {
-            var match = x.stack.trim().match(/\n( *(at )?)/);
-            prefix = match && match[1] || "";
-        }
-         // We use the prefix to ensure our stacks line up with native stack frames.
-        return "\n" + prefix + name;
-    }
-    var reentry = false;
-    var componentFrameCache;
-    var PossiblyWeakMap = typeof WeakMap === "function" ? WeakMap : Map;
-    componentFrameCache = new PossiblyWeakMap();
-    function describeNativeComponentFrame(fn, construct) {
-        // If something asked for a stack inside a fake render, it should get ignored.
-        if (!fn || reentry) return "";
-        var frame = componentFrameCache.get(fn);
-        if (frame !== undefined) return frame;
-        var control;
-        reentry = true;
-        var previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
-        Error.prepareStackTrace = undefined;
-        var previousDispatcher;
-        previousDispatcher = ReactCurrentDispatcher.current; // Set the dispatcher in DEV because this might be call in the render function
-        // for warnings.
-        ReactCurrentDispatcher.current = null;
-        disableLogs();
-        try {
-            // This should throw.
-            if (construct) {
-                // Something should be setting the props in the constructor.
-                var Fake = function() {
-                    throw Error();
-                }; // $FlowFixMe
-                Object.defineProperty(Fake.prototype, "props", {
-                    set: function() {
-                        // We use a throwing setter instead of frozen or non-writable props
-                        // because that won't throw in a non-strict mode function.
-                        throw Error();
-                    }
-                });
-                if (typeof Reflect === "object" && Reflect.construct) {
-                    // We construct a different control for this case to include any extra
-                    // frames added by the construct call.
-                    try {
-                        Reflect.construct(Fake, []);
-                    } catch (x) {
-                        control = x;
-                    }
-                    Reflect.construct(fn, [], Fake);
-                } else {
-                    try {
-                        Fake.call();
-                    } catch (x) {
-                        control = x;
-                    }
-                    fn.call(Fake.prototype);
-                }
+var Refresh = require("7422ead32dcc1e6b");
+function debounce(func, delay) {
+    {
+        let timeout = undefined;
+        let lastTime = 0;
+        return function(args) {
+            // Call immediately if last call was more than the delay ago.
+            // Otherwise, set a timeout. This means the first call is fast
+            // (for the common case of a single update), and subsequent updates
+            // are batched.
+            let now = Date.now();
+            if (now - lastTime > delay) {
+                lastTime = now;
+                func.call(null, args);
             } else {
-                try {
-                    throw Error();
-                } catch (x) {
-                    control = x;
-                }
-                fn();
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    timeout = undefined;
+                    lastTime = Date.now();
+                    func.call(null, args);
+                }, delay);
             }
-        } catch (sample) {
-            // This is inlined manually because closure doesn't do it for us.
-            if (sample && control && typeof sample.stack === "string") {
-                // This extracts the first frame from the sample that isn't also in the control.
-                // Skipping one frame that we assume is the frame that calls the two.
-                var sampleLines = sample.stack.split("\n");
-                var controlLines = control.stack.split("\n");
-                var s = sampleLines.length - 1;
-                var c = controlLines.length - 1;
-                while(s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c])// We expect at least one stack frame to be shared.
-                // Typically this will be the root most one. However, stack frames may be
-                // cut off due to maximum stack limits. In this case, one maybe cut off
-                // earlier than the other. We assume that the sample is longer or the same
-                // and there for cut off earlier. So we should find the root most frame in
-                // the sample somewhere in the control.
-                c--;
-                for(; s >= 1 && c >= 0; s--, c--)// Next we find the first one that isn't the same which should be the
-                // frame that called our sample function and the control.
-                if (sampleLines[s] !== controlLines[c]) {
-                    // In V8, the first line is describing the message but other VMs don't.
-                    // If we're about to return the first line, and the control is also on the same
-                    // line, that's a pretty good indicator that our sample threw at same line as
-                    // the control. I.e. before we entered the sample frame. So we ignore this result.
-                    // This can happen if you passed a class to function component, or non-function.
-                    if (s !== 1 || c !== 1) do {
-                        s--;
-                        c--; // We may still have similar intermediate frames from the construct call.
-                        // The next one that isn't the same should be our match though.
-                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                            // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
-                            var _frame = "\n" + sampleLines[s].replace(" at new ", " at "); // If our component frame is labeled "<anonymous>"
-                            // but we have a user-provided "displayName"
-                            // splice it in to make the stack more readable.
-                            if (fn.displayName && _frame.includes("<anonymous>")) _frame = _frame.replace("<anonymous>", fn.displayName);
-                            if (typeof fn === "function") componentFrameCache.set(fn, _frame);
-                            return _frame;
-                        }
-                    }while (s >= 1 && c >= 0);
-                    break;
-                }
-            }
-        } finally{
-            reentry = false;
-            ReactCurrentDispatcher.current = previousDispatcher;
-            reenableLogs();
-            Error.prepareStackTrace = previousPrepareStackTrace;
-        } // Fallback to just using the name if we couldn't make it throw.
-        var name = fn ? fn.displayName || fn.name : "";
-        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
-        if (typeof fn === "function") componentFrameCache.set(fn, syntheticFrame);
-        return syntheticFrame;
+        };
     }
-    function describeFunctionComponentFrame(fn, source, ownerFn) {
-        return describeNativeComponentFrame(fn, false);
-    }
-    function shouldConstruct(Component) {
-        var prototype = Component.prototype;
-        return !!(prototype && prototype.isReactComponent);
-    }
-    function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
-        if (type == null) return "";
-        if (typeof type === "function") return describeNativeComponentFrame(type, shouldConstruct(type));
-        if (typeof type === "string") return describeBuiltInComponentFrame(type);
-        switch(type){
-            case REACT_SUSPENSE_TYPE:
-                return describeBuiltInComponentFrame("Suspense");
-            case REACT_SUSPENSE_LIST_TYPE:
-                return describeBuiltInComponentFrame("SuspenseList");
-        }
-        if (typeof type === "object") switch(type.$$typeof){
-            case REACT_FORWARD_REF_TYPE:
-                return describeFunctionComponentFrame(type.render);
-            case REACT_MEMO_TYPE:
-                // Memo may contain any component type so we recursively resolve it.
-                return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
-            case REACT_LAZY_TYPE:
-                var lazyComponent = type;
-                var payload = lazyComponent._payload;
-                var init = lazyComponent._init;
-                try {
-                    // Lazy may contain any component type so we recursively resolve it.
-                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
-                } catch (x) {}
-        }
-        return "";
-    }
-    var hasOwnProperty = Object.prototype.hasOwnProperty;
-    var loggedTypeFailures = {};
-    var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
-    function setCurrentlyValidatingElement(element) {
-        if (element) {
-            var owner = element._owner;
-            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
-            ReactDebugCurrentFrame.setExtraStackFrame(stack);
-        } else ReactDebugCurrentFrame.setExtraStackFrame(null);
-    }
-    function checkPropTypes(typeSpecs, values, location, componentName, element) {
-        // $FlowFixMe This is okay but Flow doesn't know it.
-        var has = Function.call.bind(hasOwnProperty);
-        for(var typeSpecName in typeSpecs)if (has(typeSpecs, typeSpecName)) {
-            var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
-            // fail the render phase where it didn't fail before. So we log it.
-            // After these have been cleaned up, we'll let them throw.
-            try {
-                // This is intentionally an invariant that gets caught. It's the same
-                // behavior as without this statement except with a better message.
-                if (typeof typeSpecs[typeSpecName] !== "function") {
-                    // eslint-disable-next-line react-internal/prod-error-codes
-                    var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; " + "it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`." + "This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                    err.name = "Invariant Violation";
-                    throw err;
-                }
-                error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (ex) {
-                error$1 = ex;
-            }
-            if (error$1 && !(error$1 instanceof Error)) {
-                setCurrentlyValidatingElement(element);
-                error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
-                setCurrentlyValidatingElement(null);
-            }
-            if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
-                // Only monitor this failure once because there tends to be a lot of the
-                // same error.
-                loggedTypeFailures[error$1.message] = true;
-                setCurrentlyValidatingElement(element);
-                error("Failed %s type: %s", location, error$1.message);
-                setCurrentlyValidatingElement(null);
-            }
-        }
-    }
-    var isArrayImpl = Array.isArray; // eslint-disable-next-line no-redeclare
-    function isArray(a) {
-        return isArrayImpl(a);
-    }
-    /*
- * The `'' + value` pattern (used in in perf-sensitive code) throws for Symbol
- * and Temporal.* types. See https://github.com/facebook/react/pull/22064.
- *
- * The functions in this module will throw an easier-to-understand,
- * easier-to-debug exception with a clear errors message message explaining the
- * problem. (Instead of a confusing exception thrown inside the implementation
- * of the `value` object).
- */ // $FlowFixMe only called in DEV, so void return is not possible.
-    function typeName(value) {
-        // toStringTag is needed for namespaced types like Temporal.Instant
-        var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
-        var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
-        return type;
-    } // $FlowFixMe only called in DEV, so void return is not possible.
-    function willCoercionThrow(value) {
-        try {
-            testStringCoercion(value);
-            return false;
-        } catch (e) {
-            return true;
-        }
-    }
-    function testStringCoercion(value) {
-        // If you ended up here by following an exception call stack, here's what's
-        // happened: you supplied an object or symbol value to React (as a prop, key,
-        // DOM attribute, CSS property, string ref, etc.) and when React tried to
-        // coerce it to a string using `'' + value`, an exception was thrown.
-        //
-        // The most common types that will cause this exception are `Symbol` instances
-        // and Temporal objects like `Temporal.Instant`. But any object that has a
-        // `valueOf` or `[Symbol.toPrimitive]` method that throws will also cause this
-        // exception. (Library authors do this to prevent users from using built-in
-        // numeric operators like `+` or comparison operators like `>=` because custom
-        // methods are needed to perform accurate arithmetic or comparison.)
-        //
-        // To fix the problem, coerce this object or symbol value to a string before
-        // passing it to React. The most reliable way is usually `String(value)`.
-        //
-        // To find which value is throwing, check the browser or debugger console.
-        // Before this exception was thrown, there should be `console.error` output
-        // that shows the type (Symbol, Temporal.PlainDate, etc.) that caused the
-        // problem and how that type was used: key, atrribute, input value prop, etc.
-        // In most cases, this console output also shows the component and its
-        // ancestor components where the exception happened.
-        //
-        // eslint-disable-next-line react-internal/safe-string-coercion
-        return "" + value;
-    }
-    function checkKeyStringCoercion(value) {
-        if (willCoercionThrow(value)) {
-            error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
-            return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
-        }
-    }
-    var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
-    var RESERVED_PROPS = {
-        key: true,
-        ref: true,
-        __self: true,
-        __source: true
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30);
+// Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
     };
-    var specialPropKeyWarningShown;
-    var specialPropRefWarningShown;
-    var didWarnAboutStringRefs;
-    didWarnAboutStringRefs = {};
-    function hasValidRef(config) {
-        if (hasOwnProperty.call(config, "ref")) {
-            var getter = Object.getOwnPropertyDescriptor(config, "ref").get;
-            if (getter && getter.isReactWarning) return false;
-        }
-        return config.ref !== undefined;
-    }
-    function hasValidKey(config) {
-        if (hasOwnProperty.call(config, "key")) {
-            var getter = Object.getOwnPropertyDescriptor(config, "key").get;
-            if (getter && getter.isReactWarning) return false;
-        }
-        return config.key !== undefined;
-    }
-    function warnIfStringRefCannotBeAutoConverted(config, self) {
-        if (typeof config.ref === "string" && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
-            var componentName = getComponentNameFromType(ReactCurrentOwner.current.type);
-            if (!didWarnAboutStringRefs[componentName]) {
-                error('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', getComponentNameFromType(ReactCurrentOwner.current.type), config.ref);
-                didWarnAboutStringRefs[componentName] = true;
-            }
-        }
-    }
-    function defineKeyPropWarningGetter(props, displayName) {
-        var warnAboutAccessingKey = function() {
-            if (!specialPropKeyWarningShown) {
-                specialPropKeyWarningShown = true;
-                error("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
-            }
-        };
-        warnAboutAccessingKey.isReactWarning = true;
-        Object.defineProperty(props, "key", {
-            get: warnAboutAccessingKey,
-            configurable: true
-        });
-    }
-    function defineRefPropWarningGetter(props, displayName) {
-        var warnAboutAccessingRef = function() {
-            if (!specialPropRefWarningShown) {
-                specialPropRefWarningShown = true;
-                error("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
-            }
-        };
-        warnAboutAccessingRef.isReactWarning = true;
-        Object.defineProperty(props, "ref", {
-            get: warnAboutAccessingRef,
-            configurable: true
-        });
-    }
-    /**
- * Factory method to create a new React element. This no longer adheres to
- * the class pattern, so do not use new to call it. Also, instanceof check
- * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
- * if something is a React Element.
- *
- * @param {*} type
- * @param {*} props
- * @param {*} key
- * @param {string|object} ref
- * @param {*} owner
- * @param {*} self A *temporary* helper to detect places where `this` is
- * different from the `owner` when React.createElement is called, so that we
- * can warn. We want to get rid of owner and replace string `ref`s with arrow
- * functions, and as long as `this` and owner are the same, there will be no
- * change in behavior.
- * @param {*} source An annotation object (added by a transpiler or otherwise)
- * indicating filename, line number, and/or other information.
- * @internal
- */ var ReactElement = function(type, key, ref, self, source, owner, props) {
-        var element = {
-            // This tag allows us to uniquely identify this as a React Element
-            $$typeof: REACT_ELEMENT_TYPE,
-            // Built-in properties that belong on the element
-            type: type,
-            key: key,
-            ref: ref,
-            props: props,
-            // Record the component responsible for creating this element.
-            _owner: owner
-        };
-        // The validation flag is currently mutative. We put it on
-        // an external backing store so that we can freeze the whole object.
-        // This can be replaced with a WeakMap once they are implemented in
-        // commonly used development environments.
-        element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
-        // the validation flag non-enumerable (where possible, which should
-        // include every environment we run tests in), so the test framework
-        // ignores it.
-        Object.defineProperty(element._store, "validated", {
-            configurable: false,
-            enumerable: false,
-            writable: true,
-            value: false
-        }); // self and source are DEV only properties.
-        Object.defineProperty(element, "_self", {
-            configurable: false,
-            enumerable: false,
-            writable: false,
-            value: self
-        }); // Two elements created in two different places should be considered
-        // equal for testing purposes and therefore we hide it from enumeration.
-        Object.defineProperty(element, "_source", {
-            configurable: false,
-            enumerable: false,
-            writable: false,
-            value: source
-        });
-        if (Object.freeze) {
-            Object.freeze(element.props);
-            Object.freeze(element);
-        }
-        return element;
-    };
-    /**
- * https://github.com/reactjs/rfcs/pull/107
- * @param {*} type
- * @param {object} props
- * @param {string} key
- */ function jsxDEV(type, config, maybeKey, source, self) {
-        var propName; // Reserved names are extracted
-        var props = {};
-        var key = null;
-        var ref = null; // Currently, key can be spread in as a prop. This causes a potential
-        // issue if key is also explicitly declared (ie. <div {...props} key="Hi" />
-        // or <div key="Hi" {...props} /> ). We want to deprecate key spread,
-        // but as an intermediary step, we will use jsxDEV for everything except
-        // <div {...props} key="Hi" />, because we aren't currently able to tell if
-        // key is explicitly declared to be undefined or not.
-        if (maybeKey !== undefined) {
-            checkKeyStringCoercion(maybeKey);
-            key = "" + maybeKey;
-        }
-        if (hasValidKey(config)) {
-            checkKeyStringCoercion(config.key);
-            key = "" + config.key;
-        }
-        if (hasValidRef(config)) {
-            ref = config.ref;
-            warnIfStringRefCannotBeAutoConverted(config, self);
-        } // Remaining properties are added to a new props object
-        for(propName in config)if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) props[propName] = config[propName];
-         // Resolve default props
-        if (type && type.defaultProps) {
-            var defaultProps = type.defaultProps;
-            for(propName in defaultProps)if (props[propName] === undefined) props[propName] = defaultProps[propName];
-        }
-        if (key || ref) {
-            var displayName = typeof type === "function" ? type.displayName || type.name || "Unknown" : type;
-            if (key) defineKeyPropWarningGetter(props, displayName);
-            if (ref) defineRefPropWarningGetter(props, displayName);
-        }
-        return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
-    }
-    var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
-    var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
-    function setCurrentlyValidatingElement$1(element) {
-        if (element) {
-            var owner = element._owner;
-            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
-            ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
-        } else ReactDebugCurrentFrame$1.setExtraStackFrame(null);
-    }
-    var propTypesMisspellWarningShown;
-    propTypesMisspellWarningShown = false;
-    /**
- * Verifies the object is a ReactElement.
- * See https://reactjs.org/docs/react-api.html#isvalidelement
- * @param {?object} object
- * @return {boolean} True if `object` is a ReactElement.
- * @final
- */ function isValidElement(object) {
-        return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-    }
-    function getDeclarationErrorAddendum() {
-        if (ReactCurrentOwner$1.current) {
-            var name = getComponentNameFromType(ReactCurrentOwner$1.current.type);
-            if (name) return "\n\nCheck the render method of `" + name + "`.";
-        }
-        return "";
-    }
-    function getSourceInfoErrorAddendum(source) {
-        if (source !== undefined) {
-            var fileName = source.fileName.replace(/^.*[\\\/]/, "");
-            var lineNumber = source.lineNumber;
-            return "\n\nCheck your code at " + fileName + ":" + lineNumber + ".";
-        }
-        return "";
-    }
-    /**
- * Warn if there's no key explicitly set on dynamic arrays of children or
- * object keys are not valid. This allows us to keep track of children between
- * updates.
- */ var ownerHasKeyUseWarning = {};
-    function getCurrentComponentErrorInfo(parentType) {
-        var info = getDeclarationErrorAddendum();
-        if (!info) {
-            var parentName = typeof parentType === "string" ? parentType : parentType.displayName || parentType.name;
-            if (parentName) info = "\n\nCheck the top-level render call using <" + parentName + ">.";
-        }
-        return info;
-    }
-    /**
- * Warn if the element doesn't have an explicit key assigned to it.
- * This element is in an array. The array could grow and shrink or be
- * reordered. All children that haven't already been validated are required to
- * have a "key" property assigned to it. Error statuses are cached so a warning
- * will only be shown once.
- *
- * @internal
- * @param {ReactElement} element Element that requires a key.
- * @param {*} parentType element's parent's type.
- */ function validateExplicitKey(element, parentType) {
-        if (!element._store || element._store.validated || element.key != null) return;
-        element._store.validated = true;
-        var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
-        if (ownerHasKeyUseWarning[currentComponentErrorInfo]) return;
-        ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
-        // property, it may be the creator of the child that's responsible for
-        // assigning it a key.
-        var childOwner = "";
-        if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) // Give the component that originally created this child.
-        childOwner = " It was passed a child from " + getComponentNameFromType(element._owner.type) + ".";
-        setCurrentlyValidatingElement$1(element);
-        error('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
-        setCurrentlyValidatingElement$1(null);
-    }
-    /**
- * Ensure that every element either is passed in a static location, in an
- * array with an explicit keys property defined, or in an object literal
- * with valid key property.
- *
- * @internal
- * @param {ReactNode} node Statically passed child of any type.
- * @param {*} parentType node's parent's type.
- */ function validateChildKeys(node, parentType) {
-        if (typeof node !== "object") return;
-        if (isArray(node)) for(var i = 0; i < node.length; i++){
-            var child = node[i];
-            if (isValidElement(child)) validateExplicitKey(child, parentType);
-        }
-        else if (isValidElement(node)) // This element was passed in a valid location.
-        {
-            if (node._store) node._store.validated = true;
-        } else if (node) {
-            var iteratorFn = getIteratorFn(node);
-            if (typeof iteratorFn === "function") // Entry iterators used to provide implicit keys,
-            // but now we print a separate warning for them later.
-            {
-                if (iteratorFn !== node.entries) {
-                    var iterator = iteratorFn.call(node);
-                    var step;
-                    while(!(step = iterator.next()).done)if (isValidElement(step.value)) validateExplicitKey(step.value, parentType);
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports;
+                // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
+                // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
                 }
-            }
+                enqueueUpdate();
+            });
         }
     }
-    /**
- * Given an element, validate that its props follow the propTypes definition,
- * provided by the type.
- *
- * @param {ReactElement} element
- */ function validatePropTypes(element) {
-        var type = element.type;
-        if (type === null || type === undefined || typeof type === "string") return;
-        var propTypes;
-        if (typeof type === "function") propTypes = type.propTypes;
-        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
-        // Inner props are checked in the reconciler.
-        type.$$typeof === REACT_MEMO_TYPE)) propTypes = type.propTypes;
-        else return;
-        if (propTypes) {
-            // Intentionally inside to avoid triggering lazy initializers:
-            var name = getComponentNameFromType(type);
-            checkPropTypes(propTypes, element.props, "prop", name, element);
-        } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
-            propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
-            var _name = getComponentNameFromType(type);
-            error("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", _name || "Unknown");
-        }
-        if (typeof type.getDefaultProps === "function" && !type.getDefaultProps.isReactClassApproved) error("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
     }
-    /**
- * Given a fragment, validate that it can only be provided with fragment props
- * @param {ReactElement} fragment
- */ function validateFragmentProps(fragment) {
-        var keys = Object.keys(fragment.props);
-        for(var i = 0; i < keys.length; i++){
-            var key = keys[i];
-            if (key !== "children" && key !== "key") {
-                setCurrentlyValidatingElement$1(fragment);
-                error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
-                setCurrentlyValidatingElement$1(null);
-                break;
-            }
-        }
-        if (fragment.ref !== null) {
-            setCurrentlyValidatingElement$1(fragment);
-            error("Invalid attribute `ref` supplied to `React.Fragment`.");
-            setCurrentlyValidatingElement$1(null);
-        }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
     }
-    function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
-        var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
-        // succeed and there will likely be errors in render.
-        if (!validType) {
-            var info = "";
-            if (type === undefined || typeof type === "object" && type !== null && Object.keys(type).length === 0) info += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.";
-            var sourceInfo = getSourceInfoErrorAddendum(source);
-            if (sourceInfo) info += sourceInfo;
-            else info += getDeclarationErrorAddendum();
-            var typeString;
-            if (type === null) typeString = "null";
-            else if (isArray(type)) typeString = "array";
-            else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
-                typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />";
-                info = " Did you accidentally export a JSX literal instead of a component?";
-            } else typeString = typeof type;
-            error("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
-        }
-        var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
-        // TODO: Drop this when these are no longer allowed as the type argument.
-        if (element == null) return element;
-         // Skip key warning if the type isn't valid since our key validation logic
-        // doesn't expect a non-string/function type and can throw confusing errors.
-        // We don't want exception behavior to differ between dev and prod.
-        // (Rendering will throw with a helpful message and as soon as the type is
-        // fixed, the key warnings will appear.)
-        if (validType) {
-            var children = props.children;
-            if (children !== undefined) {
-                if (isStaticChildren) {
-                    if (isArray(children)) {
-                        for(var i = 0; i < children.length; i++)validateChildKeys(children[i], type);
-                        if (Object.freeze) Object.freeze(children);
-                    } else error("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
-                } else validateChildKeys(children, type);
-            }
-        }
-        if (type === REACT_FRAGMENT_TYPE) validateFragmentProps(element);
-        else validatePropTypes(element);
-        return element;
-    } // These two functions exist to still get child warnings in dev
-    var jsxDEV$1 = jsxWithValidation;
-    exports.Fragment = REACT_FRAGMENT_TYPE;
-    exports.jsxDEV = jsxDEV$1;
-})();
+    return false;
+}
+// When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        var typeID = id + " %exports% " + key;
+        Refresh.register(exportValue, typeID);
+    }
+}
 
-},{"58362d9d82be395f":"21dqq"}],"i5LP7":[function() {},{}],"e0sPG":[function(require,module,exports) {
-module.exports = require("c072519b0959446d").getBundleURL("1G2bZ") + "banner2.135dfc52.jpg" + "?" + Date.now();
+},{"7422ead32dcc1e6b":"786KC"}],"hPL34":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6b87 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6b87.prelude(module);
 
-},{"c072519b0959446d":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _constants = require("../utils/constants");
+const ProductCard = (props)=>{
+    const { thumbnail, title, price, description, rating, brand } = props.product;
+    //console.log(props.product)
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "card mt-5",
+        style: (0, _constants.CRAD_STYLE),
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "image-container",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: thumbnail,
+                    className: "card-img-top img-fluid",
+                    style: (0, _constants.CARD_STYLE2),
+                    alt: "..."
+                }, void 0, false, {
+                    fileName: "src/components/ProductCard.js",
+                    lineNumber: 13,
+                    columnNumber: 17
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/ProductCard.js",
+                lineNumber: 12,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "card-body",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                        className: "card-title",
+                        children: title
+                    }, void 0, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 16,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "card-text",
+                        children: "$" + price
+                    }, void 0, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 17,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/ProductCard.js",
+                lineNumber: 15,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                className: "list-group list-group-flush",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "list-group-item",
+                        children: description
+                    }, void 0, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 20,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "list-group-item",
+                        children: rating
+                    }, void 0, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 21,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "list-group-item",
+                        children: brand
+                    }, void 0, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 22,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/ProductCard.js",
+                lineNumber: 19,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "card-body",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                    href: "#",
+                    className: "btn btn-primary",
+                    children: "Add to cart"
+                }, void 0, false, {
+                    fileName: "src/components/ProductCard.js",
+                    lineNumber: 25,
+                    columnNumber: 17
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/ProductCard.js",
+                lineNumber: 24,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/ProductCard.js",
+        lineNumber: 11,
+        columnNumber: 9
+    }, undefined);
+};
+_c = ProductCard;
+exports.default = ProductCard;
+var _c;
+$RefreshReg$(_c, "ProductCard");
+
+  $parcel$ReactRefreshHelpers$6b87.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CRAD_STYLE", ()=>CRAD_STYLE);
+parcelHelpers.export(exports, "CARD_STYLE2", ()=>CARD_STYLE2);
+parcelHelpers.export(exports, "IMG_URL", ()=>IMG_URL);
+const CRAD_STYLE = {
+    width: "18rem",
+    marginRight: "20px"
+};
+const CARD_STYLE2 = {
+    objectFit: "cover",
+    width: "100%",
+    height: "180px"
+};
+const IMG_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eWA0I":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$fec5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$fec5.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _banner1Jpg = require("../../src/assets/images/banner1.jpg");
+var _banner1JpgDefault = parcelHelpers.interopDefault(_banner1Jpg);
+var _banner2Jpg = require("../../src/assets/images/banner2.jpg");
+var _banner2JpgDefault = parcelHelpers.interopDefault(_banner2Jpg);
+const Carousel = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "row",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                id: "carouselExampleControls",
+                className: "carousel slide",
+                "data-bs-ride": "carousel",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "carousel-inner",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "carousel-item active",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: (0, _banner1JpgDefault.default),
+                                    className: "d-block w-100",
+                                    alt: "..."
+                                }, void 0, false, {
+                                    fileName: "src/components/Carousel.js",
+                                    lineNumber: 12,
+                                    columnNumber: 29
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/Carousel.js",
+                                lineNumber: 11,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "carousel-item",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: (0, _banner2JpgDefault.default),
+                                    className: "d-block w-100",
+                                    alt: "..."
+                                }, void 0, false, {
+                                    fileName: "src/components/Carousel.js",
+                                    lineNumber: 15,
+                                    columnNumber: 29
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/Carousel.js",
+                                lineNumber: 14,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Carousel.js",
+                        lineNumber: 9,
+                        columnNumber: 21
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "carousel-control-prev",
+                        type: "button",
+                        "data-bs-target": "#carouselExampleControls",
+                        "data-bs-slide": "prev",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "carousel-control-prev-icon",
+                                "aria-hidden": "true"
+                            }, void 0, false, {
+                                fileName: "src/components/Carousel.js",
+                                lineNumber: 20,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "visually-hidden",
+                                children: "Previous"
+                            }, void 0, false, {
+                                fileName: "src/components/Carousel.js",
+                                lineNumber: 21,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Carousel.js",
+                        lineNumber: 18,
+                        columnNumber: 21
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "carousel-control-next",
+                        type: "button",
+                        "data-bs-target": "#carouselExampleControls",
+                        "data-bs-slide": "next",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "carousel-control-next-icon",
+                                "aria-hidden": "true"
+                            }, void 0, false, {
+                                fileName: "src/components/Carousel.js",
+                                lineNumber: 25,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "visually-hidden",
+                                children: "Next"
+                            }, void 0, false, {
+                                fileName: "src/components/Carousel.js",
+                                lineNumber: 26,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Carousel.js",
+                        lineNumber: 23,
+                        columnNumber: 21
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Carousel.js",
+                lineNumber: 8,
+                columnNumber: 17
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/components/Carousel.js",
+            lineNumber: 7,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Carousel.js",
+        lineNumber: 6,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Carousel;
+exports.default = Carousel;
+var _c;
+$RefreshReg$(_c, "Carousel");
+
+  $parcel$ReactRefreshHelpers$fec5.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../src/assets/images/banner2.jpg":"btz47","../../src/assets/images/banner1.jpg":"11PCo"}],"btz47":[function(require,module,exports) {
+module.exports = require("3d5cbbd80c59e293").getBundleURL("UckoE") + "banner2.4ab3696f.jpg" + "?" + Date.now();
+
+},{"3d5cbbd80c59e293":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -27897,6 +28037,5419 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}]},["hbj89","1xC6H","igcvL"], "igcvL", "parcelRequire62c4")
+},{}],"11PCo":[function(require,module,exports) {
+module.exports = require("d0ed4ca27f86ff24").getBundleURL("UckoE") + "banner1.2e803e25.jpg" + "?" + Date.now();
 
-//# sourceMappingURL=index.5baa4167.js.map
+},{"d0ed4ca27f86ff24":"lgJ39"}],"h36JB":[function(require,module,exports) {
+/*!
+  * Bootstrap v5.0.1 (https://getbootstrap.com/)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Alert", ()=>Alert);
+parcelHelpers.export(exports, "Button", ()=>Button);
+parcelHelpers.export(exports, "Carousel", ()=>Carousel);
+parcelHelpers.export(exports, "Collapse", ()=>Collapse);
+parcelHelpers.export(exports, "Dropdown", ()=>Dropdown);
+parcelHelpers.export(exports, "Modal", ()=>Modal);
+parcelHelpers.export(exports, "Offcanvas", ()=>Offcanvas);
+parcelHelpers.export(exports, "Popover", ()=>Popover);
+parcelHelpers.export(exports, "ScrollSpy", ()=>ScrollSpy);
+parcelHelpers.export(exports, "Tab", ()=>Tab);
+parcelHelpers.export(exports, "Toast", ()=>Toast);
+parcelHelpers.export(exports, "Tooltip", ()=>Tooltip);
+var _core = require("@popperjs/core");
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): dom/selector-engine.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NODE_TEXT = 3;
+const SelectorEngine = {
+    find (selector, element = document.documentElement) {
+        return [].concat(...Element.prototype.querySelectorAll.call(element, selector));
+    },
+    findOne (selector, element = document.documentElement) {
+        return Element.prototype.querySelector.call(element, selector);
+    },
+    children (element, selector) {
+        return [].concat(...element.children).filter((child)=>child.matches(selector));
+    },
+    parents (element, selector) {
+        const parents = [];
+        let ancestor = element.parentNode;
+        while(ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== NODE_TEXT){
+            if (ancestor.matches(selector)) parents.push(ancestor);
+            ancestor = ancestor.parentNode;
+        }
+        return parents;
+    },
+    prev (element, selector) {
+        let previous = element.previousElementSibling;
+        while(previous){
+            if (previous.matches(selector)) return [
+                previous
+            ];
+            previous = previous.previousElementSibling;
+        }
+        return [];
+    },
+    next (element, selector) {
+        let next = element.nextElementSibling;
+        while(next){
+            if (next.matches(selector)) return [
+                next
+            ];
+            next = next.nextElementSibling;
+        }
+        return [];
+    }
+};
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): util/index.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ const MAX_UID = 1000000;
+const MILLISECONDS_MULTIPLIER = 1000;
+const TRANSITION_END = "transitionend"; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+const toType = (obj)=>{
+    if (obj === null || obj === undefined) return `${obj}`;
+    return ({}).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+};
+/**
+ * --------------------------------------------------------------------------
+ * Public Util Api
+ * --------------------------------------------------------------------------
+ */ const getUID = (prefix)=>{
+    do prefix += Math.floor(Math.random() * MAX_UID);
+    while (document.getElementById(prefix));
+    return prefix;
+};
+const getSelector = (element)=>{
+    let selector = element.getAttribute("data-bs-target");
+    if (!selector || selector === "#") {
+        let hrefAttr = element.getAttribute("href"); // The only valid content that could double as a selector are IDs or classes,
+        // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+        // `document.querySelector` will rightfully complain it is invalid.
+        // See https://github.com/twbs/bootstrap/issues/32273
+        if (!hrefAttr || !hrefAttr.includes("#") && !hrefAttr.startsWith(".")) return null;
+         // Just in case some CMS puts out a full URL with the anchor appended
+        if (hrefAttr.includes("#") && !hrefAttr.startsWith("#")) hrefAttr = `#${hrefAttr.split("#")[1]}`;
+        selector = hrefAttr && hrefAttr !== "#" ? hrefAttr.trim() : null;
+    }
+    return selector;
+};
+const getSelectorFromElement = (element)=>{
+    const selector = getSelector(element);
+    if (selector) return document.querySelector(selector) ? selector : null;
+    return null;
+};
+const getElementFromSelector = (element)=>{
+    const selector = getSelector(element);
+    return selector ? document.querySelector(selector) : null;
+};
+const getTransitionDurationFromElement = (element)=>{
+    if (!element) return 0;
+     // Get transition-duration of the element
+    let { transitionDuration, transitionDelay } = window.getComputedStyle(element);
+    const floatTransitionDuration = Number.parseFloat(transitionDuration);
+    const floatTransitionDelay = Number.parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
+    if (!floatTransitionDuration && !floatTransitionDelay) return 0;
+     // If multiple durations are defined, take the first
+    transitionDuration = transitionDuration.split(",")[0];
+    transitionDelay = transitionDelay.split(",")[0];
+    return (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
+};
+const triggerTransitionEnd = (element)=>{
+    element.dispatchEvent(new Event(TRANSITION_END));
+};
+const isElement = (obj)=>{
+    if (!obj || typeof obj !== "object") return false;
+    if (typeof obj.jquery !== "undefined") obj = obj[0];
+    return typeof obj.nodeType !== "undefined";
+};
+const getElement = (obj)=>{
+    if (isElement(obj)) // it's a jQuery object or a node element
+    return obj.jquery ? obj[0] : obj;
+    if (typeof obj === "string" && obj.length > 0) return SelectorEngine.findOne(obj);
+    return null;
+};
+const emulateTransitionEnd = (element, duration)=>{
+    let called = false;
+    const durationPadding = 5;
+    const emulatedDuration = duration + durationPadding;
+    function listener() {
+        called = true;
+        element.removeEventListener(TRANSITION_END, listener);
+    }
+    element.addEventListener(TRANSITION_END, listener);
+    setTimeout(()=>{
+        if (!called) triggerTransitionEnd(element);
+    }, emulatedDuration);
+};
+const typeCheckConfig = (componentName, config, configTypes)=>{
+    Object.keys(configTypes).forEach((property)=>{
+        const expectedTypes = configTypes[property];
+        const value = config[property];
+        const valueType = value && isElement(value) ? "element" : toType(value);
+        if (!new RegExp(expectedTypes).test(valueType)) throw new TypeError(`${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`);
+    });
+};
+const isVisible = (element)=>{
+    if (!element) return false;
+    if (element.style && element.parentNode && element.parentNode.style) {
+        const elementStyle = getComputedStyle(element);
+        const parentNodeStyle = getComputedStyle(element.parentNode);
+        return elementStyle.display !== "none" && parentNodeStyle.display !== "none" && elementStyle.visibility !== "hidden";
+    }
+    return false;
+};
+const isDisabled = (element)=>{
+    if (!element || element.nodeType !== Node.ELEMENT_NODE) return true;
+    if (element.classList.contains("disabled")) return true;
+    if (typeof element.disabled !== "undefined") return element.disabled;
+    return element.hasAttribute("disabled") && element.getAttribute("disabled") !== "false";
+};
+const findShadowRoot = (element)=>{
+    if (!document.documentElement.attachShadow) return null;
+     // Can find the shadow root otherwise it'll return the document
+    if (typeof element.getRootNode === "function") {
+        const root = element.getRootNode();
+        return root instanceof ShadowRoot ? root : null;
+    }
+    if (element instanceof ShadowRoot) return element;
+     // when we don't find a shadow root
+    if (!element.parentNode) return null;
+    return findShadowRoot(element.parentNode);
+};
+const noop = ()=>{};
+const reflow = (element)=>element.offsetHeight;
+const getjQuery = ()=>{
+    const { jQuery } = window;
+    if (jQuery && !document.body.hasAttribute("data-bs-no-jquery")) return jQuery;
+    return null;
+};
+const onDOMContentLoaded = (callback)=>{
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", callback);
+    else callback();
+};
+const isRTL = ()=>document.documentElement.dir === "rtl";
+const defineJQueryPlugin = (plugin)=>{
+    onDOMContentLoaded(()=>{
+        const $ = getjQuery();
+        /* istanbul ignore if */ if ($) {
+            const name = plugin.NAME;
+            const JQUERY_NO_CONFLICT = $.fn[name];
+            $.fn[name] = plugin.jQueryInterface;
+            $.fn[name].Constructor = plugin;
+            $.fn[name].noConflict = ()=>{
+                $.fn[name] = JQUERY_NO_CONFLICT;
+                return plugin.jQueryInterface;
+            };
+        }
+    });
+};
+const execute = (callback)=>{
+    if (typeof callback === "function") callback();
+};
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): dom/data.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const elementMap = new Map();
+var Data = {
+    set (element, key, instance) {
+        if (!elementMap.has(element)) elementMap.set(element, new Map());
+        const instanceMap = elementMap.get(element); // make it clear we only want one instance per element
+        // can be removed later when multiple key/instances are fine to be used
+        if (!instanceMap.has(key) && instanceMap.size !== 0) {
+            // eslint-disable-next-line no-console
+            console.error(`Bootstrap doesn't allow more than one instance per element. Bound instance: ${Array.from(instanceMap.keys())[0]}.`);
+            return;
+        }
+        instanceMap.set(key, instance);
+    },
+    get (element, key) {
+        if (elementMap.has(element)) return elementMap.get(element).get(key) || null;
+        return null;
+    },
+    remove (element, key) {
+        if (!elementMap.has(element)) return;
+        const instanceMap = elementMap.get(element);
+        instanceMap.delete(key); // free up element references if there are no instances left for an element
+        if (instanceMap.size === 0) elementMap.delete(element);
+    }
+};
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): dom/event-handler.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const namespaceRegex = /[^.]*(?=\..*)\.|.*/;
+const stripNameRegex = /\..*/;
+const stripUidRegex = /::\d+$/;
+const eventRegistry = {}; // Events storage
+let uidEvent = 1;
+const customEvents = {
+    mouseenter: "mouseover",
+    mouseleave: "mouseout"
+};
+const customEventsRegex = /^(mouseenter|mouseleave)/i;
+const nativeEvents = new Set([
+    "click",
+    "dblclick",
+    "mouseup",
+    "mousedown",
+    "contextmenu",
+    "mousewheel",
+    "DOMMouseScroll",
+    "mouseover",
+    "mouseout",
+    "mousemove",
+    "selectstart",
+    "selectend",
+    "keydown",
+    "keypress",
+    "keyup",
+    "orientationchange",
+    "touchstart",
+    "touchmove",
+    "touchend",
+    "touchcancel",
+    "pointerdown",
+    "pointermove",
+    "pointerup",
+    "pointerleave",
+    "pointercancel",
+    "gesturestart",
+    "gesturechange",
+    "gestureend",
+    "focus",
+    "blur",
+    "change",
+    "reset",
+    "select",
+    "submit",
+    "focusin",
+    "focusout",
+    "load",
+    "unload",
+    "beforeunload",
+    "resize",
+    "move",
+    "DOMContentLoaded",
+    "readystatechange",
+    "error",
+    "abort",
+    "scroll"
+]);
+/**
+ * ------------------------------------------------------------------------
+ * Private methods
+ * ------------------------------------------------------------------------
+ */ function getUidEvent(element, uid) {
+    return uid && `${uid}::${uidEvent++}` || element.uidEvent || uidEvent++;
+}
+function getEvent(element) {
+    const uid = getUidEvent(element);
+    element.uidEvent = uid;
+    eventRegistry[uid] = eventRegistry[uid] || {};
+    return eventRegistry[uid];
+}
+function bootstrapHandler(element, fn) {
+    return function handler(event) {
+        event.delegateTarget = element;
+        if (handler.oneOff) EventHandler.off(element, event.type, fn);
+        return fn.apply(element, [
+            event
+        ]);
+    };
+}
+function bootstrapDelegationHandler(element, selector, fn) {
+    return function handler(event) {
+        const domElements = element.querySelectorAll(selector);
+        for(let { target } = event; target && target !== this; target = target.parentNode){
+            for(let i = domElements.length; i--;)if (domElements[i] === target) {
+                event.delegateTarget = target;
+                if (handler.oneOff) // eslint-disable-next-line unicorn/consistent-destructuring
+                EventHandler.off(element, event.type, selector, fn);
+                return fn.apply(target, [
+                    event
+                ]);
+            }
+        } // To please ESLint
+        return null;
+    };
+}
+function findHandler(events, handler, delegationSelector = null) {
+    const uidEventList = Object.keys(events);
+    for(let i = 0, len = uidEventList.length; i < len; i++){
+        const event = events[uidEventList[i]];
+        if (event.originalHandler === handler && event.delegationSelector === delegationSelector) return event;
+    }
+    return null;
+}
+function normalizeParams(originalTypeEvent, handler, delegationFn) {
+    const delegation = typeof handler === "string";
+    const originalHandler = delegation ? delegationFn : handler;
+    let typeEvent = getTypeEvent(originalTypeEvent);
+    const isNative = nativeEvents.has(typeEvent);
+    if (!isNative) typeEvent = originalTypeEvent;
+    return [
+        delegation,
+        originalHandler,
+        typeEvent
+    ];
+}
+function addHandler(element, originalTypeEvent, handler, delegationFn, oneOff) {
+    if (typeof originalTypeEvent !== "string" || !element) return;
+    if (!handler) {
+        handler = delegationFn;
+        delegationFn = null;
+    } // in case of mouseenter or mouseleave wrap the handler within a function that checks for its DOM position
+    // this prevents the handler from being dispatched the same way as mouseover or mouseout does
+    if (customEventsRegex.test(originalTypeEvent)) {
+        const wrapFn = (fn)=>{
+            return function(event) {
+                if (!event.relatedTarget || event.relatedTarget !== event.delegateTarget && !event.delegateTarget.contains(event.relatedTarget)) return fn.call(this, event);
+            };
+        };
+        if (delegationFn) delegationFn = wrapFn(delegationFn);
+        else handler = wrapFn(handler);
+    }
+    const [delegation, originalHandler, typeEvent] = normalizeParams(originalTypeEvent, handler, delegationFn);
+    const events = getEvent(element);
+    const handlers = events[typeEvent] || (events[typeEvent] = {});
+    const previousFn = findHandler(handlers, originalHandler, delegation ? handler : null);
+    if (previousFn) {
+        previousFn.oneOff = previousFn.oneOff && oneOff;
+        return;
+    }
+    const uid = getUidEvent(originalHandler, originalTypeEvent.replace(namespaceRegex, ""));
+    const fn = delegation ? bootstrapDelegationHandler(element, handler, delegationFn) : bootstrapHandler(element, handler);
+    fn.delegationSelector = delegation ? handler : null;
+    fn.originalHandler = originalHandler;
+    fn.oneOff = oneOff;
+    fn.uidEvent = uid;
+    handlers[uid] = fn;
+    element.addEventListener(typeEvent, fn, delegation);
+}
+function removeHandler(element, events, typeEvent, handler, delegationSelector) {
+    const fn = findHandler(events[typeEvent], handler, delegationSelector);
+    if (!fn) return;
+    element.removeEventListener(typeEvent, fn, Boolean(delegationSelector));
+    delete events[typeEvent][fn.uidEvent];
+}
+function removeNamespacedHandlers(element, events, typeEvent, namespace) {
+    const storeElementEvent = events[typeEvent] || {};
+    Object.keys(storeElementEvent).forEach((handlerKey)=>{
+        if (handlerKey.includes(namespace)) {
+            const event = storeElementEvent[handlerKey];
+            removeHandler(element, events, typeEvent, event.originalHandler, event.delegationSelector);
+        }
+    });
+}
+function getTypeEvent(event) {
+    // allow to get the native events from namespaced events ('click.bs.button' --> 'click')
+    event = event.replace(stripNameRegex, "");
+    return customEvents[event] || event;
+}
+const EventHandler = {
+    on (element, event, handler, delegationFn) {
+        addHandler(element, event, handler, delegationFn, false);
+    },
+    one (element, event, handler, delegationFn) {
+        addHandler(element, event, handler, delegationFn, true);
+    },
+    off (element, originalTypeEvent, handler, delegationFn) {
+        if (typeof originalTypeEvent !== "string" || !element) return;
+        const [delegation, originalHandler, typeEvent] = normalizeParams(originalTypeEvent, handler, delegationFn);
+        const inNamespace = typeEvent !== originalTypeEvent;
+        const events = getEvent(element);
+        const isNamespace = originalTypeEvent.startsWith(".");
+        if (typeof originalHandler !== "undefined") {
+            // Simplest case: handler is passed, remove that listener ONLY.
+            if (!events || !events[typeEvent]) return;
+            removeHandler(element, events, typeEvent, originalHandler, delegation ? handler : null);
+            return;
+        }
+        if (isNamespace) Object.keys(events).forEach((elementEvent)=>{
+            removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.slice(1));
+        });
+        const storeElementEvent = events[typeEvent] || {};
+        Object.keys(storeElementEvent).forEach((keyHandlers)=>{
+            const handlerKey = keyHandlers.replace(stripUidRegex, "");
+            if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
+                const event = storeElementEvent[keyHandlers];
+                removeHandler(element, events, typeEvent, event.originalHandler, event.delegationSelector);
+            }
+        });
+    },
+    trigger (element, event, args) {
+        if (typeof event !== "string" || !element) return null;
+        const $ = getjQuery();
+        const typeEvent = getTypeEvent(event);
+        const inNamespace = event !== typeEvent;
+        const isNative = nativeEvents.has(typeEvent);
+        let jQueryEvent;
+        let bubbles = true;
+        let nativeDispatch = true;
+        let defaultPrevented = false;
+        let evt = null;
+        if (inNamespace && $) {
+            jQueryEvent = $.Event(event, args);
+            $(element).trigger(jQueryEvent);
+            bubbles = !jQueryEvent.isPropagationStopped();
+            nativeDispatch = !jQueryEvent.isImmediatePropagationStopped();
+            defaultPrevented = jQueryEvent.isDefaultPrevented();
+        }
+        if (isNative) {
+            evt = document.createEvent("HTMLEvents");
+            evt.initEvent(typeEvent, bubbles, true);
+        } else evt = new CustomEvent(event, {
+            bubbles,
+            cancelable: true
+        });
+         // merge custom information in our event
+        if (typeof args !== "undefined") Object.keys(args).forEach((key)=>{
+            Object.defineProperty(evt, key, {
+                get () {
+                    return args[key];
+                }
+            });
+        });
+        if (defaultPrevented) evt.preventDefault();
+        if (nativeDispatch) element.dispatchEvent(evt);
+        if (evt.defaultPrevented && typeof jQueryEvent !== "undefined") jQueryEvent.preventDefault();
+        return evt;
+    }
+};
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): base-component.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const VERSION = "5.0.1";
+class BaseComponent {
+    constructor(element){
+        element = getElement(element);
+        if (!element) return;
+        this._element = element;
+        Data.set(this._element, this.constructor.DATA_KEY, this);
+    }
+    dispose() {
+        Data.remove(this._element, this.constructor.DATA_KEY);
+        EventHandler.off(this._element, this.constructor.EVENT_KEY);
+        Object.getOwnPropertyNames(this).forEach((propertyName)=>{
+            this[propertyName] = null;
+        });
+    }
+    _queueCallback(callback, element, isAnimated = true) {
+        if (!isAnimated) {
+            execute(callback);
+            return;
+        }
+        const transitionDuration = getTransitionDurationFromElement(element);
+        EventHandler.one(element, "transitionend", ()=>execute(callback));
+        emulateTransitionEnd(element, transitionDuration);
+    }
+    /** Static */ static getInstance(element) {
+        return Data.get(element, this.DATA_KEY);
+    }
+    static get VERSION() {
+        return VERSION;
+    }
+    static get NAME() {
+        throw new Error('You have to implement the static method "NAME", for each component!');
+    }
+    static get DATA_KEY() {
+        return `bs.${this.NAME}`;
+    }
+    static get EVENT_KEY() {
+        return `.${this.DATA_KEY}`;
+    }
+}
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): alert.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$c = "alert";
+const DATA_KEY$b = "bs.alert";
+const EVENT_KEY$b = `.${DATA_KEY$b}`;
+const DATA_API_KEY$8 = ".data-api";
+const SELECTOR_DISMISS = '[data-bs-dismiss="alert"]';
+const EVENT_CLOSE = `close${EVENT_KEY$b}`;
+const EVENT_CLOSED = `closed${EVENT_KEY$b}`;
+const EVENT_CLICK_DATA_API$7 = `click${EVENT_KEY$b}${DATA_API_KEY$8}`;
+const CLASS_NAME_ALERT = "alert";
+const CLASS_NAME_FADE$6 = "fade";
+const CLASS_NAME_SHOW$9 = "show";
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Alert extends BaseComponent {
+    // Getters
+    static get NAME() {
+        return NAME$c;
+    }
+    close(element) {
+        const rootElement = element ? this._getRootElement(element) : this._element;
+        const customEvent = this._triggerCloseEvent(rootElement);
+        if (customEvent === null || customEvent.defaultPrevented) return;
+        this._removeElement(rootElement);
+    }
+    _getRootElement(element) {
+        return getElementFromSelector(element) || element.closest(`.${CLASS_NAME_ALERT}`);
+    }
+    _triggerCloseEvent(element) {
+        return EventHandler.trigger(element, EVENT_CLOSE);
+    }
+    _removeElement(element) {
+        element.classList.remove(CLASS_NAME_SHOW$9);
+        const isAnimated = element.classList.contains(CLASS_NAME_FADE$6);
+        this._queueCallback(()=>this._destroyElement(element), element, isAnimated);
+    }
+    _destroyElement(element) {
+        if (element.parentNode) element.parentNode.removeChild(element);
+        EventHandler.trigger(element, EVENT_CLOSED);
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            let data = Data.get(this, DATA_KEY$b);
+            if (!data) data = new Alert(this);
+            if (config === "close") data[config](this);
+        });
+    }
+    static handleDismiss(alertInstance) {
+        return function(event) {
+            if (event) event.preventDefault();
+            alertInstance.close(this);
+        };
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_CLICK_DATA_API$7, SELECTOR_DISMISS, Alert.handleDismiss(new Alert()));
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Alert to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Alert);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): button.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$b = "button";
+const DATA_KEY$a = "bs.button";
+const EVENT_KEY$a = `.${DATA_KEY$a}`;
+const DATA_API_KEY$7 = ".data-api";
+const CLASS_NAME_ACTIVE$3 = "active";
+const SELECTOR_DATA_TOGGLE$5 = '[data-bs-toggle="button"]';
+const EVENT_CLICK_DATA_API$6 = `click${EVENT_KEY$a}${DATA_API_KEY$7}`;
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Button extends BaseComponent {
+    // Getters
+    static get NAME() {
+        return NAME$b;
+    }
+    toggle() {
+        // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
+        this._element.setAttribute("aria-pressed", this._element.classList.toggle(CLASS_NAME_ACTIVE$3));
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            let data = Data.get(this, DATA_KEY$a);
+            if (!data) data = new Button(this);
+            if (config === "toggle") data[config]();
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$5, (event)=>{
+    event.preventDefault();
+    const button = event.target.closest(SELECTOR_DATA_TOGGLE$5);
+    let data = Data.get(button, DATA_KEY$a);
+    if (!data) data = new Button(button);
+    data.toggle();
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Button to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Button);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): dom/manipulator.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ function normalizeData(val) {
+    if (val === "true") return true;
+    if (val === "false") return false;
+    if (val === Number(val).toString()) return Number(val);
+    if (val === "" || val === "null") return null;
+    return val;
+}
+function normalizeDataKey(key) {
+    return key.replace(/[A-Z]/g, (chr)=>`-${chr.toLowerCase()}`);
+}
+const Manipulator = {
+    setDataAttribute (element, key, value) {
+        element.setAttribute(`data-bs-${normalizeDataKey(key)}`, value);
+    },
+    removeDataAttribute (element, key) {
+        element.removeAttribute(`data-bs-${normalizeDataKey(key)}`);
+    },
+    getDataAttributes (element) {
+        if (!element) return {};
+        const attributes = {};
+        Object.keys(element.dataset).filter((key)=>key.startsWith("bs")).forEach((key)=>{
+            let pureKey = key.replace(/^bs/, "");
+            pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
+            attributes[pureKey] = normalizeData(element.dataset[key]);
+        });
+        return attributes;
+    },
+    getDataAttribute (element, key) {
+        return normalizeData(element.getAttribute(`data-bs-${normalizeDataKey(key)}`));
+    },
+    offset (element) {
+        const rect = element.getBoundingClientRect();
+        return {
+            top: rect.top + document.body.scrollTop,
+            left: rect.left + document.body.scrollLeft
+        };
+    },
+    position (element) {
+        return {
+            top: element.offsetTop,
+            left: element.offsetLeft
+        };
+    }
+};
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): carousel.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$a = "carousel";
+const DATA_KEY$9 = "bs.carousel";
+const EVENT_KEY$9 = `.${DATA_KEY$9}`;
+const DATA_API_KEY$6 = ".data-api";
+const ARROW_LEFT_KEY = "ArrowLeft";
+const ARROW_RIGHT_KEY = "ArrowRight";
+const TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
+const SWIPE_THRESHOLD = 40;
+const Default$9 = {
+    interval: 5000,
+    keyboard: true,
+    slide: false,
+    pause: "hover",
+    wrap: true,
+    touch: true
+};
+const DefaultType$9 = {
+    interval: "(number|boolean)",
+    keyboard: "boolean",
+    slide: "(boolean|string)",
+    pause: "(string|boolean)",
+    wrap: "boolean",
+    touch: "boolean"
+};
+const ORDER_NEXT = "next";
+const ORDER_PREV = "prev";
+const DIRECTION_LEFT = "left";
+const DIRECTION_RIGHT = "right";
+const EVENT_SLIDE = `slide${EVENT_KEY$9}`;
+const EVENT_SLID = `slid${EVENT_KEY$9}`;
+const EVENT_KEYDOWN = `keydown${EVENT_KEY$9}`;
+const EVENT_MOUSEENTER = `mouseenter${EVENT_KEY$9}`;
+const EVENT_MOUSELEAVE = `mouseleave${EVENT_KEY$9}`;
+const EVENT_TOUCHSTART = `touchstart${EVENT_KEY$9}`;
+const EVENT_TOUCHMOVE = `touchmove${EVENT_KEY$9}`;
+const EVENT_TOUCHEND = `touchend${EVENT_KEY$9}`;
+const EVENT_POINTERDOWN = `pointerdown${EVENT_KEY$9}`;
+const EVENT_POINTERUP = `pointerup${EVENT_KEY$9}`;
+const EVENT_DRAG_START = `dragstart${EVENT_KEY$9}`;
+const EVENT_LOAD_DATA_API$2 = `load${EVENT_KEY$9}${DATA_API_KEY$6}`;
+const EVENT_CLICK_DATA_API$5 = `click${EVENT_KEY$9}${DATA_API_KEY$6}`;
+const CLASS_NAME_CAROUSEL = "carousel";
+const CLASS_NAME_ACTIVE$2 = "active";
+const CLASS_NAME_SLIDE = "slide";
+const CLASS_NAME_END = "carousel-item-end";
+const CLASS_NAME_START = "carousel-item-start";
+const CLASS_NAME_NEXT = "carousel-item-next";
+const CLASS_NAME_PREV = "carousel-item-prev";
+const CLASS_NAME_POINTER_EVENT = "pointer-event";
+const SELECTOR_ACTIVE$1 = ".active";
+const SELECTOR_ACTIVE_ITEM = ".active.carousel-item";
+const SELECTOR_ITEM = ".carousel-item";
+const SELECTOR_ITEM_IMG = ".carousel-item img";
+const SELECTOR_NEXT_PREV = ".carousel-item-next, .carousel-item-prev";
+const SELECTOR_INDICATORS = ".carousel-indicators";
+const SELECTOR_INDICATOR = "[data-bs-target]";
+const SELECTOR_DATA_SLIDE = "[data-bs-slide], [data-bs-slide-to]";
+const SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
+const POINTER_TYPE_TOUCH = "touch";
+const POINTER_TYPE_PEN = "pen";
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Carousel extends BaseComponent {
+    constructor(element, config){
+        super(element);
+        this._items = null;
+        this._interval = null;
+        this._activeElement = null;
+        this._isPaused = false;
+        this._isSliding = false;
+        this.touchTimeout = null;
+        this.touchStartX = 0;
+        this.touchDeltaX = 0;
+        this._config = this._getConfig(config);
+        this._indicatorsElement = SelectorEngine.findOne(SELECTOR_INDICATORS, this._element);
+        this._touchSupported = "ontouchstart" in document.documentElement || navigator.maxTouchPoints > 0;
+        this._pointerEvent = Boolean(window.PointerEvent);
+        this._addEventListeners();
+    }
+    static get Default() {
+        return Default$9;
+    }
+    static get NAME() {
+        return NAME$a;
+    }
+    next() {
+        if (!this._isSliding) this._slide(ORDER_NEXT);
+    }
+    nextWhenVisible() {
+        // Don't call next when the page isn't visible
+        // or the carousel or its parent isn't visible
+        if (!document.hidden && isVisible(this._element)) this.next();
+    }
+    prev() {
+        if (!this._isSliding) this._slide(ORDER_PREV);
+    }
+    pause(event) {
+        if (!event) this._isPaused = true;
+        if (SelectorEngine.findOne(SELECTOR_NEXT_PREV, this._element)) {
+            triggerTransitionEnd(this._element);
+            this.cycle(true);
+        }
+        clearInterval(this._interval);
+        this._interval = null;
+    }
+    cycle(event) {
+        if (!event) this._isPaused = false;
+        if (this._interval) {
+            clearInterval(this._interval);
+            this._interval = null;
+        }
+        if (this._config && this._config.interval && !this._isPaused) {
+            this._updateInterval();
+            this._interval = setInterval((document.visibilityState ? this.nextWhenVisible : this.next).bind(this), this._config.interval);
+        }
+    }
+    to(index) {
+        this._activeElement = SelectorEngine.findOne(SELECTOR_ACTIVE_ITEM, this._element);
+        const activeIndex = this._getItemIndex(this._activeElement);
+        if (index > this._items.length - 1 || index < 0) return;
+        if (this._isSliding) {
+            EventHandler.one(this._element, EVENT_SLID, ()=>this.to(index));
+            return;
+        }
+        if (activeIndex === index) {
+            this.pause();
+            this.cycle();
+            return;
+        }
+        const order = index > activeIndex ? ORDER_NEXT : ORDER_PREV;
+        this._slide(order, this._items[index]);
+    }
+    _getConfig(config) {
+        config = {
+            ...Default$9,
+            ...config
+        };
+        typeCheckConfig(NAME$a, config, DefaultType$9);
+        return config;
+    }
+    _handleSwipe() {
+        const absDeltax = Math.abs(this.touchDeltaX);
+        if (absDeltax <= SWIPE_THRESHOLD) return;
+        const direction = absDeltax / this.touchDeltaX;
+        this.touchDeltaX = 0;
+        if (!direction) return;
+        this._slide(direction > 0 ? DIRECTION_RIGHT : DIRECTION_LEFT);
+    }
+    _addEventListeners() {
+        if (this._config.keyboard) EventHandler.on(this._element, EVENT_KEYDOWN, (event)=>this._keydown(event));
+        if (this._config.pause === "hover") {
+            EventHandler.on(this._element, EVENT_MOUSEENTER, (event)=>this.pause(event));
+            EventHandler.on(this._element, EVENT_MOUSELEAVE, (event)=>this.cycle(event));
+        }
+        if (this._config.touch && this._touchSupported) this._addTouchEventListeners();
+    }
+    _addTouchEventListeners() {
+        const start = (event)=>{
+            if (this._pointerEvent && (event.pointerType === POINTER_TYPE_PEN || event.pointerType === POINTER_TYPE_TOUCH)) this.touchStartX = event.clientX;
+            else if (!this._pointerEvent) this.touchStartX = event.touches[0].clientX;
+        };
+        const move = (event)=>{
+            // ensure swiping with one touch and not pinching
+            this.touchDeltaX = event.touches && event.touches.length > 1 ? 0 : event.touches[0].clientX - this.touchStartX;
+        };
+        const end = (event)=>{
+            if (this._pointerEvent && (event.pointerType === POINTER_TYPE_PEN || event.pointerType === POINTER_TYPE_TOUCH)) this.touchDeltaX = event.clientX - this.touchStartX;
+            this._handleSwipe();
+            if (this._config.pause === "hover") {
+                // If it's a touch-enabled device, mouseenter/leave are fired as
+                // part of the mouse compatibility events on first tap - the carousel
+                // would stop cycling until user tapped out of it;
+                // here, we listen for touchend, explicitly pause the carousel
+                // (as if it's the second time we tap on it, mouseenter compat event
+                // is NOT fired) and after a timeout (to allow for mouse compatibility
+                // events to fire) we explicitly restart cycling
+                this.pause();
+                if (this.touchTimeout) clearTimeout(this.touchTimeout);
+                this.touchTimeout = setTimeout((event)=>this.cycle(event), TOUCHEVENT_COMPAT_WAIT + this._config.interval);
+            }
+        };
+        SelectorEngine.find(SELECTOR_ITEM_IMG, this._element).forEach((itemImg)=>{
+            EventHandler.on(itemImg, EVENT_DRAG_START, (e)=>e.preventDefault());
+        });
+        if (this._pointerEvent) {
+            EventHandler.on(this._element, EVENT_POINTERDOWN, (event)=>start(event));
+            EventHandler.on(this._element, EVENT_POINTERUP, (event)=>end(event));
+            this._element.classList.add(CLASS_NAME_POINTER_EVENT);
+        } else {
+            EventHandler.on(this._element, EVENT_TOUCHSTART, (event)=>start(event));
+            EventHandler.on(this._element, EVENT_TOUCHMOVE, (event)=>move(event));
+            EventHandler.on(this._element, EVENT_TOUCHEND, (event)=>end(event));
+        }
+    }
+    _keydown(event) {
+        if (/input|textarea/i.test(event.target.tagName)) return;
+        if (event.key === ARROW_LEFT_KEY) {
+            event.preventDefault();
+            this._slide(DIRECTION_RIGHT);
+        } else if (event.key === ARROW_RIGHT_KEY) {
+            event.preventDefault();
+            this._slide(DIRECTION_LEFT);
+        }
+    }
+    _getItemIndex(element) {
+        this._items = element && element.parentNode ? SelectorEngine.find(SELECTOR_ITEM, element.parentNode) : [];
+        return this._items.indexOf(element);
+    }
+    _getItemByOrder(order, activeElement) {
+        const isNext = order === ORDER_NEXT;
+        const isPrev = order === ORDER_PREV;
+        const activeIndex = this._getItemIndex(activeElement);
+        const lastItemIndex = this._items.length - 1;
+        const isGoingToWrap = isPrev && activeIndex === 0 || isNext && activeIndex === lastItemIndex;
+        if (isGoingToWrap && !this._config.wrap) return activeElement;
+        const delta = isPrev ? -1 : 1;
+        const itemIndex = (activeIndex + delta) % this._items.length;
+        return itemIndex === -1 ? this._items[this._items.length - 1] : this._items[itemIndex];
+    }
+    _triggerSlideEvent(relatedTarget, eventDirectionName) {
+        const targetIndex = this._getItemIndex(relatedTarget);
+        const fromIndex = this._getItemIndex(SelectorEngine.findOne(SELECTOR_ACTIVE_ITEM, this._element));
+        return EventHandler.trigger(this._element, EVENT_SLIDE, {
+            relatedTarget,
+            direction: eventDirectionName,
+            from: fromIndex,
+            to: targetIndex
+        });
+    }
+    _setActiveIndicatorElement(element) {
+        if (this._indicatorsElement) {
+            const activeIndicator = SelectorEngine.findOne(SELECTOR_ACTIVE$1, this._indicatorsElement);
+            activeIndicator.classList.remove(CLASS_NAME_ACTIVE$2);
+            activeIndicator.removeAttribute("aria-current");
+            const indicators = SelectorEngine.find(SELECTOR_INDICATOR, this._indicatorsElement);
+            for(let i = 0; i < indicators.length; i++)if (Number.parseInt(indicators[i].getAttribute("data-bs-slide-to"), 10) === this._getItemIndex(element)) {
+                indicators[i].classList.add(CLASS_NAME_ACTIVE$2);
+                indicators[i].setAttribute("aria-current", "true");
+                break;
+            }
+        }
+    }
+    _updateInterval() {
+        const element = this._activeElement || SelectorEngine.findOne(SELECTOR_ACTIVE_ITEM, this._element);
+        if (!element) return;
+        const elementInterval = Number.parseInt(element.getAttribute("data-bs-interval"), 10);
+        if (elementInterval) {
+            this._config.defaultInterval = this._config.defaultInterval || this._config.interval;
+            this._config.interval = elementInterval;
+        } else this._config.interval = this._config.defaultInterval || this._config.interval;
+    }
+    _slide(directionOrOrder, element) {
+        const order = this._directionToOrder(directionOrOrder);
+        const activeElement = SelectorEngine.findOne(SELECTOR_ACTIVE_ITEM, this._element);
+        const activeElementIndex = this._getItemIndex(activeElement);
+        const nextElement = element || this._getItemByOrder(order, activeElement);
+        const nextElementIndex = this._getItemIndex(nextElement);
+        const isCycling = Boolean(this._interval);
+        const isNext = order === ORDER_NEXT;
+        const directionalClassName = isNext ? CLASS_NAME_START : CLASS_NAME_END;
+        const orderClassName = isNext ? CLASS_NAME_NEXT : CLASS_NAME_PREV;
+        const eventDirectionName = this._orderToDirection(order);
+        if (nextElement && nextElement.classList.contains(CLASS_NAME_ACTIVE$2)) {
+            this._isSliding = false;
+            return;
+        }
+        const slideEvent = this._triggerSlideEvent(nextElement, eventDirectionName);
+        if (slideEvent.defaultPrevented) return;
+        if (!activeElement || !nextElement) // Some weirdness is happening, so we bail
+        return;
+        this._isSliding = true;
+        if (isCycling) this.pause();
+        this._setActiveIndicatorElement(nextElement);
+        this._activeElement = nextElement;
+        const triggerSlidEvent = ()=>{
+            EventHandler.trigger(this._element, EVENT_SLID, {
+                relatedTarget: nextElement,
+                direction: eventDirectionName,
+                from: activeElementIndex,
+                to: nextElementIndex
+            });
+        };
+        if (this._element.classList.contains(CLASS_NAME_SLIDE)) {
+            nextElement.classList.add(orderClassName);
+            reflow(nextElement);
+            activeElement.classList.add(directionalClassName);
+            nextElement.classList.add(directionalClassName);
+            const completeCallBack = ()=>{
+                nextElement.classList.remove(directionalClassName, orderClassName);
+                nextElement.classList.add(CLASS_NAME_ACTIVE$2);
+                activeElement.classList.remove(CLASS_NAME_ACTIVE$2, orderClassName, directionalClassName);
+                this._isSliding = false;
+                setTimeout(triggerSlidEvent, 0);
+            };
+            this._queueCallback(completeCallBack, activeElement, true);
+        } else {
+            activeElement.classList.remove(CLASS_NAME_ACTIVE$2);
+            nextElement.classList.add(CLASS_NAME_ACTIVE$2);
+            this._isSliding = false;
+            triggerSlidEvent();
+        }
+        if (isCycling) this.cycle();
+    }
+    _directionToOrder(direction) {
+        if (![
+            DIRECTION_RIGHT,
+            DIRECTION_LEFT
+        ].includes(direction)) return direction;
+        if (isRTL()) return direction === DIRECTION_LEFT ? ORDER_PREV : ORDER_NEXT;
+        return direction === DIRECTION_LEFT ? ORDER_NEXT : ORDER_PREV;
+    }
+    _orderToDirection(order) {
+        if (![
+            ORDER_NEXT,
+            ORDER_PREV
+        ].includes(order)) return order;
+        if (isRTL()) return order === ORDER_PREV ? DIRECTION_LEFT : DIRECTION_RIGHT;
+        return order === ORDER_PREV ? DIRECTION_RIGHT : DIRECTION_LEFT;
+    }
+    static carouselInterface(element, config) {
+        let data = Data.get(element, DATA_KEY$9);
+        let _config = {
+            ...Default$9,
+            ...Manipulator.getDataAttributes(element)
+        };
+        if (typeof config === "object") _config = {
+            ..._config,
+            ...config
+        };
+        const action = typeof config === "string" ? config : _config.slide;
+        if (!data) data = new Carousel(element, _config);
+        if (typeof config === "number") data.to(config);
+        else if (typeof action === "string") {
+            if (typeof data[action] === "undefined") throw new TypeError(`No method named "${action}"`);
+            data[action]();
+        } else if (_config.interval && _config.ride) {
+            data.pause();
+            data.cycle();
+        }
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            Carousel.carouselInterface(this, config);
+        });
+    }
+    static dataApiClickHandler(event) {
+        const target = getElementFromSelector(this);
+        if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) return;
+        const config = {
+            ...Manipulator.getDataAttributes(target),
+            ...Manipulator.getDataAttributes(this)
+        };
+        const slideIndex = this.getAttribute("data-bs-slide-to");
+        if (slideIndex) config.interval = false;
+        Carousel.carouselInterface(target, config);
+        if (slideIndex) Data.get(target, DATA_KEY$9).to(slideIndex);
+        event.preventDefault();
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_CLICK_DATA_API$5, SELECTOR_DATA_SLIDE, Carousel.dataApiClickHandler);
+EventHandler.on(window, EVENT_LOAD_DATA_API$2, ()=>{
+    const carousels = SelectorEngine.find(SELECTOR_DATA_RIDE);
+    for(let i = 0, len = carousels.length; i < len; i++)Carousel.carouselInterface(carousels[i], Data.get(carousels[i], DATA_KEY$9));
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Carousel to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Carousel);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): collapse.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$9 = "collapse";
+const DATA_KEY$8 = "bs.collapse";
+const EVENT_KEY$8 = `.${DATA_KEY$8}`;
+const DATA_API_KEY$5 = ".data-api";
+const Default$8 = {
+    toggle: true,
+    parent: ""
+};
+const DefaultType$8 = {
+    toggle: "boolean",
+    parent: "(string|element)"
+};
+const EVENT_SHOW$5 = `show${EVENT_KEY$8}`;
+const EVENT_SHOWN$5 = `shown${EVENT_KEY$8}`;
+const EVENT_HIDE$5 = `hide${EVENT_KEY$8}`;
+const EVENT_HIDDEN$5 = `hidden${EVENT_KEY$8}`;
+const EVENT_CLICK_DATA_API$4 = `click${EVENT_KEY$8}${DATA_API_KEY$5}`;
+const CLASS_NAME_SHOW$8 = "show";
+const CLASS_NAME_COLLAPSE = "collapse";
+const CLASS_NAME_COLLAPSING = "collapsing";
+const CLASS_NAME_COLLAPSED = "collapsed";
+const WIDTH = "width";
+const HEIGHT = "height";
+const SELECTOR_ACTIVES = ".show, .collapsing";
+const SELECTOR_DATA_TOGGLE$4 = '[data-bs-toggle="collapse"]';
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Collapse extends BaseComponent {
+    constructor(element, config){
+        super(element);
+        this._isTransitioning = false;
+        this._config = this._getConfig(config);
+        this._triggerArray = SelectorEngine.find(`${SELECTOR_DATA_TOGGLE$4}[href="#${this._element.id}"],` + `${SELECTOR_DATA_TOGGLE$4}[data-bs-target="#${this._element.id}"]`);
+        const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE$4);
+        for(let i = 0, len = toggleList.length; i < len; i++){
+            const elem = toggleList[i];
+            const selector = getSelectorFromElement(elem);
+            const filterElement = SelectorEngine.find(selector).filter((foundElem)=>foundElem === this._element);
+            if (selector !== null && filterElement.length) {
+                this._selector = selector;
+                this._triggerArray.push(elem);
+            }
+        }
+        this._parent = this._config.parent ? this._getParent() : null;
+        if (!this._config.parent) this._addAriaAndCollapsedClass(this._element, this._triggerArray);
+        if (this._config.toggle) this.toggle();
+    }
+    static get Default() {
+        return Default$8;
+    }
+    static get NAME() {
+        return NAME$9;
+    }
+    toggle() {
+        if (this._element.classList.contains(CLASS_NAME_SHOW$8)) this.hide();
+        else this.show();
+    }
+    show() {
+        if (this._isTransitioning || this._element.classList.contains(CLASS_NAME_SHOW$8)) return;
+        let actives;
+        let activesData;
+        if (this._parent) {
+            actives = SelectorEngine.find(SELECTOR_ACTIVES, this._parent).filter((elem)=>{
+                if (typeof this._config.parent === "string") return elem.getAttribute("data-bs-parent") === this._config.parent;
+                return elem.classList.contains(CLASS_NAME_COLLAPSE);
+            });
+            if (actives.length === 0) actives = null;
+        }
+        const container = SelectorEngine.findOne(this._selector);
+        if (actives) {
+            const tempActiveData = actives.find((elem)=>container !== elem);
+            activesData = tempActiveData ? Data.get(tempActiveData, DATA_KEY$8) : null;
+            if (activesData && activesData._isTransitioning) return;
+        }
+        const startEvent = EventHandler.trigger(this._element, EVENT_SHOW$5);
+        if (startEvent.defaultPrevented) return;
+        if (actives) actives.forEach((elemActive)=>{
+            if (container !== elemActive) Collapse.collapseInterface(elemActive, "hide");
+            if (!activesData) Data.set(elemActive, DATA_KEY$8, null);
+        });
+        const dimension = this._getDimension();
+        this._element.classList.remove(CLASS_NAME_COLLAPSE);
+        this._element.classList.add(CLASS_NAME_COLLAPSING);
+        this._element.style[dimension] = 0;
+        if (this._triggerArray.length) this._triggerArray.forEach((element)=>{
+            element.classList.remove(CLASS_NAME_COLLAPSED);
+            element.setAttribute("aria-expanded", true);
+        });
+        this.setTransitioning(true);
+        const complete = ()=>{
+            this._element.classList.remove(CLASS_NAME_COLLAPSING);
+            this._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW$8);
+            this._element.style[dimension] = "";
+            this.setTransitioning(false);
+            EventHandler.trigger(this._element, EVENT_SHOWN$5);
+        };
+        const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
+        const scrollSize = `scroll${capitalizedDimension}`;
+        this._queueCallback(complete, this._element, true);
+        this._element.style[dimension] = `${this._element[scrollSize]}px`;
+    }
+    hide() {
+        if (this._isTransitioning || !this._element.classList.contains(CLASS_NAME_SHOW$8)) return;
+        const startEvent = EventHandler.trigger(this._element, EVENT_HIDE$5);
+        if (startEvent.defaultPrevented) return;
+        const dimension = this._getDimension();
+        this._element.style[dimension] = `${this._element.getBoundingClientRect()[dimension]}px`;
+        reflow(this._element);
+        this._element.classList.add(CLASS_NAME_COLLAPSING);
+        this._element.classList.remove(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW$8);
+        const triggerArrayLength = this._triggerArray.length;
+        if (triggerArrayLength > 0) for(let i = 0; i < triggerArrayLength; i++){
+            const trigger = this._triggerArray[i];
+            const elem = getElementFromSelector(trigger);
+            if (elem && !elem.classList.contains(CLASS_NAME_SHOW$8)) {
+                trigger.classList.add(CLASS_NAME_COLLAPSED);
+                trigger.setAttribute("aria-expanded", false);
+            }
+        }
+        this.setTransitioning(true);
+        const complete = ()=>{
+            this.setTransitioning(false);
+            this._element.classList.remove(CLASS_NAME_COLLAPSING);
+            this._element.classList.add(CLASS_NAME_COLLAPSE);
+            EventHandler.trigger(this._element, EVENT_HIDDEN$5);
+        };
+        this._element.style[dimension] = "";
+        this._queueCallback(complete, this._element, true);
+    }
+    setTransitioning(isTransitioning) {
+        this._isTransitioning = isTransitioning;
+    }
+    _getConfig(config) {
+        config = {
+            ...Default$8,
+            ...config
+        };
+        config.toggle = Boolean(config.toggle); // Coerce string values
+        typeCheckConfig(NAME$9, config, DefaultType$8);
+        return config;
+    }
+    _getDimension() {
+        return this._element.classList.contains(WIDTH) ? WIDTH : HEIGHT;
+    }
+    _getParent() {
+        let { parent } = this._config;
+        parent = getElement(parent);
+        const selector = `${SELECTOR_DATA_TOGGLE$4}[data-bs-parent="${parent}"]`;
+        SelectorEngine.find(selector, parent).forEach((element)=>{
+            const selected = getElementFromSelector(element);
+            this._addAriaAndCollapsedClass(selected, [
+                element
+            ]);
+        });
+        return parent;
+    }
+    _addAriaAndCollapsedClass(element, triggerArray) {
+        if (!element || !triggerArray.length) return;
+        const isOpen = element.classList.contains(CLASS_NAME_SHOW$8);
+        triggerArray.forEach((elem)=>{
+            if (isOpen) elem.classList.remove(CLASS_NAME_COLLAPSED);
+            else elem.classList.add(CLASS_NAME_COLLAPSED);
+            elem.setAttribute("aria-expanded", isOpen);
+        });
+    }
+    static collapseInterface(element, config) {
+        let data = Data.get(element, DATA_KEY$8);
+        const _config = {
+            ...Default$8,
+            ...Manipulator.getDataAttributes(element),
+            ...typeof config === "object" && config ? config : {}
+        };
+        if (!data && _config.toggle && typeof config === "string" && /show|hide/.test(config)) _config.toggle = false;
+        if (!data) data = new Collapse(element, _config);
+        if (typeof config === "string") {
+            if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+            data[config]();
+        }
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            Collapse.collapseInterface(this, config);
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$4, function(event) {
+    // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
+    if (event.target.tagName === "A" || event.delegateTarget && event.delegateTarget.tagName === "A") event.preventDefault();
+    const triggerData = Manipulator.getDataAttributes(this);
+    const selector = getSelectorFromElement(this);
+    const selectorElements = SelectorEngine.find(selector);
+    selectorElements.forEach((element)=>{
+        const data = Data.get(element, DATA_KEY$8);
+        let config;
+        if (data) {
+            // update parent attribute
+            if (data._parent === null && typeof triggerData.parent === "string") {
+                data._config.parent = triggerData.parent;
+                data._parent = data._getParent();
+            }
+            config = "toggle";
+        } else config = triggerData;
+        Collapse.collapseInterface(element, config);
+    });
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Collapse to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Collapse);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): dropdown.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$8 = "dropdown";
+const DATA_KEY$7 = "bs.dropdown";
+const EVENT_KEY$7 = `.${DATA_KEY$7}`;
+const DATA_API_KEY$4 = ".data-api";
+const ESCAPE_KEY$2 = "Escape";
+const SPACE_KEY = "Space";
+const TAB_KEY = "Tab";
+const ARROW_UP_KEY = "ArrowUp";
+const ARROW_DOWN_KEY = "ArrowDown";
+const RIGHT_MOUSE_BUTTON = 2; // MouseEvent.button value for the secondary button, usually the right button
+const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEY}|${ARROW_DOWN_KEY}|${ESCAPE_KEY$2}`);
+const EVENT_HIDE$4 = `hide${EVENT_KEY$7}`;
+const EVENT_HIDDEN$4 = `hidden${EVENT_KEY$7}`;
+const EVENT_SHOW$4 = `show${EVENT_KEY$7}`;
+const EVENT_SHOWN$4 = `shown${EVENT_KEY$7}`;
+const EVENT_CLICK = `click${EVENT_KEY$7}`;
+const EVENT_CLICK_DATA_API$3 = `click${EVENT_KEY$7}${DATA_API_KEY$4}`;
+const EVENT_KEYDOWN_DATA_API = `keydown${EVENT_KEY$7}${DATA_API_KEY$4}`;
+const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY$7}${DATA_API_KEY$4}`;
+const CLASS_NAME_SHOW$7 = "show";
+const CLASS_NAME_DROPUP = "dropup";
+const CLASS_NAME_DROPEND = "dropend";
+const CLASS_NAME_DROPSTART = "dropstart";
+const CLASS_NAME_NAVBAR = "navbar";
+const SELECTOR_DATA_TOGGLE$3 = '[data-bs-toggle="dropdown"]';
+const SELECTOR_MENU = ".dropdown-menu";
+const SELECTOR_NAVBAR_NAV = ".navbar-nav";
+const SELECTOR_VISIBLE_ITEMS = ".dropdown-menu .dropdown-item:not(.disabled):not(:disabled)";
+const PLACEMENT_TOP = isRTL() ? "top-end" : "top-start";
+const PLACEMENT_TOPEND = isRTL() ? "top-start" : "top-end";
+const PLACEMENT_BOTTOM = isRTL() ? "bottom-end" : "bottom-start";
+const PLACEMENT_BOTTOMEND = isRTL() ? "bottom-start" : "bottom-end";
+const PLACEMENT_RIGHT = isRTL() ? "left-start" : "right-start";
+const PLACEMENT_LEFT = isRTL() ? "right-start" : "left-start";
+const Default$7 = {
+    offset: [
+        0,
+        2
+    ],
+    boundary: "clippingParents",
+    reference: "toggle",
+    display: "dynamic",
+    popperConfig: null,
+    autoClose: true
+};
+const DefaultType$7 = {
+    offset: "(array|string|function)",
+    boundary: "(string|element)",
+    reference: "(string|element|object)",
+    display: "string",
+    popperConfig: "(null|object|function)",
+    autoClose: "(boolean|string)"
+};
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Dropdown extends BaseComponent {
+    constructor(element, config){
+        super(element);
+        this._popper = null;
+        this._config = this._getConfig(config);
+        this._menu = this._getMenuElement();
+        this._inNavbar = this._detectNavbar();
+        this._addEventListeners();
+    }
+    static get Default() {
+        return Default$7;
+    }
+    static get DefaultType() {
+        return DefaultType$7;
+    }
+    static get NAME() {
+        return NAME$8;
+    }
+    toggle() {
+        if (isDisabled(this._element)) return;
+        const isActive = this._element.classList.contains(CLASS_NAME_SHOW$7);
+        if (isActive) {
+            this.hide();
+            return;
+        }
+        this.show();
+    }
+    show() {
+        if (isDisabled(this._element) || this._menu.classList.contains(CLASS_NAME_SHOW$7)) return;
+        const parent = Dropdown.getParentFromElement(this._element);
+        const relatedTarget = {
+            relatedTarget: this._element
+        };
+        const showEvent = EventHandler.trigger(this._element, EVENT_SHOW$4, relatedTarget);
+        if (showEvent.defaultPrevented) return;
+         // Totally disable Popper for Dropdowns in Navbar
+        if (this._inNavbar) Manipulator.setDataAttribute(this._menu, "popper", "none");
+        else {
+            if (typeof _core === "undefined") throw new TypeError("Bootstrap's dropdowns require Popper (https://popper.js.org)");
+            let referenceElement = this._element;
+            if (this._config.reference === "parent") referenceElement = parent;
+            else if (isElement(this._config.reference)) referenceElement = getElement(this._config.reference);
+            else if (typeof this._config.reference === "object") referenceElement = this._config.reference;
+            const popperConfig = this._getPopperConfig();
+            const isDisplayStatic = popperConfig.modifiers.find((modifier)=>modifier.name === "applyStyles" && modifier.enabled === false);
+            this._popper = _core.createPopper(referenceElement, this._menu, popperConfig);
+            if (isDisplayStatic) Manipulator.setDataAttribute(this._menu, "popper", "static");
+        } // If this is a touch-enabled device we add extra
+        // empty mouseover listeners to the body's immediate children;
+        // only needed because of broken event delegation on iOS
+        // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+        if ("ontouchstart" in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) [].concat(...document.body.children).forEach((elem)=>EventHandler.on(elem, "mouseover", noop));
+        this._element.focus();
+        this._element.setAttribute("aria-expanded", true);
+        this._menu.classList.toggle(CLASS_NAME_SHOW$7);
+        this._element.classList.toggle(CLASS_NAME_SHOW$7);
+        EventHandler.trigger(this._element, EVENT_SHOWN$4, relatedTarget);
+    }
+    hide() {
+        if (isDisabled(this._element) || !this._menu.classList.contains(CLASS_NAME_SHOW$7)) return;
+        const relatedTarget = {
+            relatedTarget: this._element
+        };
+        this._completeHide(relatedTarget);
+    }
+    dispose() {
+        if (this._popper) this._popper.destroy();
+        super.dispose();
+    }
+    update() {
+        this._inNavbar = this._detectNavbar();
+        if (this._popper) this._popper.update();
+    }
+    _addEventListeners() {
+        EventHandler.on(this._element, EVENT_CLICK, (event)=>{
+            event.preventDefault();
+            this.toggle();
+        });
+    }
+    _completeHide(relatedTarget) {
+        const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$4, relatedTarget);
+        if (hideEvent.defaultPrevented) return;
+         // If this is a touch-enabled device we remove the extra
+        // empty mouseover listeners we added for iOS support
+        if ("ontouchstart" in document.documentElement) [].concat(...document.body.children).forEach((elem)=>EventHandler.off(elem, "mouseover", noop));
+        if (this._popper) this._popper.destroy();
+        this._menu.classList.remove(CLASS_NAME_SHOW$7);
+        this._element.classList.remove(CLASS_NAME_SHOW$7);
+        this._element.setAttribute("aria-expanded", "false");
+        Manipulator.removeDataAttribute(this._menu, "popper");
+        EventHandler.trigger(this._element, EVENT_HIDDEN$4, relatedTarget);
+    }
+    _getConfig(config) {
+        config = {
+            ...this.constructor.Default,
+            ...Manipulator.getDataAttributes(this._element),
+            ...config
+        };
+        typeCheckConfig(NAME$8, config, this.constructor.DefaultType);
+        if (typeof config.reference === "object" && !isElement(config.reference) && typeof config.reference.getBoundingClientRect !== "function") // Popper virtual elements require a getBoundingClientRect method
+        throw new TypeError(`${NAME$8.toUpperCase()}: Option "reference" provided type "object" without a required "getBoundingClientRect" method.`);
+        return config;
+    }
+    _getMenuElement() {
+        return SelectorEngine.next(this._element, SELECTOR_MENU)[0];
+    }
+    _getPlacement() {
+        const parentDropdown = this._element.parentNode;
+        if (parentDropdown.classList.contains(CLASS_NAME_DROPEND)) return PLACEMENT_RIGHT;
+        if (parentDropdown.classList.contains(CLASS_NAME_DROPSTART)) return PLACEMENT_LEFT;
+         // We need to trim the value because custom properties can also include spaces
+        const isEnd = getComputedStyle(this._menu).getPropertyValue("--bs-position").trim() === "end";
+        if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
+        return isEnd ? PLACEMENT_BOTTOMEND : PLACEMENT_BOTTOM;
+    }
+    _detectNavbar() {
+        return this._element.closest(`.${CLASS_NAME_NAVBAR}`) !== null;
+    }
+    _getOffset() {
+        const { offset } = this._config;
+        if (typeof offset === "string") return offset.split(",").map((val)=>Number.parseInt(val, 10));
+        if (typeof offset === "function") return (popperData)=>offset(popperData, this._element);
+        return offset;
+    }
+    _getPopperConfig() {
+        const defaultBsPopperConfig = {
+            placement: this._getPlacement(),
+            modifiers: [
+                {
+                    name: "preventOverflow",
+                    options: {
+                        boundary: this._config.boundary
+                    }
+                },
+                {
+                    name: "offset",
+                    options: {
+                        offset: this._getOffset()
+                    }
+                }
+            ]
+        }; // Disable Popper if we have a static display
+        if (this._config.display === "static") defaultBsPopperConfig.modifiers = [
+            {
+                name: "applyStyles",
+                enabled: false
+            }
+        ];
+        return {
+            ...defaultBsPopperConfig,
+            ...typeof this._config.popperConfig === "function" ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig
+        };
+    }
+    _selectMenuItem(event) {
+        const items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, this._menu).filter(isVisible);
+        if (!items.length) return;
+        let index = items.indexOf(event.target); // Up
+        if (event.key === ARROW_UP_KEY && index > 0) index--;
+         // Down
+        if (event.key === ARROW_DOWN_KEY && index < items.length - 1) index++;
+         // index is -1 if the first keydown is an ArrowUp
+        index = index === -1 ? 0 : index;
+        items[index].focus();
+    }
+    static dropdownInterface(element, config) {
+        let data = Data.get(element, DATA_KEY$7);
+        const _config = typeof config === "object" ? config : null;
+        if (!data) data = new Dropdown(element, _config);
+        if (typeof config === "string") {
+            if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+            data[config]();
+        }
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            Dropdown.dropdownInterface(this, config);
+        });
+    }
+    static clearMenus(event) {
+        if (event && (event.button === RIGHT_MOUSE_BUTTON || event.type === "keyup" && event.key !== TAB_KEY)) return;
+        const toggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE$3);
+        for(let i = 0, len = toggles.length; i < len; i++){
+            const context = Data.get(toggles[i], DATA_KEY$7);
+            if (!context || context._config.autoClose === false) continue;
+            if (!context._element.classList.contains(CLASS_NAME_SHOW$7)) continue;
+            const relatedTarget = {
+                relatedTarget: context._element
+            };
+            if (event) {
+                const composedPath = event.composedPath();
+                const isMenuTarget = composedPath.includes(context._menu);
+                if (composedPath.includes(context._element) || context._config.autoClose === "inside" && !isMenuTarget || context._config.autoClose === "outside" && isMenuTarget) continue;
+                 // Tab navigation through the dropdown menu or events from contained inputs shouldn't close the menu
+                if (context._menu.contains(event.target) && (event.type === "keyup" && event.key === TAB_KEY || /input|select|option|textarea|form/i.test(event.target.tagName))) continue;
+                if (event.type === "click") relatedTarget.clickEvent = event;
+            }
+            context._completeHide(relatedTarget);
+        }
+    }
+    static getParentFromElement(element) {
+        return getElementFromSelector(element) || element.parentNode;
+    }
+    static dataApiKeydownHandler(event) {
+        // If not input/textarea:
+        //  - And not a key in REGEXP_KEYDOWN => not a dropdown command
+        // If input/textarea:
+        //  - If space key => not a dropdown command
+        //  - If key is other than escape
+        //    - If key is not up or down => not a dropdown command
+        //    - If trigger inside the menu => not a dropdown command
+        if (/input|textarea/i.test(event.target.tagName) ? event.key === SPACE_KEY || event.key !== ESCAPE_KEY$2 && (event.key !== ARROW_DOWN_KEY && event.key !== ARROW_UP_KEY || event.target.closest(SELECTOR_MENU)) : !REGEXP_KEYDOWN.test(event.key)) return;
+        const isActive = this.classList.contains(CLASS_NAME_SHOW$7);
+        if (!isActive && event.key === ESCAPE_KEY$2) return;
+        event.preventDefault();
+        event.stopPropagation();
+        if (isDisabled(this)) return;
+        const getToggleButton = ()=>this.matches(SELECTOR_DATA_TOGGLE$3) ? this : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE$3)[0];
+        if (event.key === ESCAPE_KEY$2) {
+            getToggleButton().focus();
+            Dropdown.clearMenus();
+            return;
+        }
+        if (!isActive && (event.key === ARROW_UP_KEY || event.key === ARROW_DOWN_KEY)) {
+            getToggleButton().click();
+            return;
+        }
+        if (!isActive || event.key === SPACE_KEY) {
+            Dropdown.clearMenus();
+            return;
+        }
+        Dropdown.getInstance(getToggleButton())._selectMenuItem(event);
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$3, Dropdown.dataApiKeydownHandler);
+EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
+EventHandler.on(document, EVENT_CLICK_DATA_API$3, Dropdown.clearMenus);
+EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
+EventHandler.on(document, EVENT_CLICK_DATA_API$3, SELECTOR_DATA_TOGGLE$3, function(event) {
+    event.preventDefault();
+    Dropdown.dropdownInterface(this);
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Dropdown to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Dropdown);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): util/scrollBar.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ const SELECTOR_FIXED_CONTENT = ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top";
+const SELECTOR_STICKY_CONTENT = ".sticky-top";
+const getWidth = ()=>{
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth#usage_notes
+    const documentWidth = document.documentElement.clientWidth;
+    return Math.abs(window.innerWidth - documentWidth);
+};
+const hide = (width = getWidth())=>{
+    _disableOverFlow(); // give padding to element to balances the hidden scrollbar width
+    _setElementAttributes("body", "paddingRight", (calculatedValue)=>calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements, to keep shown fullwidth
+    _setElementAttributes(SELECTOR_FIXED_CONTENT, "paddingRight", (calculatedValue)=>calculatedValue + width);
+    _setElementAttributes(SELECTOR_STICKY_CONTENT, "marginRight", (calculatedValue)=>calculatedValue - width);
+};
+const _disableOverFlow = ()=>{
+    const actualValue = document.body.style.overflow;
+    if (actualValue) Manipulator.setDataAttribute(document.body, "overflow", actualValue);
+    document.body.style.overflow = "hidden";
+};
+const _setElementAttributes = (selector, styleProp, callback)=>{
+    const scrollbarWidth = getWidth();
+    SelectorEngine.find(selector).forEach((element)=>{
+        if (element !== document.body && window.innerWidth > element.clientWidth + scrollbarWidth) return;
+        const actualValue = element.style[styleProp];
+        const calculatedValue = window.getComputedStyle(element)[styleProp];
+        Manipulator.setDataAttribute(element, styleProp, actualValue);
+        element.style[styleProp] = `${callback(Number.parseFloat(calculatedValue))}px`;
+    });
+};
+const reset = ()=>{
+    _resetElementAttributes("body", "overflow");
+    _resetElementAttributes("body", "paddingRight");
+    _resetElementAttributes(SELECTOR_FIXED_CONTENT, "paddingRight");
+    _resetElementAttributes(SELECTOR_STICKY_CONTENT, "marginRight");
+};
+const _resetElementAttributes = (selector, styleProp)=>{
+    SelectorEngine.find(selector).forEach((element)=>{
+        const value = Manipulator.getDataAttribute(element, styleProp);
+        if (typeof value === "undefined") element.style.removeProperty(styleProp);
+        else {
+            Manipulator.removeDataAttribute(element, styleProp);
+            element.style[styleProp] = value;
+        }
+    });
+};
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): util/backdrop.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * --------------------------------------------------------------------------
+ */ const Default$6 = {
+    isVisible: true,
+    // if false, we use the backdrop helper without adding any element to the dom
+    isAnimated: false,
+    rootElement: document.body,
+    // give the choice to place backdrop under different elements
+    clickCallback: null
+};
+const DefaultType$6 = {
+    isVisible: "boolean",
+    isAnimated: "boolean",
+    rootElement: "element",
+    clickCallback: "(function|null)"
+};
+const NAME$7 = "backdrop";
+const CLASS_NAME_BACKDROP = "modal-backdrop";
+const CLASS_NAME_FADE$5 = "fade";
+const CLASS_NAME_SHOW$6 = "show";
+const EVENT_MOUSEDOWN = `mousedown.bs.${NAME$7}`;
+class Backdrop {
+    constructor(config){
+        this._config = this._getConfig(config);
+        this._isAppended = false;
+        this._element = null;
+    }
+    show(callback) {
+        if (!this._config.isVisible) {
+            execute(callback);
+            return;
+        }
+        this._append();
+        if (this._config.isAnimated) reflow(this._getElement());
+        this._getElement().classList.add(CLASS_NAME_SHOW$6);
+        this._emulateAnimation(()=>{
+            execute(callback);
+        });
+    }
+    hide(callback) {
+        if (!this._config.isVisible) {
+            execute(callback);
+            return;
+        }
+        this._getElement().classList.remove(CLASS_NAME_SHOW$6);
+        this._emulateAnimation(()=>{
+            this.dispose();
+            execute(callback);
+        });
+    }
+    _getElement() {
+        if (!this._element) {
+            const backdrop = document.createElement("div");
+            backdrop.className = CLASS_NAME_BACKDROP;
+            if (this._config.isAnimated) backdrop.classList.add(CLASS_NAME_FADE$5);
+            this._element = backdrop;
+        }
+        return this._element;
+    }
+    _getConfig(config) {
+        config = {
+            ...Default$6,
+            ...typeof config === "object" ? config : {}
+        };
+        config.rootElement = config.rootElement || document.body;
+        typeCheckConfig(NAME$7, config, DefaultType$6);
+        return config;
+    }
+    _append() {
+        if (this._isAppended) return;
+        this._config.rootElement.appendChild(this._getElement());
+        EventHandler.on(this._getElement(), EVENT_MOUSEDOWN, ()=>{
+            execute(this._config.clickCallback);
+        });
+        this._isAppended = true;
+    }
+    dispose() {
+        if (!this._isAppended) return;
+        EventHandler.off(this._element, EVENT_MOUSEDOWN);
+        this._getElement().parentNode.removeChild(this._element);
+        this._isAppended = false;
+    }
+    _emulateAnimation(callback) {
+        if (!this._config.isAnimated) {
+            execute(callback);
+            return;
+        }
+        const backdropTransitionDuration = getTransitionDurationFromElement(this._getElement());
+        EventHandler.one(this._getElement(), "transitionend", ()=>execute(callback));
+        emulateTransitionEnd(this._getElement(), backdropTransitionDuration);
+    }
+}
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): modal.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$6 = "modal";
+const DATA_KEY$6 = "bs.modal";
+const EVENT_KEY$6 = `.${DATA_KEY$6}`;
+const DATA_API_KEY$3 = ".data-api";
+const ESCAPE_KEY$1 = "Escape";
+const Default$5 = {
+    backdrop: true,
+    keyboard: true,
+    focus: true
+};
+const DefaultType$5 = {
+    backdrop: "(boolean|string)",
+    keyboard: "boolean",
+    focus: "boolean"
+};
+const EVENT_HIDE$3 = `hide${EVENT_KEY$6}`;
+const EVENT_HIDE_PREVENTED = `hidePrevented${EVENT_KEY$6}`;
+const EVENT_HIDDEN$3 = `hidden${EVENT_KEY$6}`;
+const EVENT_SHOW$3 = `show${EVENT_KEY$6}`;
+const EVENT_SHOWN$3 = `shown${EVENT_KEY$6}`;
+const EVENT_FOCUSIN$2 = `focusin${EVENT_KEY$6}`;
+const EVENT_RESIZE = `resize${EVENT_KEY$6}`;
+const EVENT_CLICK_DISMISS$2 = `click.dismiss${EVENT_KEY$6}`;
+const EVENT_KEYDOWN_DISMISS$1 = `keydown.dismiss${EVENT_KEY$6}`;
+const EVENT_MOUSEUP_DISMISS = `mouseup.dismiss${EVENT_KEY$6}`;
+const EVENT_MOUSEDOWN_DISMISS = `mousedown.dismiss${EVENT_KEY$6}`;
+const EVENT_CLICK_DATA_API$2 = `click${EVENT_KEY$6}${DATA_API_KEY$3}`;
+const CLASS_NAME_OPEN = "modal-open";
+const CLASS_NAME_FADE$4 = "fade";
+const CLASS_NAME_SHOW$5 = "show";
+const CLASS_NAME_STATIC = "modal-static";
+const SELECTOR_DIALOG = ".modal-dialog";
+const SELECTOR_MODAL_BODY = ".modal-body";
+const SELECTOR_DATA_TOGGLE$2 = '[data-bs-toggle="modal"]';
+const SELECTOR_DATA_DISMISS$2 = '[data-bs-dismiss="modal"]';
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Modal extends BaseComponent {
+    constructor(element, config){
+        super(element);
+        this._config = this._getConfig(config);
+        this._dialog = SelectorEngine.findOne(SELECTOR_DIALOG, this._element);
+        this._backdrop = this._initializeBackDrop();
+        this._isShown = false;
+        this._ignoreBackdropClick = false;
+        this._isTransitioning = false;
+    }
+    static get Default() {
+        return Default$5;
+    }
+    static get NAME() {
+        return NAME$6;
+    }
+    toggle(relatedTarget) {
+        return this._isShown ? this.hide() : this.show(relatedTarget);
+    }
+    show(relatedTarget) {
+        if (this._isShown || this._isTransitioning) return;
+        if (this._isAnimated()) this._isTransitioning = true;
+        const showEvent = EventHandler.trigger(this._element, EVENT_SHOW$3, {
+            relatedTarget
+        });
+        if (this._isShown || showEvent.defaultPrevented) return;
+        this._isShown = true;
+        hide();
+        document.body.classList.add(CLASS_NAME_OPEN);
+        this._adjustDialog();
+        this._setEscapeEvent();
+        this._setResizeEvent();
+        EventHandler.on(this._element, EVENT_CLICK_DISMISS$2, SELECTOR_DATA_DISMISS$2, (event)=>this.hide(event));
+        EventHandler.on(this._dialog, EVENT_MOUSEDOWN_DISMISS, ()=>{
+            EventHandler.one(this._element, EVENT_MOUSEUP_DISMISS, (event)=>{
+                if (event.target === this._element) this._ignoreBackdropClick = true;
+            });
+        });
+        this._showBackdrop(()=>this._showElement(relatedTarget));
+    }
+    hide(event) {
+        if (event) event.preventDefault();
+        if (!this._isShown || this._isTransitioning) return;
+        const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$3);
+        if (hideEvent.defaultPrevented) return;
+        this._isShown = false;
+        const isAnimated = this._isAnimated();
+        if (isAnimated) this._isTransitioning = true;
+        this._setEscapeEvent();
+        this._setResizeEvent();
+        EventHandler.off(document, EVENT_FOCUSIN$2);
+        this._element.classList.remove(CLASS_NAME_SHOW$5);
+        EventHandler.off(this._element, EVENT_CLICK_DISMISS$2);
+        EventHandler.off(this._dialog, EVENT_MOUSEDOWN_DISMISS);
+        this._queueCallback(()=>this._hideModal(), this._element, isAnimated);
+    }
+    dispose() {
+        [
+            window,
+            this._dialog
+        ].forEach((htmlElement)=>EventHandler.off(htmlElement, EVENT_KEY$6));
+        this._backdrop.dispose();
+        super.dispose();
+        /**
+     * `document` has 2 events `EVENT_FOCUSIN` and `EVENT_CLICK_DATA_API`
+     * Do not move `document` in `htmlElements` array
+     * It will remove `EVENT_CLICK_DATA_API` event that should remain
+     */ EventHandler.off(document, EVENT_FOCUSIN$2);
+    }
+    handleUpdate() {
+        this._adjustDialog();
+    }
+    _initializeBackDrop() {
+        return new Backdrop({
+            isVisible: Boolean(this._config.backdrop),
+            // 'static' option will be translated to true, and booleans will keep their value
+            isAnimated: this._isAnimated()
+        });
+    }
+    _getConfig(config) {
+        config = {
+            ...Default$5,
+            ...Manipulator.getDataAttributes(this._element),
+            ...config
+        };
+        typeCheckConfig(NAME$6, config, DefaultType$5);
+        return config;
+    }
+    _showElement(relatedTarget) {
+        const isAnimated = this._isAnimated();
+        const modalBody = SelectorEngine.findOne(SELECTOR_MODAL_BODY, this._dialog);
+        if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) // Don't move modal's DOM position
+        document.body.appendChild(this._element);
+        this._element.style.display = "block";
+        this._element.removeAttribute("aria-hidden");
+        this._element.setAttribute("aria-modal", true);
+        this._element.setAttribute("role", "dialog");
+        this._element.scrollTop = 0;
+        if (modalBody) modalBody.scrollTop = 0;
+        if (isAnimated) reflow(this._element);
+        this._element.classList.add(CLASS_NAME_SHOW$5);
+        if (this._config.focus) this._enforceFocus();
+        const transitionComplete = ()=>{
+            if (this._config.focus) this._element.focus();
+            this._isTransitioning = false;
+            EventHandler.trigger(this._element, EVENT_SHOWN$3, {
+                relatedTarget
+            });
+        };
+        this._queueCallback(transitionComplete, this._dialog, isAnimated);
+    }
+    _enforceFocus() {
+        EventHandler.off(document, EVENT_FOCUSIN$2); // guard against infinite focus loop
+        EventHandler.on(document, EVENT_FOCUSIN$2, (event)=>{
+            if (document !== event.target && this._element !== event.target && !this._element.contains(event.target)) this._element.focus();
+        });
+    }
+    _setEscapeEvent() {
+        if (this._isShown) EventHandler.on(this._element, EVENT_KEYDOWN_DISMISS$1, (event)=>{
+            if (this._config.keyboard && event.key === ESCAPE_KEY$1) {
+                event.preventDefault();
+                this.hide();
+            } else if (!this._config.keyboard && event.key === ESCAPE_KEY$1) this._triggerBackdropTransition();
+        });
+        else EventHandler.off(this._element, EVENT_KEYDOWN_DISMISS$1);
+    }
+    _setResizeEvent() {
+        if (this._isShown) EventHandler.on(window, EVENT_RESIZE, ()=>this._adjustDialog());
+        else EventHandler.off(window, EVENT_RESIZE);
+    }
+    _hideModal() {
+        this._element.style.display = "none";
+        this._element.setAttribute("aria-hidden", true);
+        this._element.removeAttribute("aria-modal");
+        this._element.removeAttribute("role");
+        this._isTransitioning = false;
+        this._backdrop.hide(()=>{
+            document.body.classList.remove(CLASS_NAME_OPEN);
+            this._resetAdjustments();
+            reset();
+            EventHandler.trigger(this._element, EVENT_HIDDEN$3);
+        });
+    }
+    _showBackdrop(callback) {
+        EventHandler.on(this._element, EVENT_CLICK_DISMISS$2, (event)=>{
+            if (this._ignoreBackdropClick) {
+                this._ignoreBackdropClick = false;
+                return;
+            }
+            if (event.target !== event.currentTarget) return;
+            if (this._config.backdrop === true) this.hide();
+            else if (this._config.backdrop === "static") this._triggerBackdropTransition();
+        });
+        this._backdrop.show(callback);
+    }
+    _isAnimated() {
+        return this._element.classList.contains(CLASS_NAME_FADE$4);
+    }
+    _triggerBackdropTransition() {
+        const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
+        if (hideEvent.defaultPrevented) return;
+        const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+        if (!isModalOverflowing) this._element.style.overflowY = "hidden";
+        this._element.classList.add(CLASS_NAME_STATIC);
+        const modalTransitionDuration = getTransitionDurationFromElement(this._dialog);
+        EventHandler.off(this._element, "transitionend");
+        EventHandler.one(this._element, "transitionend", ()=>{
+            this._element.classList.remove(CLASS_NAME_STATIC);
+            if (!isModalOverflowing) {
+                EventHandler.one(this._element, "transitionend", ()=>{
+                    this._element.style.overflowY = "";
+                });
+                emulateTransitionEnd(this._element, modalTransitionDuration);
+            }
+        });
+        emulateTransitionEnd(this._element, modalTransitionDuration);
+        this._element.focus();
+    }
+    // the following methods are used to handle overflowing modals
+    // ----------------------------------------------------------------------
+    _adjustDialog() {
+        const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+        const scrollbarWidth = getWidth();
+        const isBodyOverflowing = scrollbarWidth > 0;
+        if (!isBodyOverflowing && isModalOverflowing && !isRTL() || isBodyOverflowing && !isModalOverflowing && isRTL()) this._element.style.paddingLeft = `${scrollbarWidth}px`;
+        if (isBodyOverflowing && !isModalOverflowing && !isRTL() || !isBodyOverflowing && isModalOverflowing && isRTL()) this._element.style.paddingRight = `${scrollbarWidth}px`;
+    }
+    _resetAdjustments() {
+        this._element.style.paddingLeft = "";
+        this._element.style.paddingRight = "";
+    }
+    static jQueryInterface(config, relatedTarget) {
+        return this.each(function() {
+            const data = Modal.getInstance(this) || new Modal(this, typeof config === "object" ? config : {});
+            if (typeof config !== "string") return;
+            if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+            data[config](relatedTarget);
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_CLICK_DATA_API$2, SELECTOR_DATA_TOGGLE$2, function(event) {
+    const target = getElementFromSelector(this);
+    if ([
+        "A",
+        "AREA"
+    ].includes(this.tagName)) event.preventDefault();
+    EventHandler.one(target, EVENT_SHOW$3, (showEvent)=>{
+        if (showEvent.defaultPrevented) // only register focus restorer if modal will actually get shown
+        return;
+        EventHandler.one(target, EVENT_HIDDEN$3, ()=>{
+            if (isVisible(this)) this.focus();
+        });
+    });
+    const data = Modal.getInstance(target) || new Modal(target);
+    data.toggle(this);
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Modal to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Modal);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): offcanvas.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$5 = "offcanvas";
+const DATA_KEY$5 = "bs.offcanvas";
+const EVENT_KEY$5 = `.${DATA_KEY$5}`;
+const DATA_API_KEY$2 = ".data-api";
+const EVENT_LOAD_DATA_API$1 = `load${EVENT_KEY$5}${DATA_API_KEY$2}`;
+const ESCAPE_KEY = "Escape";
+const Default$4 = {
+    backdrop: true,
+    keyboard: true,
+    scroll: false
+};
+const DefaultType$4 = {
+    backdrop: "boolean",
+    keyboard: "boolean",
+    scroll: "boolean"
+};
+const CLASS_NAME_SHOW$4 = "show";
+const OPEN_SELECTOR = ".offcanvas.show";
+const EVENT_SHOW$2 = `show${EVENT_KEY$5}`;
+const EVENT_SHOWN$2 = `shown${EVENT_KEY$5}`;
+const EVENT_HIDE$2 = `hide${EVENT_KEY$5}`;
+const EVENT_HIDDEN$2 = `hidden${EVENT_KEY$5}`;
+const EVENT_FOCUSIN$1 = `focusin${EVENT_KEY$5}`;
+const EVENT_CLICK_DATA_API$1 = `click${EVENT_KEY$5}${DATA_API_KEY$2}`;
+const EVENT_CLICK_DISMISS$1 = `click.dismiss${EVENT_KEY$5}`;
+const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$5}`;
+const SELECTOR_DATA_DISMISS$1 = '[data-bs-dismiss="offcanvas"]';
+const SELECTOR_DATA_TOGGLE$1 = '[data-bs-toggle="offcanvas"]';
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Offcanvas extends BaseComponent {
+    constructor(element, config){
+        super(element);
+        this._config = this._getConfig(config);
+        this._isShown = false;
+        this._backdrop = this._initializeBackDrop();
+        this._addEventListeners();
+    }
+    static get NAME() {
+        return NAME$5;
+    }
+    static get Default() {
+        return Default$4;
+    }
+    toggle(relatedTarget) {
+        return this._isShown ? this.hide() : this.show(relatedTarget);
+    }
+    show(relatedTarget) {
+        if (this._isShown) return;
+        const showEvent = EventHandler.trigger(this._element, EVENT_SHOW$2, {
+            relatedTarget
+        });
+        if (showEvent.defaultPrevented) return;
+        this._isShown = true;
+        this._element.style.visibility = "visible";
+        this._backdrop.show();
+        if (!this._config.scroll) {
+            hide();
+            this._enforceFocusOnElement(this._element);
+        }
+        this._element.removeAttribute("aria-hidden");
+        this._element.setAttribute("aria-modal", true);
+        this._element.setAttribute("role", "dialog");
+        this._element.classList.add(CLASS_NAME_SHOW$4);
+        const completeCallBack = ()=>{
+            EventHandler.trigger(this._element, EVENT_SHOWN$2, {
+                relatedTarget
+            });
+        };
+        this._queueCallback(completeCallBack, this._element, true);
+    }
+    hide() {
+        if (!this._isShown) return;
+        const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$2);
+        if (hideEvent.defaultPrevented) return;
+        EventHandler.off(document, EVENT_FOCUSIN$1);
+        this._element.blur();
+        this._isShown = false;
+        this._element.classList.remove(CLASS_NAME_SHOW$4);
+        this._backdrop.hide();
+        const completeCallback = ()=>{
+            this._element.setAttribute("aria-hidden", true);
+            this._element.removeAttribute("aria-modal");
+            this._element.removeAttribute("role");
+            this._element.style.visibility = "hidden";
+            if (!this._config.scroll) reset();
+            EventHandler.trigger(this._element, EVENT_HIDDEN$2);
+        };
+        this._queueCallback(completeCallback, this._element, true);
+    }
+    dispose() {
+        this._backdrop.dispose();
+        super.dispose();
+        EventHandler.off(document, EVENT_FOCUSIN$1);
+    }
+    _getConfig(config) {
+        config = {
+            ...Default$4,
+            ...Manipulator.getDataAttributes(this._element),
+            ...typeof config === "object" ? config : {}
+        };
+        typeCheckConfig(NAME$5, config, DefaultType$4);
+        return config;
+    }
+    _initializeBackDrop() {
+        return new Backdrop({
+            isVisible: this._config.backdrop,
+            isAnimated: true,
+            rootElement: this._element.parentNode,
+            clickCallback: ()=>this.hide()
+        });
+    }
+    _enforceFocusOnElement(element) {
+        EventHandler.off(document, EVENT_FOCUSIN$1); // guard against infinite focus loop
+        EventHandler.on(document, EVENT_FOCUSIN$1, (event)=>{
+            if (document !== event.target && element !== event.target && !element.contains(event.target)) element.focus();
+        });
+        element.focus();
+    }
+    _addEventListeners() {
+        EventHandler.on(this._element, EVENT_CLICK_DISMISS$1, SELECTOR_DATA_DISMISS$1, ()=>this.hide());
+        EventHandler.on(this._element, EVENT_KEYDOWN_DISMISS, (event)=>{
+            if (this._config.keyboard && event.key === ESCAPE_KEY) this.hide();
+        });
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            const data = Data.get(this, DATA_KEY$5) || new Offcanvas(this, typeof config === "object" ? config : {});
+            if (typeof config !== "string") return;
+            if (data[config] === undefined || config.startsWith("_") || config === "constructor") throw new TypeError(`No method named "${config}"`);
+            data[config](this);
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_CLICK_DATA_API$1, SELECTOR_DATA_TOGGLE$1, function(event) {
+    const target = getElementFromSelector(this);
+    if ([
+        "A",
+        "AREA"
+    ].includes(this.tagName)) event.preventDefault();
+    if (isDisabled(this)) return;
+    EventHandler.one(target, EVENT_HIDDEN$2, ()=>{
+        // focus on trigger when it is closed
+        if (isVisible(this)) this.focus();
+    }); // avoid conflict when clicking a toggler of an offcanvas, while another is open
+    const allReadyOpen = SelectorEngine.findOne(OPEN_SELECTOR);
+    if (allReadyOpen && allReadyOpen !== target) Offcanvas.getInstance(allReadyOpen).hide();
+    const data = Data.get(target, DATA_KEY$5) || new Offcanvas(target);
+    data.toggle(this);
+});
+EventHandler.on(window, EVENT_LOAD_DATA_API$1, ()=>{
+    SelectorEngine.find(OPEN_SELECTOR).forEach((el)=>(Data.get(el, DATA_KEY$5) || new Offcanvas(el)).show());
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ */ defineJQueryPlugin(Offcanvas);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): util/sanitizer.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ const uriAttrs = new Set([
+    "background",
+    "cite",
+    "href",
+    "itemtype",
+    "longdesc",
+    "poster",
+    "src",
+    "xlink:href"
+]);
+const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
+/**
+ * A pattern that recognizes a commonly useful subset of URLs that are safe.
+ *
+ * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+ */ const SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^#&/:?]*(?:[#/?]|$))/i;
+/**
+ * A pattern that matches safe data URLs. Only matches image, video and audio types.
+ *
+ * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+ */ const DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[\d+/a-z]+=*$/i;
+const allowedAttribute = (attr, allowedAttributeList)=>{
+    const attrName = attr.nodeName.toLowerCase();
+    if (allowedAttributeList.includes(attrName)) {
+        if (uriAttrs.has(attrName)) return Boolean(SAFE_URL_PATTERN.test(attr.nodeValue) || DATA_URL_PATTERN.test(attr.nodeValue));
+        return true;
+    }
+    const regExp = allowedAttributeList.filter((attrRegex)=>attrRegex instanceof RegExp); // Check if a regular expression validates the attribute.
+    for(let i = 0, len = regExp.length; i < len; i++){
+        if (regExp[i].test(attrName)) return true;
+    }
+    return false;
+};
+const DefaultAllowlist = {
+    // Global attributes allowed on any supplied element below.
+    "*": [
+        "class",
+        "dir",
+        "id",
+        "lang",
+        "role",
+        ARIA_ATTRIBUTE_PATTERN
+    ],
+    a: [
+        "target",
+        "href",
+        "title",
+        "rel"
+    ],
+    area: [],
+    b: [],
+    br: [],
+    col: [],
+    code: [],
+    div: [],
+    em: [],
+    hr: [],
+    h1: [],
+    h2: [],
+    h3: [],
+    h4: [],
+    h5: [],
+    h6: [],
+    i: [],
+    img: [
+        "src",
+        "srcset",
+        "alt",
+        "title",
+        "width",
+        "height"
+    ],
+    li: [],
+    ol: [],
+    p: [],
+    pre: [],
+    s: [],
+    small: [],
+    span: [],
+    sub: [],
+    sup: [],
+    strong: [],
+    u: [],
+    ul: []
+};
+function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
+    if (!unsafeHtml.length) return unsafeHtml;
+    if (sanitizeFn && typeof sanitizeFn === "function") return sanitizeFn(unsafeHtml);
+    const domParser = new window.DOMParser();
+    const createdDocument = domParser.parseFromString(unsafeHtml, "text/html");
+    const allowlistKeys = Object.keys(allowList);
+    const elements = [].concat(...createdDocument.body.querySelectorAll("*"));
+    for(let i = 0, len = elements.length; i < len; i++){
+        const el = elements[i];
+        const elName = el.nodeName.toLowerCase();
+        if (!allowlistKeys.includes(elName)) {
+            el.parentNode.removeChild(el);
+            continue;
+        }
+        const attributeList = [].concat(...el.attributes);
+        const allowedAttributes = [].concat(allowList["*"] || [], allowList[elName] || []);
+        attributeList.forEach((attr)=>{
+            if (!allowedAttribute(attr, allowedAttributes)) el.removeAttribute(attr.nodeName);
+        });
+    }
+    return createdDocument.body.innerHTML;
+}
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): tooltip.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$4 = "tooltip";
+const DATA_KEY$4 = "bs.tooltip";
+const EVENT_KEY$4 = `.${DATA_KEY$4}`;
+const CLASS_PREFIX$1 = "bs-tooltip";
+const BSCLS_PREFIX_REGEX$1 = new RegExp(`(^|\\s)${CLASS_PREFIX$1}\\S+`, "g");
+const DISALLOWED_ATTRIBUTES = new Set([
+    "sanitize",
+    "allowList",
+    "sanitizeFn"
+]);
+const DefaultType$3 = {
+    animation: "boolean",
+    template: "string",
+    title: "(string|element|function)",
+    trigger: "string",
+    delay: "(number|object)",
+    html: "boolean",
+    selector: "(string|boolean)",
+    placement: "(string|function)",
+    offset: "(array|string|function)",
+    container: "(string|element|boolean)",
+    fallbackPlacements: "array",
+    boundary: "(string|element)",
+    customClass: "(string|function)",
+    sanitize: "boolean",
+    sanitizeFn: "(null|function)",
+    allowList: "object",
+    popperConfig: "(null|object|function)"
+};
+const AttachmentMap = {
+    AUTO: "auto",
+    TOP: "top",
+    RIGHT: isRTL() ? "left" : "right",
+    BOTTOM: "bottom",
+    LEFT: isRTL() ? "right" : "left"
+};
+const Default$3 = {
+    animation: true,
+    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+    trigger: "hover focus",
+    title: "",
+    delay: 0,
+    html: false,
+    selector: false,
+    placement: "top",
+    offset: [
+        0,
+        0
+    ],
+    container: false,
+    fallbackPlacements: [
+        "top",
+        "right",
+        "bottom",
+        "left"
+    ],
+    boundary: "clippingParents",
+    customClass: "",
+    sanitize: true,
+    sanitizeFn: null,
+    allowList: DefaultAllowlist,
+    popperConfig: null
+};
+const Event$2 = {
+    HIDE: `hide${EVENT_KEY$4}`,
+    HIDDEN: `hidden${EVENT_KEY$4}`,
+    SHOW: `show${EVENT_KEY$4}`,
+    SHOWN: `shown${EVENT_KEY$4}`,
+    INSERTED: `inserted${EVENT_KEY$4}`,
+    CLICK: `click${EVENT_KEY$4}`,
+    FOCUSIN: `focusin${EVENT_KEY$4}`,
+    FOCUSOUT: `focusout${EVENT_KEY$4}`,
+    MOUSEENTER: `mouseenter${EVENT_KEY$4}`,
+    MOUSELEAVE: `mouseleave${EVENT_KEY$4}`
+};
+const CLASS_NAME_FADE$3 = "fade";
+const CLASS_NAME_MODAL = "modal";
+const CLASS_NAME_SHOW$3 = "show";
+const HOVER_STATE_SHOW = "show";
+const HOVER_STATE_OUT = "out";
+const SELECTOR_TOOLTIP_INNER = ".tooltip-inner";
+const TRIGGER_HOVER = "hover";
+const TRIGGER_FOCUS = "focus";
+const TRIGGER_CLICK = "click";
+const TRIGGER_MANUAL = "manual";
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Tooltip extends BaseComponent {
+    constructor(element, config){
+        if (typeof _core === "undefined") throw new TypeError("Bootstrap's tooltips require Popper (https://popper.js.org)");
+        super(element); // private
+        this._isEnabled = true;
+        this._timeout = 0;
+        this._hoverState = "";
+        this._activeTrigger = {};
+        this._popper = null; // Protected
+        this._config = this._getConfig(config);
+        this.tip = null;
+        this._setListeners();
+    }
+    static get Default() {
+        return Default$3;
+    }
+    static get NAME() {
+        return NAME$4;
+    }
+    static get Event() {
+        return Event$2;
+    }
+    static get DefaultType() {
+        return DefaultType$3;
+    }
+    enable() {
+        this._isEnabled = true;
+    }
+    disable() {
+        this._isEnabled = false;
+    }
+    toggleEnabled() {
+        this._isEnabled = !this._isEnabled;
+    }
+    toggle(event) {
+        if (!this._isEnabled) return;
+        if (event) {
+            const context = this._initializeOnDelegatedTarget(event);
+            context._activeTrigger.click = !context._activeTrigger.click;
+            if (context._isWithActiveTrigger()) context._enter(null, context);
+            else context._leave(null, context);
+        } else {
+            if (this.getTipElement().classList.contains(CLASS_NAME_SHOW$3)) {
+                this._leave(null, this);
+                return;
+            }
+            this._enter(null, this);
+        }
+    }
+    dispose() {
+        clearTimeout(this._timeout);
+        EventHandler.off(this._element.closest(`.${CLASS_NAME_MODAL}`), "hide.bs.modal", this._hideModalHandler);
+        if (this.tip && this.tip.parentNode) this.tip.parentNode.removeChild(this.tip);
+        if (this._popper) this._popper.destroy();
+        super.dispose();
+    }
+    show() {
+        if (this._element.style.display === "none") throw new Error("Please use show on visible elements");
+        if (!(this.isWithContent() && this._isEnabled)) return;
+        const showEvent = EventHandler.trigger(this._element, this.constructor.Event.SHOW);
+        const shadowRoot = findShadowRoot(this._element);
+        const isInTheDom = shadowRoot === null ? this._element.ownerDocument.documentElement.contains(this._element) : shadowRoot.contains(this._element);
+        if (showEvent.defaultPrevented || !isInTheDom) return;
+        const tip = this.getTipElement();
+        const tipId = getUID(this.constructor.NAME);
+        tip.setAttribute("id", tipId);
+        this._element.setAttribute("aria-describedby", tipId);
+        this.setContent();
+        if (this._config.animation) tip.classList.add(CLASS_NAME_FADE$3);
+        const placement = typeof this._config.placement === "function" ? this._config.placement.call(this, tip, this._element) : this._config.placement;
+        const attachment = this._getAttachment(placement);
+        this._addAttachmentClass(attachment);
+        const { container } = this._config;
+        Data.set(tip, this.constructor.DATA_KEY, this);
+        if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
+            container.appendChild(tip);
+            EventHandler.trigger(this._element, this.constructor.Event.INSERTED);
+        }
+        if (this._popper) this._popper.update();
+        else this._popper = _core.createPopper(this._element, tip, this._getPopperConfig(attachment));
+        tip.classList.add(CLASS_NAME_SHOW$3);
+        const customClass = typeof this._config.customClass === "function" ? this._config.customClass() : this._config.customClass;
+        if (customClass) tip.classList.add(...customClass.split(" "));
+         // If this is a touch-enabled device we add extra
+        // empty mouseover listeners to the body's immediate children;
+        // only needed because of broken event delegation on iOS
+        // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+        if ("ontouchstart" in document.documentElement) [].concat(...document.body.children).forEach((element)=>{
+            EventHandler.on(element, "mouseover", noop);
+        });
+        const complete = ()=>{
+            const prevHoverState = this._hoverState;
+            this._hoverState = null;
+            EventHandler.trigger(this._element, this.constructor.Event.SHOWN);
+            if (prevHoverState === HOVER_STATE_OUT) this._leave(null, this);
+        };
+        const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE$3);
+        this._queueCallback(complete, this.tip, isAnimated);
+    }
+    hide() {
+        if (!this._popper) return;
+        const tip = this.getTipElement();
+        const complete = ()=>{
+            if (this._isWithActiveTrigger()) return;
+            if (this._hoverState !== HOVER_STATE_SHOW && tip.parentNode) tip.parentNode.removeChild(tip);
+            this._cleanTipClass();
+            this._element.removeAttribute("aria-describedby");
+            EventHandler.trigger(this._element, this.constructor.Event.HIDDEN);
+            if (this._popper) {
+                this._popper.destroy();
+                this._popper = null;
+            }
+        };
+        const hideEvent = EventHandler.trigger(this._element, this.constructor.Event.HIDE);
+        if (hideEvent.defaultPrevented) return;
+        tip.classList.remove(CLASS_NAME_SHOW$3); // If this is a touch-enabled device we remove the extra
+        // empty mouseover listeners we added for iOS support
+        if ("ontouchstart" in document.documentElement) [].concat(...document.body.children).forEach((element)=>EventHandler.off(element, "mouseover", noop));
+        this._activeTrigger[TRIGGER_CLICK] = false;
+        this._activeTrigger[TRIGGER_FOCUS] = false;
+        this._activeTrigger[TRIGGER_HOVER] = false;
+        const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE$3);
+        this._queueCallback(complete, this.tip, isAnimated);
+        this._hoverState = "";
+    }
+    update() {
+        if (this._popper !== null) this._popper.update();
+    }
+    isWithContent() {
+        return Boolean(this.getTitle());
+    }
+    getTipElement() {
+        if (this.tip) return this.tip;
+        const element = document.createElement("div");
+        element.innerHTML = this._config.template;
+        this.tip = element.children[0];
+        return this.tip;
+    }
+    setContent() {
+        const tip = this.getTipElement();
+        this.setElementContent(SelectorEngine.findOne(SELECTOR_TOOLTIP_INNER, tip), this.getTitle());
+        tip.classList.remove(CLASS_NAME_FADE$3, CLASS_NAME_SHOW$3);
+    }
+    setElementContent(element, content) {
+        if (element === null) return;
+        if (isElement(content)) {
+            content = getElement(content); // content is a DOM node or a jQuery
+            if (this._config.html) {
+                if (content.parentNode !== element) {
+                    element.innerHTML = "";
+                    element.appendChild(content);
+                }
+            } else element.textContent = content.textContent;
+            return;
+        }
+        if (this._config.html) {
+            if (this._config.sanitize) content = sanitizeHtml(content, this._config.allowList, this._config.sanitizeFn);
+            element.innerHTML = content;
+        } else element.textContent = content;
+    }
+    getTitle() {
+        let title = this._element.getAttribute("data-bs-original-title");
+        if (!title) title = typeof this._config.title === "function" ? this._config.title.call(this._element) : this._config.title;
+        return title;
+    }
+    updateAttachment(attachment) {
+        if (attachment === "right") return "end";
+        if (attachment === "left") return "start";
+        return attachment;
+    }
+    _initializeOnDelegatedTarget(event, context) {
+        const dataKey = this.constructor.DATA_KEY;
+        context = context || Data.get(event.delegateTarget, dataKey);
+        if (!context) {
+            context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+            Data.set(event.delegateTarget, dataKey, context);
+        }
+        return context;
+    }
+    _getOffset() {
+        const { offset } = this._config;
+        if (typeof offset === "string") return offset.split(",").map((val)=>Number.parseInt(val, 10));
+        if (typeof offset === "function") return (popperData)=>offset(popperData, this._element);
+        return offset;
+    }
+    _getPopperConfig(attachment) {
+        const defaultBsPopperConfig = {
+            placement: attachment,
+            modifiers: [
+                {
+                    name: "flip",
+                    options: {
+                        fallbackPlacements: this._config.fallbackPlacements
+                    }
+                },
+                {
+                    name: "offset",
+                    options: {
+                        offset: this._getOffset()
+                    }
+                },
+                {
+                    name: "preventOverflow",
+                    options: {
+                        boundary: this._config.boundary
+                    }
+                },
+                {
+                    name: "arrow",
+                    options: {
+                        element: `.${this.constructor.NAME}-arrow`
+                    }
+                },
+                {
+                    name: "onChange",
+                    enabled: true,
+                    phase: "afterWrite",
+                    fn: (data)=>this._handlePopperPlacementChange(data)
+                }
+            ],
+            onFirstUpdate: (data)=>{
+                if (data.options.placement !== data.placement) this._handlePopperPlacementChange(data);
+            }
+        };
+        return {
+            ...defaultBsPopperConfig,
+            ...typeof this._config.popperConfig === "function" ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig
+        };
+    }
+    _addAttachmentClass(attachment) {
+        this.getTipElement().classList.add(`${CLASS_PREFIX$1}-${this.updateAttachment(attachment)}`);
+    }
+    _getAttachment(placement) {
+        return AttachmentMap[placement.toUpperCase()];
+    }
+    _setListeners() {
+        const triggers = this._config.trigger.split(" ");
+        triggers.forEach((trigger)=>{
+            if (trigger === "click") EventHandler.on(this._element, this.constructor.Event.CLICK, this._config.selector, (event)=>this.toggle(event));
+            else if (trigger !== TRIGGER_MANUAL) {
+                const eventIn = trigger === TRIGGER_HOVER ? this.constructor.Event.MOUSEENTER : this.constructor.Event.FOCUSIN;
+                const eventOut = trigger === TRIGGER_HOVER ? this.constructor.Event.MOUSELEAVE : this.constructor.Event.FOCUSOUT;
+                EventHandler.on(this._element, eventIn, this._config.selector, (event)=>this._enter(event));
+                EventHandler.on(this._element, eventOut, this._config.selector, (event)=>this._leave(event));
+            }
+        });
+        this._hideModalHandler = ()=>{
+            if (this._element) this.hide();
+        };
+        EventHandler.on(this._element.closest(`.${CLASS_NAME_MODAL}`), "hide.bs.modal", this._hideModalHandler);
+        if (this._config.selector) this._config = {
+            ...this._config,
+            trigger: "manual",
+            selector: ""
+        };
+        else this._fixTitle();
+    }
+    _fixTitle() {
+        const title = this._element.getAttribute("title");
+        const originalTitleType = typeof this._element.getAttribute("data-bs-original-title");
+        if (title || originalTitleType !== "string") {
+            this._element.setAttribute("data-bs-original-title", title || "");
+            if (title && !this._element.getAttribute("aria-label") && !this._element.textContent) this._element.setAttribute("aria-label", title);
+            this._element.setAttribute("title", "");
+        }
+    }
+    _enter(event, context) {
+        context = this._initializeOnDelegatedTarget(event, context);
+        if (event) context._activeTrigger[event.type === "focusin" ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
+        if (context.getTipElement().classList.contains(CLASS_NAME_SHOW$3) || context._hoverState === HOVER_STATE_SHOW) {
+            context._hoverState = HOVER_STATE_SHOW;
+            return;
+        }
+        clearTimeout(context._timeout);
+        context._hoverState = HOVER_STATE_SHOW;
+        if (!context._config.delay || !context._config.delay.show) {
+            context.show();
+            return;
+        }
+        context._timeout = setTimeout(()=>{
+            if (context._hoverState === HOVER_STATE_SHOW) context.show();
+        }, context._config.delay.show);
+    }
+    _leave(event, context) {
+        context = this._initializeOnDelegatedTarget(event, context);
+        if (event) context._activeTrigger[event.type === "focusout" ? TRIGGER_FOCUS : TRIGGER_HOVER] = context._element.contains(event.relatedTarget);
+        if (context._isWithActiveTrigger()) return;
+        clearTimeout(context._timeout);
+        context._hoverState = HOVER_STATE_OUT;
+        if (!context._config.delay || !context._config.delay.hide) {
+            context.hide();
+            return;
+        }
+        context._timeout = setTimeout(()=>{
+            if (context._hoverState === HOVER_STATE_OUT) context.hide();
+        }, context._config.delay.hide);
+    }
+    _isWithActiveTrigger() {
+        for(const trigger in this._activeTrigger){
+            if (this._activeTrigger[trigger]) return true;
+        }
+        return false;
+    }
+    _getConfig(config) {
+        const dataAttributes = Manipulator.getDataAttributes(this._element);
+        Object.keys(dataAttributes).forEach((dataAttr)=>{
+            if (DISALLOWED_ATTRIBUTES.has(dataAttr)) delete dataAttributes[dataAttr];
+        });
+        config = {
+            ...this.constructor.Default,
+            ...dataAttributes,
+            ...typeof config === "object" && config ? config : {}
+        };
+        config.container = config.container === false ? document.body : getElement(config.container);
+        if (typeof config.delay === "number") config.delay = {
+            show: config.delay,
+            hide: config.delay
+        };
+        if (typeof config.title === "number") config.title = config.title.toString();
+        if (typeof config.content === "number") config.content = config.content.toString();
+        typeCheckConfig(NAME$4, config, this.constructor.DefaultType);
+        if (config.sanitize) config.template = sanitizeHtml(config.template, config.allowList, config.sanitizeFn);
+        return config;
+    }
+    _getDelegateConfig() {
+        const config = {};
+        if (this._config) {
+            for(const key in this._config)if (this.constructor.Default[key] !== this._config[key]) config[key] = this._config[key];
+        }
+        return config;
+    }
+    _cleanTipClass() {
+        const tip = this.getTipElement();
+        const tabClass = tip.getAttribute("class").match(BSCLS_PREFIX_REGEX$1);
+        if (tabClass !== null && tabClass.length > 0) tabClass.map((token)=>token.trim()).forEach((tClass)=>tip.classList.remove(tClass));
+    }
+    _handlePopperPlacementChange(popperData) {
+        const { state } = popperData;
+        if (!state) return;
+        this.tip = state.elements.popper;
+        this._cleanTipClass();
+        this._addAttachmentClass(this._getAttachment(state.placement));
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            let data = Data.get(this, DATA_KEY$4);
+            const _config = typeof config === "object" && config;
+            if (!data && /dispose|hide/.test(config)) return;
+            if (!data) data = new Tooltip(this, _config);
+            if (typeof config === "string") {
+                if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+                data[config]();
+            }
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Tooltip to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Tooltip);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): popover.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$3 = "popover";
+const DATA_KEY$3 = "bs.popover";
+const EVENT_KEY$3 = `.${DATA_KEY$3}`;
+const CLASS_PREFIX = "bs-popover";
+const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, "g");
+const Default$2 = {
+    ...Tooltip.Default,
+    placement: "right",
+    offset: [
+        0,
+        8
+    ],
+    trigger: "click",
+    content: "",
+    template: '<div class="popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+};
+const DefaultType$2 = {
+    ...Tooltip.DefaultType,
+    content: "(string|element|function)"
+};
+const Event$1 = {
+    HIDE: `hide${EVENT_KEY$3}`,
+    HIDDEN: `hidden${EVENT_KEY$3}`,
+    SHOW: `show${EVENT_KEY$3}`,
+    SHOWN: `shown${EVENT_KEY$3}`,
+    INSERTED: `inserted${EVENT_KEY$3}`,
+    CLICK: `click${EVENT_KEY$3}`,
+    FOCUSIN: `focusin${EVENT_KEY$3}`,
+    FOCUSOUT: `focusout${EVENT_KEY$3}`,
+    MOUSEENTER: `mouseenter${EVENT_KEY$3}`,
+    MOUSELEAVE: `mouseleave${EVENT_KEY$3}`
+};
+const CLASS_NAME_FADE$2 = "fade";
+const CLASS_NAME_SHOW$2 = "show";
+const SELECTOR_TITLE = ".popover-header";
+const SELECTOR_CONTENT = ".popover-body";
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Popover extends Tooltip {
+    // Getters
+    static get Default() {
+        return Default$2;
+    }
+    static get NAME() {
+        return NAME$3;
+    }
+    static get Event() {
+        return Event$1;
+    }
+    static get DefaultType() {
+        return DefaultType$2;
+    }
+    isWithContent() {
+        return this.getTitle() || this._getContent();
+    }
+    setContent() {
+        const tip = this.getTipElement(); // we use append for html objects to maintain js events
+        this.setElementContent(SelectorEngine.findOne(SELECTOR_TITLE, tip), this.getTitle());
+        let content = this._getContent();
+        if (typeof content === "function") content = content.call(this._element);
+        this.setElementContent(SelectorEngine.findOne(SELECTOR_CONTENT, tip), content);
+        tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$2);
+    }
+    _addAttachmentClass(attachment) {
+        this.getTipElement().classList.add(`${CLASS_PREFIX}-${this.updateAttachment(attachment)}`);
+    }
+    _getContent() {
+        return this._element.getAttribute("data-bs-content") || this._config.content;
+    }
+    _cleanTipClass() {
+        const tip = this.getTipElement();
+        const tabClass = tip.getAttribute("class").match(BSCLS_PREFIX_REGEX);
+        if (tabClass !== null && tabClass.length > 0) tabClass.map((token)=>token.trim()).forEach((tClass)=>tip.classList.remove(tClass));
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            let data = Data.get(this, DATA_KEY$3);
+            const _config = typeof config === "object" ? config : null;
+            if (!data && /dispose|hide/.test(config)) return;
+            if (!data) {
+                data = new Popover(this, _config);
+                Data.set(this, DATA_KEY$3, data);
+            }
+            if (typeof config === "string") {
+                if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+                data[config]();
+            }
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Popover to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Popover);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): scrollspy.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$2 = "scrollspy";
+const DATA_KEY$2 = "bs.scrollspy";
+const EVENT_KEY$2 = `.${DATA_KEY$2}`;
+const DATA_API_KEY$1 = ".data-api";
+const Default$1 = {
+    offset: 10,
+    method: "auto",
+    target: ""
+};
+const DefaultType$1 = {
+    offset: "number",
+    method: "string",
+    target: "(string|element)"
+};
+const EVENT_ACTIVATE = `activate${EVENT_KEY$2}`;
+const EVENT_SCROLL = `scroll${EVENT_KEY$2}`;
+const EVENT_LOAD_DATA_API = `load${EVENT_KEY$2}${DATA_API_KEY$1}`;
+const CLASS_NAME_DROPDOWN_ITEM = "dropdown-item";
+const CLASS_NAME_ACTIVE$1 = "active";
+const SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
+const SELECTOR_NAV_LIST_GROUP$1 = ".nav, .list-group";
+const SELECTOR_NAV_LINKS = ".nav-link";
+const SELECTOR_NAV_ITEMS = ".nav-item";
+const SELECTOR_LIST_ITEMS = ".list-group-item";
+const SELECTOR_DROPDOWN$1 = ".dropdown";
+const SELECTOR_DROPDOWN_TOGGLE$1 = ".dropdown-toggle";
+const METHOD_OFFSET = "offset";
+const METHOD_POSITION = "position";
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class ScrollSpy extends BaseComponent {
+    constructor(element, config){
+        super(element);
+        this._scrollElement = this._element.tagName === "BODY" ? window : this._element;
+        this._config = this._getConfig(config);
+        this._selector = `${this._config.target} ${SELECTOR_NAV_LINKS}, ${this._config.target} ${SELECTOR_LIST_ITEMS}, ${this._config.target} .${CLASS_NAME_DROPDOWN_ITEM}`;
+        this._offsets = [];
+        this._targets = [];
+        this._activeTarget = null;
+        this._scrollHeight = 0;
+        EventHandler.on(this._scrollElement, EVENT_SCROLL, ()=>this._process());
+        this.refresh();
+        this._process();
+    }
+    static get Default() {
+        return Default$1;
+    }
+    static get NAME() {
+        return NAME$2;
+    }
+    refresh() {
+        const autoMethod = this._scrollElement === this._scrollElement.window ? METHOD_OFFSET : METHOD_POSITION;
+        const offsetMethod = this._config.method === "auto" ? autoMethod : this._config.method;
+        const offsetBase = offsetMethod === METHOD_POSITION ? this._getScrollTop() : 0;
+        this._offsets = [];
+        this._targets = [];
+        this._scrollHeight = this._getScrollHeight();
+        const targets = SelectorEngine.find(this._selector);
+        targets.map((element)=>{
+            const targetSelector = getSelectorFromElement(element);
+            const target = targetSelector ? SelectorEngine.findOne(targetSelector) : null;
+            if (target) {
+                const targetBCR = target.getBoundingClientRect();
+                if (targetBCR.width || targetBCR.height) return [
+                    Manipulator[offsetMethod](target).top + offsetBase,
+                    targetSelector
+                ];
+            }
+            return null;
+        }).filter((item)=>item).sort((a, b)=>a[0] - b[0]).forEach((item)=>{
+            this._offsets.push(item[0]);
+            this._targets.push(item[1]);
+        });
+    }
+    dispose() {
+        EventHandler.off(this._scrollElement, EVENT_KEY$2);
+        super.dispose();
+    }
+    _getConfig(config) {
+        config = {
+            ...Default$1,
+            ...Manipulator.getDataAttributes(this._element),
+            ...typeof config === "object" && config ? config : {}
+        };
+        if (typeof config.target !== "string" && isElement(config.target)) {
+            let { id } = config.target;
+            if (!id) {
+                id = getUID(NAME$2);
+                config.target.id = id;
+            }
+            config.target = `#${id}`;
+        }
+        typeCheckConfig(NAME$2, config, DefaultType$1);
+        return config;
+    }
+    _getScrollTop() {
+        return this._scrollElement === window ? this._scrollElement.pageYOffset : this._scrollElement.scrollTop;
+    }
+    _getScrollHeight() {
+        return this._scrollElement.scrollHeight || Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    }
+    _getOffsetHeight() {
+        return this._scrollElement === window ? window.innerHeight : this._scrollElement.getBoundingClientRect().height;
+    }
+    _process() {
+        const scrollTop = this._getScrollTop() + this._config.offset;
+        const scrollHeight = this._getScrollHeight();
+        const maxScroll = this._config.offset + scrollHeight - this._getOffsetHeight();
+        if (this._scrollHeight !== scrollHeight) this.refresh();
+        if (scrollTop >= maxScroll) {
+            const target = this._targets[this._targets.length - 1];
+            if (this._activeTarget !== target) this._activate(target);
+            return;
+        }
+        if (this._activeTarget && scrollTop < this._offsets[0] && this._offsets[0] > 0) {
+            this._activeTarget = null;
+            this._clear();
+            return;
+        }
+        for(let i = this._offsets.length; i--;){
+            const isActiveTarget = this._activeTarget !== this._targets[i] && scrollTop >= this._offsets[i] && (typeof this._offsets[i + 1] === "undefined" || scrollTop < this._offsets[i + 1]);
+            if (isActiveTarget) this._activate(this._targets[i]);
+        }
+    }
+    _activate(target) {
+        this._activeTarget = target;
+        this._clear();
+        const queries = this._selector.split(",").map((selector)=>`${selector}[data-bs-target="${target}"],${selector}[href="${target}"]`);
+        const link = SelectorEngine.findOne(queries.join(","));
+        if (link.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
+            SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE$1, link.closest(SELECTOR_DROPDOWN$1)).classList.add(CLASS_NAME_ACTIVE$1);
+            link.classList.add(CLASS_NAME_ACTIVE$1);
+        } else {
+            // Set triggered link as active
+            link.classList.add(CLASS_NAME_ACTIVE$1);
+            SelectorEngine.parents(link, SELECTOR_NAV_LIST_GROUP$1).forEach((listGroup)=>{
+                // Set triggered links parents as active
+                // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
+                SelectorEngine.prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach((item)=>item.classList.add(CLASS_NAME_ACTIVE$1)); // Handle special case when .nav-link is inside .nav-item
+                SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach((navItem)=>{
+                    SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach((item)=>item.classList.add(CLASS_NAME_ACTIVE$1));
+                });
+            });
+        }
+        EventHandler.trigger(this._scrollElement, EVENT_ACTIVATE, {
+            relatedTarget: target
+        });
+    }
+    _clear() {
+        SelectorEngine.find(this._selector).filter((node)=>node.classList.contains(CLASS_NAME_ACTIVE$1)).forEach((node)=>node.classList.remove(CLASS_NAME_ACTIVE$1));
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            const data = ScrollSpy.getInstance(this) || new ScrollSpy(this, typeof config === "object" ? config : {});
+            if (typeof config !== "string") return;
+            if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+            data[config]();
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(window, EVENT_LOAD_DATA_API, ()=>{
+    SelectorEngine.find(SELECTOR_DATA_SPY).forEach((spy)=>new ScrollSpy(spy));
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .ScrollSpy to jQuery only if jQuery is present
+ */ defineJQueryPlugin(ScrollSpy);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): tab.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME$1 = "tab";
+const DATA_KEY$1 = "bs.tab";
+const EVENT_KEY$1 = `.${DATA_KEY$1}`;
+const DATA_API_KEY = ".data-api";
+const EVENT_HIDE$1 = `hide${EVENT_KEY$1}`;
+const EVENT_HIDDEN$1 = `hidden${EVENT_KEY$1}`;
+const EVENT_SHOW$1 = `show${EVENT_KEY$1}`;
+const EVENT_SHOWN$1 = `shown${EVENT_KEY$1}`;
+const EVENT_CLICK_DATA_API = `click${EVENT_KEY$1}${DATA_API_KEY}`;
+const CLASS_NAME_DROPDOWN_MENU = "dropdown-menu";
+const CLASS_NAME_ACTIVE = "active";
+const CLASS_NAME_FADE$1 = "fade";
+const CLASS_NAME_SHOW$1 = "show";
+const SELECTOR_DROPDOWN = ".dropdown";
+const SELECTOR_NAV_LIST_GROUP = ".nav, .list-group";
+const SELECTOR_ACTIVE = ".active";
+const SELECTOR_ACTIVE_UL = ":scope > li > .active";
+const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]';
+const SELECTOR_DROPDOWN_TOGGLE = ".dropdown-toggle";
+const SELECTOR_DROPDOWN_ACTIVE_CHILD = ":scope > .dropdown-menu .active";
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Tab extends BaseComponent {
+    // Getters
+    static get NAME() {
+        return NAME$1;
+    }
+    show() {
+        if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && this._element.classList.contains(CLASS_NAME_ACTIVE)) return;
+        let previous;
+        const target = getElementFromSelector(this._element);
+        const listElement = this._element.closest(SELECTOR_NAV_LIST_GROUP);
+        if (listElement) {
+            const itemSelector = listElement.nodeName === "UL" || listElement.nodeName === "OL" ? SELECTOR_ACTIVE_UL : SELECTOR_ACTIVE;
+            previous = SelectorEngine.find(itemSelector, listElement);
+            previous = previous[previous.length - 1];
+        }
+        const hideEvent = previous ? EventHandler.trigger(previous, EVENT_HIDE$1, {
+            relatedTarget: this._element
+        }) : null;
+        const showEvent = EventHandler.trigger(this._element, EVENT_SHOW$1, {
+            relatedTarget: previous
+        });
+        if (showEvent.defaultPrevented || hideEvent !== null && hideEvent.defaultPrevented) return;
+        this._activate(this._element, listElement);
+        const complete = ()=>{
+            EventHandler.trigger(previous, EVENT_HIDDEN$1, {
+                relatedTarget: this._element
+            });
+            EventHandler.trigger(this._element, EVENT_SHOWN$1, {
+                relatedTarget: previous
+            });
+        };
+        if (target) this._activate(target, target.parentNode, complete);
+        else complete();
+    }
+    _activate(element, container, callback) {
+        const activeElements = container && (container.nodeName === "UL" || container.nodeName === "OL") ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container) : SelectorEngine.children(container, SELECTOR_ACTIVE);
+        const active = activeElements[0];
+        const isTransitioning = callback && active && active.classList.contains(CLASS_NAME_FADE$1);
+        const complete = ()=>this._transitionComplete(element, active, callback);
+        if (active && isTransitioning) {
+            active.classList.remove(CLASS_NAME_SHOW$1);
+            this._queueCallback(complete, element, true);
+        } else complete();
+    }
+    _transitionComplete(element, active, callback) {
+        if (active) {
+            active.classList.remove(CLASS_NAME_ACTIVE);
+            const dropdownChild = SelectorEngine.findOne(SELECTOR_DROPDOWN_ACTIVE_CHILD, active.parentNode);
+            if (dropdownChild) dropdownChild.classList.remove(CLASS_NAME_ACTIVE);
+            if (active.getAttribute("role") === "tab") active.setAttribute("aria-selected", false);
+        }
+        element.classList.add(CLASS_NAME_ACTIVE);
+        if (element.getAttribute("role") === "tab") element.setAttribute("aria-selected", true);
+        reflow(element);
+        if (element.classList.contains(CLASS_NAME_FADE$1)) element.classList.add(CLASS_NAME_SHOW$1);
+        let parent = element.parentNode;
+        if (parent && parent.nodeName === "LI") parent = parent.parentNode;
+        if (parent && parent.classList.contains(CLASS_NAME_DROPDOWN_MENU)) {
+            const dropdownElement = element.closest(SELECTOR_DROPDOWN);
+            if (dropdownElement) SelectorEngine.find(SELECTOR_DROPDOWN_TOGGLE, dropdownElement).forEach((dropdown)=>dropdown.classList.add(CLASS_NAME_ACTIVE));
+            element.setAttribute("aria-expanded", true);
+        }
+        if (callback) callback();
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            const data = Data.get(this, DATA_KEY$1) || new Tab(this);
+            if (typeof config === "string") {
+                if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+                data[config]();
+            }
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * Data Api implementation
+ * ------------------------------------------------------------------------
+ */ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function(event) {
+    if ([
+        "A",
+        "AREA"
+    ].includes(this.tagName)) event.preventDefault();
+    if (isDisabled(this)) return;
+    const data = Data.get(this, DATA_KEY$1) || new Tab(this);
+    data.show();
+});
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Tab to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Tab);
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.0.1): toast.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */ /**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */ const NAME = "toast";
+const DATA_KEY = "bs.toast";
+const EVENT_KEY = `.${DATA_KEY}`;
+const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY}`;
+const EVENT_MOUSEOVER = `mouseover${EVENT_KEY}`;
+const EVENT_MOUSEOUT = `mouseout${EVENT_KEY}`;
+const EVENT_FOCUSIN = `focusin${EVENT_KEY}`;
+const EVENT_FOCUSOUT = `focusout${EVENT_KEY}`;
+const EVENT_HIDE = `hide${EVENT_KEY}`;
+const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
+const EVENT_SHOW = `show${EVENT_KEY}`;
+const EVENT_SHOWN = `shown${EVENT_KEY}`;
+const CLASS_NAME_FADE = "fade";
+const CLASS_NAME_HIDE = "hide";
+const CLASS_NAME_SHOW = "show";
+const CLASS_NAME_SHOWING = "showing";
+const DefaultType = {
+    animation: "boolean",
+    autohide: "boolean",
+    delay: "number"
+};
+const Default = {
+    animation: true,
+    autohide: true,
+    delay: 5000
+};
+const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]';
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */ class Toast extends BaseComponent {
+    constructor(element, config){
+        super(element);
+        this._config = this._getConfig(config);
+        this._timeout = null;
+        this._hasMouseInteraction = false;
+        this._hasKeyboardInteraction = false;
+        this._setListeners();
+    }
+    static get DefaultType() {
+        return DefaultType;
+    }
+    static get Default() {
+        return Default;
+    }
+    static get NAME() {
+        return NAME;
+    }
+    show() {
+        const showEvent = EventHandler.trigger(this._element, EVENT_SHOW);
+        if (showEvent.defaultPrevented) return;
+        this._clearTimeout();
+        if (this._config.animation) this._element.classList.add(CLASS_NAME_FADE);
+        const complete = ()=>{
+            this._element.classList.remove(CLASS_NAME_SHOWING);
+            this._element.classList.add(CLASS_NAME_SHOW);
+            EventHandler.trigger(this._element, EVENT_SHOWN);
+            this._maybeScheduleHide();
+        };
+        this._element.classList.remove(CLASS_NAME_HIDE);
+        reflow(this._element);
+        this._element.classList.add(CLASS_NAME_SHOWING);
+        this._queueCallback(complete, this._element, this._config.animation);
+    }
+    hide() {
+        if (!this._element.classList.contains(CLASS_NAME_SHOW)) return;
+        const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE);
+        if (hideEvent.defaultPrevented) return;
+        const complete = ()=>{
+            this._element.classList.add(CLASS_NAME_HIDE);
+            EventHandler.trigger(this._element, EVENT_HIDDEN);
+        };
+        this._element.classList.remove(CLASS_NAME_SHOW);
+        this._queueCallback(complete, this._element, this._config.animation);
+    }
+    dispose() {
+        this._clearTimeout();
+        if (this._element.classList.contains(CLASS_NAME_SHOW)) this._element.classList.remove(CLASS_NAME_SHOW);
+        super.dispose();
+    }
+    _getConfig(config) {
+        config = {
+            ...Default,
+            ...Manipulator.getDataAttributes(this._element),
+            ...typeof config === "object" && config ? config : {}
+        };
+        typeCheckConfig(NAME, config, this.constructor.DefaultType);
+        return config;
+    }
+    _maybeScheduleHide() {
+        if (!this._config.autohide) return;
+        if (this._hasMouseInteraction || this._hasKeyboardInteraction) return;
+        this._timeout = setTimeout(()=>{
+            this.hide();
+        }, this._config.delay);
+    }
+    _onInteraction(event, isInteracting) {
+        switch(event.type){
+            case "mouseover":
+            case "mouseout":
+                this._hasMouseInteraction = isInteracting;
+                break;
+            case "focusin":
+            case "focusout":
+                this._hasKeyboardInteraction = isInteracting;
+                break;
+        }
+        if (isInteracting) {
+            this._clearTimeout();
+            return;
+        }
+        const nextElement = event.relatedTarget;
+        if (this._element === nextElement || this._element.contains(nextElement)) return;
+        this._maybeScheduleHide();
+    }
+    _setListeners() {
+        EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, ()=>this.hide());
+        EventHandler.on(this._element, EVENT_MOUSEOVER, (event)=>this._onInteraction(event, true));
+        EventHandler.on(this._element, EVENT_MOUSEOUT, (event)=>this._onInteraction(event, false));
+        EventHandler.on(this._element, EVENT_FOCUSIN, (event)=>this._onInteraction(event, true));
+        EventHandler.on(this._element, EVENT_FOCUSOUT, (event)=>this._onInteraction(event, false));
+    }
+    _clearTimeout() {
+        clearTimeout(this._timeout);
+        this._timeout = null;
+    }
+    static jQueryInterface(config) {
+        return this.each(function() {
+            let data = Data.get(this, DATA_KEY);
+            const _config = typeof config === "object" && config;
+            if (!data) data = new Toast(this, _config);
+            if (typeof config === "string") {
+                if (typeof data[config] === "undefined") throw new TypeError(`No method named "${config}"`);
+                data[config](this);
+            }
+        });
+    }
+}
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ * add .Toast to jQuery only if jQuery is present
+ */ defineJQueryPlugin(Toast);
+
+},{"@popperjs/core":"7unqC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7unqC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "popperGenerator", ()=>(0, _createPopperJs.popperGenerator)) // eslint-disable-next-line import/no-unused-modules
+;
+parcelHelpers.export(exports, "detectOverflow", ()=>(0, _createPopperJs.detectOverflow));
+parcelHelpers.export(exports, "createPopperBase", ()=>(0, _createPopperJs.createPopper));
+parcelHelpers.export(exports, "createPopper", ()=>(0, _popperJs.createPopper)) // eslint-disable-next-line import/no-unused-modules
+;
+parcelHelpers.export(exports, "createPopperLite", ()=>(0, _popperLiteJs.createPopper));
+var _enumsJs = require("./enums.js");
+parcelHelpers.exportAll(_enumsJs, exports);
+var _indexJs = require("./modifiers/index.js"); // eslint-disable-next-line import/no-unused-modules
+parcelHelpers.exportAll(_indexJs, exports);
+var _createPopperJs = require("./createPopper.js");
+var _popperJs = require("./popper.js");
+var _popperLiteJs = require("./popper-lite.js");
+
+},{"./enums.js":"lCAq5","./modifiers/index.js":"cap3W","./createPopper.js":"cHuNp","./popper.js":"1PuRF","./popper-lite.js":"gKW1N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lCAq5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "top", ()=>top);
+parcelHelpers.export(exports, "bottom", ()=>bottom);
+parcelHelpers.export(exports, "right", ()=>right);
+parcelHelpers.export(exports, "left", ()=>left);
+parcelHelpers.export(exports, "auto", ()=>auto);
+parcelHelpers.export(exports, "basePlacements", ()=>basePlacements);
+parcelHelpers.export(exports, "start", ()=>start);
+parcelHelpers.export(exports, "end", ()=>end);
+parcelHelpers.export(exports, "clippingParents", ()=>clippingParents);
+parcelHelpers.export(exports, "viewport", ()=>viewport);
+parcelHelpers.export(exports, "popper", ()=>popper);
+parcelHelpers.export(exports, "reference", ()=>reference);
+parcelHelpers.export(exports, "variationPlacements", ()=>variationPlacements);
+parcelHelpers.export(exports, "placements", ()=>placements);
+parcelHelpers.export(exports, "beforeRead", ()=>beforeRead);
+parcelHelpers.export(exports, "read", ()=>read);
+parcelHelpers.export(exports, "afterRead", ()=>afterRead);
+parcelHelpers.export(exports, "beforeMain", ()=>beforeMain);
+parcelHelpers.export(exports, "main", ()=>main);
+parcelHelpers.export(exports, "afterMain", ()=>afterMain);
+parcelHelpers.export(exports, "beforeWrite", ()=>beforeWrite);
+parcelHelpers.export(exports, "write", ()=>write);
+parcelHelpers.export(exports, "afterWrite", ()=>afterWrite);
+parcelHelpers.export(exports, "modifierPhases", ()=>modifierPhases);
+var top = "top";
+var bottom = "bottom";
+var right = "right";
+var left = "left";
+var auto = "auto";
+var basePlacements = [
+    top,
+    bottom,
+    right,
+    left
+];
+var start = "start";
+var end = "end";
+var clippingParents = "clippingParents";
+var viewport = "viewport";
+var popper = "popper";
+var reference = "reference";
+var variationPlacements = /*#__PURE__*/ basePlacements.reduce(function(acc, placement) {
+    return acc.concat([
+        placement + "-" + start,
+        placement + "-" + end
+    ]);
+}, []);
+var placements = /*#__PURE__*/ [].concat(basePlacements, [
+    auto
+]).reduce(function(acc, placement) {
+    return acc.concat([
+        placement,
+        placement + "-" + start,
+        placement + "-" + end
+    ]);
+}, []); // modifiers that need to read the DOM
+var beforeRead = "beforeRead";
+var read = "read";
+var afterRead = "afterRead"; // pure-logic modifiers
+var beforeMain = "beforeMain";
+var main = "main";
+var afterMain = "afterMain"; // modifier with the purpose to write to the DOM (or write into a framework state)
+var beforeWrite = "beforeWrite";
+var write = "write";
+var afterWrite = "afterWrite";
+var modifierPhases = [
+    beforeRead,
+    read,
+    afterRead,
+    beforeMain,
+    main,
+    afterMain,
+    beforeWrite,
+    write,
+    afterWrite
+];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cap3W":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "applyStyles", ()=>(0, _applyStylesJsDefault.default));
+parcelHelpers.export(exports, "arrow", ()=>(0, _arrowJsDefault.default));
+parcelHelpers.export(exports, "computeStyles", ()=>(0, _computeStylesJsDefault.default));
+parcelHelpers.export(exports, "eventListeners", ()=>(0, _eventListenersJsDefault.default));
+parcelHelpers.export(exports, "flip", ()=>(0, _flipJsDefault.default));
+parcelHelpers.export(exports, "hide", ()=>(0, _hideJsDefault.default));
+parcelHelpers.export(exports, "offset", ()=>(0, _offsetJsDefault.default));
+parcelHelpers.export(exports, "popperOffsets", ()=>(0, _popperOffsetsJsDefault.default));
+parcelHelpers.export(exports, "preventOverflow", ()=>(0, _preventOverflowJsDefault.default));
+var _applyStylesJs = require("./applyStyles.js");
+var _applyStylesJsDefault = parcelHelpers.interopDefault(_applyStylesJs);
+var _arrowJs = require("./arrow.js");
+var _arrowJsDefault = parcelHelpers.interopDefault(_arrowJs);
+var _computeStylesJs = require("./computeStyles.js");
+var _computeStylesJsDefault = parcelHelpers.interopDefault(_computeStylesJs);
+var _eventListenersJs = require("./eventListeners.js");
+var _eventListenersJsDefault = parcelHelpers.interopDefault(_eventListenersJs);
+var _flipJs = require("./flip.js");
+var _flipJsDefault = parcelHelpers.interopDefault(_flipJs);
+var _hideJs = require("./hide.js");
+var _hideJsDefault = parcelHelpers.interopDefault(_hideJs);
+var _offsetJs = require("./offset.js");
+var _offsetJsDefault = parcelHelpers.interopDefault(_offsetJs);
+var _popperOffsetsJs = require("./popperOffsets.js");
+var _popperOffsetsJsDefault = parcelHelpers.interopDefault(_popperOffsetsJs);
+var _preventOverflowJs = require("./preventOverflow.js");
+var _preventOverflowJsDefault = parcelHelpers.interopDefault(_preventOverflowJs);
+
+},{"./applyStyles.js":"4iMn4","./arrow.js":"31HFW","./computeStyles.js":"gDlm2","./eventListeners.js":"hBKsL","./flip.js":"fv5wq","./hide.js":"2g4OF","./offset.js":"3GKVY","./popperOffsets.js":"6I679","./preventOverflow.js":"1AMhb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4iMn4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _getNodeNameJs = require("../dom-utils/getNodeName.js");
+var _getNodeNameJsDefault = parcelHelpers.interopDefault(_getNodeNameJs);
+var _instanceOfJs = require("../dom-utils/instanceOf.js"); // This modifier takes the styles prepared by the `computeStyles` modifier
+// and applies them to the HTMLElements such as popper and arrow
+function applyStyles(_ref) {
+    var state = _ref.state;
+    Object.keys(state.elements).forEach(function(name) {
+        var style = state.styles[name] || {};
+        var attributes = state.attributes[name] || {};
+        var element = state.elements[name]; // arrow is optional + virtual elements
+        if (!(0, _instanceOfJs.isHTMLElement)(element) || !(0, _getNodeNameJsDefault.default)(element)) return;
+         // Flow doesn't support to extend this property, but it's the most
+        // effective way to apply styles to an HTMLElement
+        // $FlowFixMe[cannot-write]
+        Object.assign(element.style, style);
+        Object.keys(attributes).forEach(function(name) {
+            var value = attributes[name];
+            if (value === false) element.removeAttribute(name);
+            else element.setAttribute(name, value === true ? "" : value);
+        });
+    });
+}
+function effect(_ref2) {
+    var state = _ref2.state;
+    var initialStyles = {
+        popper: {
+            position: state.options.strategy,
+            left: "0",
+            top: "0",
+            margin: "0"
+        },
+        arrow: {
+            position: "absolute"
+        },
+        reference: {}
+    };
+    Object.assign(state.elements.popper.style, initialStyles.popper);
+    state.styles = initialStyles;
+    if (state.elements.arrow) Object.assign(state.elements.arrow.style, initialStyles.arrow);
+    return function() {
+        Object.keys(state.elements).forEach(function(name) {
+            var element = state.elements[name];
+            var attributes = state.attributes[name] || {};
+            var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]); // Set all values to an empty string to unset them
+            var style = styleProperties.reduce(function(style, property) {
+                style[property] = "";
+                return style;
+            }, {}); // arrow is optional + virtual elements
+            if (!(0, _instanceOfJs.isHTMLElement)(element) || !(0, _getNodeNameJsDefault.default)(element)) return;
+            Object.assign(element.style, style);
+            Object.keys(attributes).forEach(function(attribute) {
+                element.removeAttribute(attribute);
+            });
+        });
+    };
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "applyStyles",
+    enabled: true,
+    phase: "write",
+    fn: applyStyles,
+    effect: effect,
+    requires: [
+        "computeStyles"
+    ]
+};
+
+},{"../dom-utils/getNodeName.js":"a2Qom","../dom-utils/instanceOf.js":"gYFUC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a2Qom":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getNodeName);
+function getNodeName(element) {
+    return element ? (element.nodeName || "").toLowerCase() : null;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gYFUC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "isElement", ()=>isElement);
+parcelHelpers.export(exports, "isHTMLElement", ()=>isHTMLElement);
+parcelHelpers.export(exports, "isShadowRoot", ()=>isShadowRoot);
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+function isElement(node) {
+    var OwnElement = (0, _getWindowJsDefault.default)(node).Element;
+    return node instanceof OwnElement || node instanceof Element;
+}
+function isHTMLElement(node) {
+    var OwnElement = (0, _getWindowJsDefault.default)(node).HTMLElement;
+    return node instanceof OwnElement || node instanceof HTMLElement;
+}
+function isShadowRoot(node) {
+    // IE 11 has no ShadowRoot
+    if (typeof ShadowRoot === "undefined") return false;
+    var OwnElement = (0, _getWindowJsDefault.default)(node).ShadowRoot;
+    return node instanceof OwnElement || node instanceof ShadowRoot;
+}
+
+},{"./getWindow.js":"2SkOo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2SkOo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getWindow);
+function getWindow(node) {
+    if (node == null) return window;
+    if (node.toString() !== "[object Window]") {
+        var ownerDocument = node.ownerDocument;
+        return ownerDocument ? ownerDocument.defaultView || window : window;
+    }
+    return node;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"31HFW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _getBasePlacementJs = require("../utils/getBasePlacement.js");
+var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+var _getLayoutRectJs = require("../dom-utils/getLayoutRect.js");
+var _getLayoutRectJsDefault = parcelHelpers.interopDefault(_getLayoutRectJs);
+var _containsJs = require("../dom-utils/contains.js");
+var _containsJsDefault = parcelHelpers.interopDefault(_containsJs);
+var _getOffsetParentJs = require("../dom-utils/getOffsetParent.js");
+var _getOffsetParentJsDefault = parcelHelpers.interopDefault(_getOffsetParentJs);
+var _getMainAxisFromPlacementJs = require("../utils/getMainAxisFromPlacement.js");
+var _getMainAxisFromPlacementJsDefault = parcelHelpers.interopDefault(_getMainAxisFromPlacementJs);
+var _withinJs = require("../utils/within.js");
+var _mergePaddingObjectJs = require("../utils/mergePaddingObject.js");
+var _mergePaddingObjectJsDefault = parcelHelpers.interopDefault(_mergePaddingObjectJs);
+var _expandToHashMapJs = require("../utils/expandToHashMap.js");
+var _expandToHashMapJsDefault = parcelHelpers.interopDefault(_expandToHashMapJs);
+var _enumsJs = require("../enums.js"); // eslint-disable-next-line import/no-unused-modules
+var toPaddingObject = function toPaddingObject(padding, state) {
+    padding = typeof padding === "function" ? padding(Object.assign({}, state.rects, {
+        placement: state.placement
+    })) : padding;
+    return (0, _mergePaddingObjectJsDefault.default)(typeof padding !== "number" ? padding : (0, _expandToHashMapJsDefault.default)(padding, (0, _enumsJs.basePlacements)));
+};
+function arrow(_ref) {
+    var _state$modifiersData$;
+    var state = _ref.state, name = _ref.name, options = _ref.options;
+    var arrowElement = state.elements.arrow;
+    var popperOffsets = state.modifiersData.popperOffsets;
+    var basePlacement = (0, _getBasePlacementJsDefault.default)(state.placement);
+    var axis = (0, _getMainAxisFromPlacementJsDefault.default)(basePlacement);
+    var isVertical = [
+        (0, _enumsJs.left),
+        (0, _enumsJs.right)
+    ].indexOf(basePlacement) >= 0;
+    var len = isVertical ? "height" : "width";
+    if (!arrowElement || !popperOffsets) return;
+    var paddingObject = toPaddingObject(options.padding, state);
+    var arrowRect = (0, _getLayoutRectJsDefault.default)(arrowElement);
+    var minProp = axis === "y" ? (0, _enumsJs.top) : (0, _enumsJs.left);
+    var maxProp = axis === "y" ? (0, _enumsJs.bottom) : (0, _enumsJs.right);
+    var endDiff = state.rects.reference[len] + state.rects.reference[axis] - popperOffsets[axis] - state.rects.popper[len];
+    var startDiff = popperOffsets[axis] - state.rects.reference[axis];
+    var arrowOffsetParent = (0, _getOffsetParentJsDefault.default)(arrowElement);
+    var clientSize = arrowOffsetParent ? axis === "y" ? arrowOffsetParent.clientHeight || 0 : arrowOffsetParent.clientWidth || 0 : 0;
+    var centerToReference = endDiff / 2 - startDiff / 2; // Make sure the arrow doesn't overflow the popper if the center point is
+    // outside of the popper bounds
+    var min = paddingObject[minProp];
+    var max = clientSize - arrowRect[len] - paddingObject[maxProp];
+    var center = clientSize / 2 - arrowRect[len] / 2 + centerToReference;
+    var offset = (0, _withinJs.within)(min, center, max); // Prevents breaking syntax highlighting...
+    var axisProp = axis;
+    state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
+}
+function effect(_ref2) {
+    var state = _ref2.state, options = _ref2.options;
+    var _options$element = options.element, arrowElement = _options$element === void 0 ? "[data-popper-arrow]" : _options$element;
+    if (arrowElement == null) return;
+     // CSS selector
+    if (typeof arrowElement === "string") {
+        arrowElement = state.elements.popper.querySelector(arrowElement);
+        if (!arrowElement) return;
+    }
+    if (!(0, _containsJsDefault.default)(state.elements.popper, arrowElement)) return;
+    state.elements.arrow = arrowElement;
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "arrow",
+    enabled: true,
+    phase: "main",
+    fn: arrow,
+    effect: effect,
+    requires: [
+        "popperOffsets"
+    ],
+    requiresIfExists: [
+        "preventOverflow"
+    ]
+};
+
+},{"../utils/getBasePlacement.js":"59Wp3","../dom-utils/getLayoutRect.js":"jvjuf","../dom-utils/contains.js":"4QxRR","../dom-utils/getOffsetParent.js":"laoYw","../utils/getMainAxisFromPlacement.js":"1Xlom","../utils/within.js":"3glSz","../utils/mergePaddingObject.js":"lEIf9","../utils/expandToHashMap.js":"iQlH5","../enums.js":"lCAq5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"59Wp3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getBasePlacement);
+var _enumsJs = require("../enums.js");
+function getBasePlacement(placement) {
+    return placement.split("-")[0];
+}
+
+},{"../enums.js":"lCAq5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jvjuf":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getLayoutRect);
+var _getBoundingClientRectJs = require("./getBoundingClientRect.js"); // Returns the layout rect of an element relative to its offsetParent. Layout
+var _getBoundingClientRectJsDefault = parcelHelpers.interopDefault(_getBoundingClientRectJs);
+function getLayoutRect(element) {
+    var clientRect = (0, _getBoundingClientRectJsDefault.default)(element); // Use the clientRect sizes if it's not been transformed.
+    // Fixes https://github.com/popperjs/popper-core/issues/1223
+    var width = element.offsetWidth;
+    var height = element.offsetHeight;
+    if (Math.abs(clientRect.width - width) <= 1) width = clientRect.width;
+    if (Math.abs(clientRect.height - height) <= 1) height = clientRect.height;
+    return {
+        x: element.offsetLeft,
+        y: element.offsetTop,
+        width: width,
+        height: height
+    };
+}
+
+},{"./getBoundingClientRect.js":"9CFSQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9CFSQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getBoundingClientRect);
+var _instanceOfJs = require("./instanceOf.js");
+var _mathJs = require("../utils/math.js");
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+var _isLayoutViewportJs = require("./isLayoutViewport.js");
+var _isLayoutViewportJsDefault = parcelHelpers.interopDefault(_isLayoutViewportJs);
+function getBoundingClientRect(element, includeScale, isFixedStrategy) {
+    if (includeScale === void 0) includeScale = false;
+    if (isFixedStrategy === void 0) isFixedStrategy = false;
+    var clientRect = element.getBoundingClientRect();
+    var scaleX = 1;
+    var scaleY = 1;
+    if (includeScale && (0, _instanceOfJs.isHTMLElement)(element)) {
+        scaleX = element.offsetWidth > 0 ? (0, _mathJs.round)(clientRect.width) / element.offsetWidth || 1 : 1;
+        scaleY = element.offsetHeight > 0 ? (0, _mathJs.round)(clientRect.height) / element.offsetHeight || 1 : 1;
+    }
+    var _ref = (0, _instanceOfJs.isElement)(element) ? (0, _getWindowJsDefault.default)(element) : window, visualViewport = _ref.visualViewport;
+    var addVisualOffsets = !(0, _isLayoutViewportJsDefault.default)() && isFixedStrategy;
+    var x = (clientRect.left + (addVisualOffsets && visualViewport ? visualViewport.offsetLeft : 0)) / scaleX;
+    var y = (clientRect.top + (addVisualOffsets && visualViewport ? visualViewport.offsetTop : 0)) / scaleY;
+    var width = clientRect.width / scaleX;
+    var height = clientRect.height / scaleY;
+    return {
+        width: width,
+        height: height,
+        top: y,
+        right: x + width,
+        bottom: y + height,
+        left: x,
+        x: x,
+        y: y
+    };
+}
+
+},{"./instanceOf.js":"gYFUC","../utils/math.js":"gQqVe","./getWindow.js":"2SkOo","./isLayoutViewport.js":"3ipHv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gQqVe":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "max", ()=>max);
+parcelHelpers.export(exports, "min", ()=>min);
+parcelHelpers.export(exports, "round", ()=>round);
+var max = Math.max;
+var min = Math.min;
+var round = Math.round;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ipHv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>isLayoutViewport);
+var _userAgentJs = require("../utils/userAgent.js");
+var _userAgentJsDefault = parcelHelpers.interopDefault(_userAgentJs);
+function isLayoutViewport() {
+    return !/^((?!chrome|android).)*safari/i.test((0, _userAgentJsDefault.default)());
+}
+
+},{"../utils/userAgent.js":"1hEx0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1hEx0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getUAString);
+function getUAString() {
+    var uaData = navigator.userAgentData;
+    if (uaData != null && uaData.brands && Array.isArray(uaData.brands)) return uaData.brands.map(function(item) {
+        return item.brand + "/" + item.version;
+    }).join(" ");
+    return navigator.userAgent;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4QxRR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>contains);
+var _instanceOfJs = require("./instanceOf.js");
+function contains(parent, child) {
+    var rootNode = child.getRootNode && child.getRootNode(); // First, attempt with faster native method
+    if (parent.contains(child)) return true;
+    else if (rootNode && (0, _instanceOfJs.isShadowRoot)(rootNode)) {
+        var next = child;
+        do {
+            if (next && parent.isSameNode(next)) return true;
+             // $FlowFixMe[prop-missing]: need a better way to handle this...
+            next = next.parentNode || next.host;
+        }while (next);
+    } // Give up, the result is false
+    return false;
+}
+
+},{"./instanceOf.js":"gYFUC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"laoYw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getOffsetParent);
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+var _getNodeNameJs = require("./getNodeName.js");
+var _getNodeNameJsDefault = parcelHelpers.interopDefault(_getNodeNameJs);
+var _getComputedStyleJs = require("./getComputedStyle.js");
+var _getComputedStyleJsDefault = parcelHelpers.interopDefault(_getComputedStyleJs);
+var _instanceOfJs = require("./instanceOf.js");
+var _isTableElementJs = require("./isTableElement.js");
+var _isTableElementJsDefault = parcelHelpers.interopDefault(_isTableElementJs);
+var _getParentNodeJs = require("./getParentNode.js");
+var _getParentNodeJsDefault = parcelHelpers.interopDefault(_getParentNodeJs);
+var _userAgentJs = require("../utils/userAgent.js");
+var _userAgentJsDefault = parcelHelpers.interopDefault(_userAgentJs);
+function getTrueOffsetParent(element) {
+    if (!(0, _instanceOfJs.isHTMLElement)(element) || // https://github.com/popperjs/popper-core/issues/837
+    (0, _getComputedStyleJsDefault.default)(element).position === "fixed") return null;
+    return element.offsetParent;
+} // `.offsetParent` reports `null` for fixed elements, while absolute elements
+// return the containing block
+function getContainingBlock(element) {
+    var isFirefox = /firefox/i.test((0, _userAgentJsDefault.default)());
+    var isIE = /Trident/i.test((0, _userAgentJsDefault.default)());
+    if (isIE && (0, _instanceOfJs.isHTMLElement)(element)) {
+        // In IE 9, 10 and 11 fixed elements containing block is always established by the viewport
+        var elementCss = (0, _getComputedStyleJsDefault.default)(element);
+        if (elementCss.position === "fixed") return null;
+    }
+    var currentNode = (0, _getParentNodeJsDefault.default)(element);
+    if ((0, _instanceOfJs.isShadowRoot)(currentNode)) currentNode = currentNode.host;
+    while((0, _instanceOfJs.isHTMLElement)(currentNode) && [
+        "html",
+        "body"
+    ].indexOf((0, _getNodeNameJsDefault.default)(currentNode)) < 0){
+        var css = (0, _getComputedStyleJsDefault.default)(currentNode); // This is non-exhaustive but covers the most common CSS properties that
+        // create a containing block.
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
+        if (css.transform !== "none" || css.perspective !== "none" || css.contain === "paint" || [
+            "transform",
+            "perspective"
+        ].indexOf(css.willChange) !== -1 || isFirefox && css.willChange === "filter" || isFirefox && css.filter && css.filter !== "none") return currentNode;
+        else currentNode = currentNode.parentNode;
+    }
+    return null;
+} // Gets the closest ancestor positioned element. Handles some edge cases,
+function getOffsetParent(element) {
+    var window = (0, _getWindowJsDefault.default)(element);
+    var offsetParent = getTrueOffsetParent(element);
+    while(offsetParent && (0, _isTableElementJsDefault.default)(offsetParent) && (0, _getComputedStyleJsDefault.default)(offsetParent).position === "static")offsetParent = getTrueOffsetParent(offsetParent);
+    if (offsetParent && ((0, _getNodeNameJsDefault.default)(offsetParent) === "html" || (0, _getNodeNameJsDefault.default)(offsetParent) === "body" && (0, _getComputedStyleJsDefault.default)(offsetParent).position === "static")) return window;
+    return offsetParent || getContainingBlock(element) || window;
+}
+
+},{"./getWindow.js":"2SkOo","./getNodeName.js":"a2Qom","./getComputedStyle.js":"3mZjB","./instanceOf.js":"gYFUC","./isTableElement.js":"2qBb7","./getParentNode.js":"bIHpd","../utils/userAgent.js":"1hEx0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3mZjB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getComputedStyle);
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+function getComputedStyle(element) {
+    return (0, _getWindowJsDefault.default)(element).getComputedStyle(element);
+}
+
+},{"./getWindow.js":"2SkOo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2qBb7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>isTableElement);
+var _getNodeNameJs = require("./getNodeName.js");
+var _getNodeNameJsDefault = parcelHelpers.interopDefault(_getNodeNameJs);
+function isTableElement(element) {
+    return [
+        "table",
+        "td",
+        "th"
+    ].indexOf((0, _getNodeNameJsDefault.default)(element)) >= 0;
+}
+
+},{"./getNodeName.js":"a2Qom","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bIHpd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getParentNode);
+var _getNodeNameJs = require("./getNodeName.js");
+var _getNodeNameJsDefault = parcelHelpers.interopDefault(_getNodeNameJs);
+var _getDocumentElementJs = require("./getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _instanceOfJs = require("./instanceOf.js");
+function getParentNode(element) {
+    if ((0, _getNodeNameJsDefault.default)(element) === "html") return element;
+    return(// $FlowFixMe[incompatible-return]
+    // $FlowFixMe[prop-missing]
+    element.assignedSlot || // step into the shadow DOM of the parent of a slotted node
+    element.parentNode || ((0, _instanceOfJs.isShadowRoot)(element) ? element.host : null) || // ShadowRoot detected
+    // $FlowFixMe[incompatible-call]: HTMLElement is a Node
+    (0, _getDocumentElementJsDefault.default)(element) // fallback
+    );
+}
+
+},{"./getNodeName.js":"a2Qom","./getDocumentElement.js":"eJ9Y1","./instanceOf.js":"gYFUC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eJ9Y1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getDocumentElement);
+var _instanceOfJs = require("./instanceOf.js");
+function getDocumentElement(element) {
+    // $FlowFixMe[incompatible-return]: assume body is always available
+    return (((0, _instanceOfJs.isElement)(element) ? element.ownerDocument : element.document) || window.document).documentElement;
+}
+
+},{"./instanceOf.js":"gYFUC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1Xlom":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getMainAxisFromPlacement);
+function getMainAxisFromPlacement(placement) {
+    return [
+        "top",
+        "bottom"
+    ].indexOf(placement) >= 0 ? "x" : "y";
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3glSz":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "within", ()=>within);
+parcelHelpers.export(exports, "withinMaxClamp", ()=>withinMaxClamp);
+var _mathJs = require("./math.js");
+function within(min, value, max) {
+    return (0, _mathJs.max)(min, (0, _mathJs.min)(value, max));
+}
+function withinMaxClamp(min, value, max) {
+    var v = within(min, value, max);
+    return v > max ? max : v;
+}
+
+},{"./math.js":"gQqVe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lEIf9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>mergePaddingObject);
+var _getFreshSideObjectJs = require("./getFreshSideObject.js");
+var _getFreshSideObjectJsDefault = parcelHelpers.interopDefault(_getFreshSideObjectJs);
+function mergePaddingObject(paddingObject) {
+    return Object.assign({}, (0, _getFreshSideObjectJsDefault.default)(), paddingObject);
+}
+
+},{"./getFreshSideObject.js":"g4xOt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g4xOt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getFreshSideObject);
+function getFreshSideObject() {
+    return {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    };
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iQlH5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>expandToHashMap);
+function expandToHashMap(value, keys) {
+    return keys.reduce(function(hashMap, key) {
+        hashMap[key] = value;
+        return hashMap;
+    }, {});
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gDlm2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "mapToStyles", ()=>mapToStyles);
+var _enumsJs = require("../enums.js");
+var _getOffsetParentJs = require("../dom-utils/getOffsetParent.js");
+var _getOffsetParentJsDefault = parcelHelpers.interopDefault(_getOffsetParentJs);
+var _getWindowJs = require("../dom-utils/getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+var _getDocumentElementJs = require("../dom-utils/getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _getComputedStyleJs = require("../dom-utils/getComputedStyle.js");
+var _getComputedStyleJsDefault = parcelHelpers.interopDefault(_getComputedStyleJs);
+var _getBasePlacementJs = require("../utils/getBasePlacement.js");
+var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+var _getVariationJs = require("../utils/getVariation.js");
+var _getVariationJsDefault = parcelHelpers.interopDefault(_getVariationJs);
+var _mathJs = require("../utils/math.js"); // eslint-disable-next-line import/no-unused-modules
+var unsetSides = {
+    top: "auto",
+    right: "auto",
+    bottom: "auto",
+    left: "auto"
+}; // Round the offsets to the nearest suitable subpixel based on the DPR.
+// Zooming can change the DPR, but it seems to report a value that will
+// cleanly divide the values into the appropriate subpixels.
+function roundOffsetsByDPR(_ref, win) {
+    var x = _ref.x, y = _ref.y;
+    var dpr = win.devicePixelRatio || 1;
+    return {
+        x: (0, _mathJs.round)(x * dpr) / dpr || 0,
+        y: (0, _mathJs.round)(y * dpr) / dpr || 0
+    };
+}
+function mapToStyles(_ref2) {
+    var _Object$assign2;
+    var popper = _ref2.popper, popperRect = _ref2.popperRect, placement = _ref2.placement, variation = _ref2.variation, offsets = _ref2.offsets, position = _ref2.position, gpuAcceleration = _ref2.gpuAcceleration, adaptive = _ref2.adaptive, roundOffsets = _ref2.roundOffsets, isFixed = _ref2.isFixed;
+    var _offsets$x = offsets.x, x = _offsets$x === void 0 ? 0 : _offsets$x, _offsets$y = offsets.y, y = _offsets$y === void 0 ? 0 : _offsets$y;
+    var _ref3 = typeof roundOffsets === "function" ? roundOffsets({
+        x: x,
+        y: y
+    }) : {
+        x: x,
+        y: y
+    };
+    x = _ref3.x;
+    y = _ref3.y;
+    var hasX = offsets.hasOwnProperty("x");
+    var hasY = offsets.hasOwnProperty("y");
+    var sideX = (0, _enumsJs.left);
+    var sideY = (0, _enumsJs.top);
+    var win = window;
+    if (adaptive) {
+        var offsetParent = (0, _getOffsetParentJsDefault.default)(popper);
+        var heightProp = "clientHeight";
+        var widthProp = "clientWidth";
+        if (offsetParent === (0, _getWindowJsDefault.default)(popper)) {
+            offsetParent = (0, _getDocumentElementJsDefault.default)(popper);
+            if ((0, _getComputedStyleJsDefault.default)(offsetParent).position !== "static" && position === "absolute") {
+                heightProp = "scrollHeight";
+                widthProp = "scrollWidth";
+            }
+        } // $FlowFixMe[incompatible-cast]: force type refinement, we compare offsetParent with window above, but Flow doesn't detect it
+        offsetParent;
+        if (placement === (0, _enumsJs.top) || (placement === (0, _enumsJs.left) || placement === (0, _enumsJs.right)) && variation === (0, _enumsJs.end)) {
+            sideY = (0, _enumsJs.bottom);
+            var offsetY = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.height : offsetParent[heightProp];
+            y -= offsetY - popperRect.height;
+            y *= gpuAcceleration ? 1 : -1;
+        }
+        if (placement === (0, _enumsJs.left) || (placement === (0, _enumsJs.top) || placement === (0, _enumsJs.bottom)) && variation === (0, _enumsJs.end)) {
+            sideX = (0, _enumsJs.right);
+            var offsetX = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.width : offsetParent[widthProp];
+            x -= offsetX - popperRect.width;
+            x *= gpuAcceleration ? 1 : -1;
+        }
+    }
+    var commonStyles = Object.assign({
+        position: position
+    }, adaptive && unsetSides);
+    var _ref4 = roundOffsets === true ? roundOffsetsByDPR({
+        x: x,
+        y: y
+    }, (0, _getWindowJsDefault.default)(popper)) : {
+        x: x,
+        y: y
+    };
+    x = _ref4.x;
+    y = _ref4.y;
+    if (gpuAcceleration) {
+        var _Object$assign;
+        return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? "0" : "", _Object$assign[sideX] = hasX ? "0" : "", _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+    }
+    return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y + "px" : "", _Object$assign2[sideX] = hasX ? x + "px" : "", _Object$assign2.transform = "", _Object$assign2));
+}
+function computeStyles(_ref5) {
+    var state = _ref5.state, options = _ref5.options;
+    var _options$gpuAccelerat = options.gpuAcceleration, gpuAcceleration = _options$gpuAccelerat === void 0 ? true : _options$gpuAccelerat, _options$adaptive = options.adaptive, adaptive = _options$adaptive === void 0 ? true : _options$adaptive, _options$roundOffsets = options.roundOffsets, roundOffsets = _options$roundOffsets === void 0 ? true : _options$roundOffsets;
+    var commonStyles = {
+        placement: (0, _getBasePlacementJsDefault.default)(state.placement),
+        variation: (0, _getVariationJsDefault.default)(state.placement),
+        popper: state.elements.popper,
+        popperRect: state.rects.popper,
+        gpuAcceleration: gpuAcceleration,
+        isFixed: state.options.strategy === "fixed"
+    };
+    if (state.modifiersData.popperOffsets != null) state.styles.popper = Object.assign({}, state.styles.popper, mapToStyles(Object.assign({}, commonStyles, {
+        offsets: state.modifiersData.popperOffsets,
+        position: state.options.strategy,
+        adaptive: adaptive,
+        roundOffsets: roundOffsets
+    })));
+    if (state.modifiersData.arrow != null) state.styles.arrow = Object.assign({}, state.styles.arrow, mapToStyles(Object.assign({}, commonStyles, {
+        offsets: state.modifiersData.arrow,
+        position: "absolute",
+        adaptive: false,
+        roundOffsets: roundOffsets
+    })));
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
+        "data-popper-placement": state.placement
+    });
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "computeStyles",
+    enabled: true,
+    phase: "beforeWrite",
+    fn: computeStyles,
+    data: {}
+};
+
+},{"../enums.js":"lCAq5","../dom-utils/getOffsetParent.js":"laoYw","../dom-utils/getWindow.js":"2SkOo","../dom-utils/getDocumentElement.js":"eJ9Y1","../dom-utils/getComputedStyle.js":"3mZjB","../utils/getBasePlacement.js":"59Wp3","../utils/getVariation.js":"hIo7Y","../utils/math.js":"gQqVe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hIo7Y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getVariation);
+function getVariation(placement) {
+    return placement.split("-")[1];
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hBKsL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _getWindowJs = require("../dom-utils/getWindow.js"); // eslint-disable-next-line import/no-unused-modules
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+var passive = {
+    passive: true
+};
+function effect(_ref) {
+    var state = _ref.state, instance = _ref.instance, options = _ref.options;
+    var _options$scroll = options.scroll, scroll = _options$scroll === void 0 ? true : _options$scroll, _options$resize = options.resize, resize = _options$resize === void 0 ? true : _options$resize;
+    var window = (0, _getWindowJsDefault.default)(state.elements.popper);
+    var scrollParents = [].concat(state.scrollParents.reference, state.scrollParents.popper);
+    if (scroll) scrollParents.forEach(function(scrollParent) {
+        scrollParent.addEventListener("scroll", instance.update, passive);
+    });
+    if (resize) window.addEventListener("resize", instance.update, passive);
+    return function() {
+        if (scroll) scrollParents.forEach(function(scrollParent) {
+            scrollParent.removeEventListener("scroll", instance.update, passive);
+        });
+        if (resize) window.removeEventListener("resize", instance.update, passive);
+    };
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "eventListeners",
+    enabled: true,
+    phase: "write",
+    fn: function fn() {},
+    effect: effect,
+    data: {}
+};
+
+},{"../dom-utils/getWindow.js":"2SkOo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fv5wq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _getOppositePlacementJs = require("../utils/getOppositePlacement.js");
+var _getOppositePlacementJsDefault = parcelHelpers.interopDefault(_getOppositePlacementJs);
+var _getBasePlacementJs = require("../utils/getBasePlacement.js");
+var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+var _getOppositeVariationPlacementJs = require("../utils/getOppositeVariationPlacement.js");
+var _getOppositeVariationPlacementJsDefault = parcelHelpers.interopDefault(_getOppositeVariationPlacementJs);
+var _detectOverflowJs = require("../utils/detectOverflow.js");
+var _detectOverflowJsDefault = parcelHelpers.interopDefault(_detectOverflowJs);
+var _computeAutoPlacementJs = require("../utils/computeAutoPlacement.js");
+var _computeAutoPlacementJsDefault = parcelHelpers.interopDefault(_computeAutoPlacementJs);
+var _enumsJs = require("../enums.js");
+var _getVariationJs = require("../utils/getVariation.js"); // eslint-disable-next-line import/no-unused-modules
+var _getVariationJsDefault = parcelHelpers.interopDefault(_getVariationJs);
+function getExpandedFallbackPlacements(placement) {
+    if ((0, _getBasePlacementJsDefault.default)(placement) === (0, _enumsJs.auto)) return [];
+    var oppositePlacement = (0, _getOppositePlacementJsDefault.default)(placement);
+    return [
+        (0, _getOppositeVariationPlacementJsDefault.default)(placement),
+        oppositePlacement,
+        (0, _getOppositeVariationPlacementJsDefault.default)(oppositePlacement)
+    ];
+}
+function flip(_ref) {
+    var state = _ref.state, options = _ref.options, name = _ref.name;
+    if (state.modifiersData[name]._skip) return;
+    var _options$mainAxis = options.mainAxis, checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis, _options$altAxis = options.altAxis, checkAltAxis = _options$altAxis === void 0 ? true : _options$altAxis, specifiedFallbackPlacements = options.fallbackPlacements, padding = options.padding, boundary = options.boundary, rootBoundary = options.rootBoundary, altBoundary = options.altBoundary, _options$flipVariatio = options.flipVariations, flipVariations = _options$flipVariatio === void 0 ? true : _options$flipVariatio, allowedAutoPlacements = options.allowedAutoPlacements;
+    var preferredPlacement = state.options.placement;
+    var basePlacement = (0, _getBasePlacementJsDefault.default)(preferredPlacement);
+    var isBasePlacement = basePlacement === preferredPlacement;
+    var fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipVariations ? [
+        (0, _getOppositePlacementJsDefault.default)(preferredPlacement)
+    ] : getExpandedFallbackPlacements(preferredPlacement));
+    var placements = [
+        preferredPlacement
+    ].concat(fallbackPlacements).reduce(function(acc, placement) {
+        return acc.concat((0, _getBasePlacementJsDefault.default)(placement) === (0, _enumsJs.auto) ? (0, _computeAutoPlacementJsDefault.default)(state, {
+            placement: placement,
+            boundary: boundary,
+            rootBoundary: rootBoundary,
+            padding: padding,
+            flipVariations: flipVariations,
+            allowedAutoPlacements: allowedAutoPlacements
+        }) : placement);
+    }, []);
+    var referenceRect = state.rects.reference;
+    var popperRect = state.rects.popper;
+    var checksMap = new Map();
+    var makeFallbackChecks = true;
+    var firstFittingPlacement = placements[0];
+    for(var i = 0; i < placements.length; i++){
+        var placement = placements[i];
+        var _basePlacement = (0, _getBasePlacementJsDefault.default)(placement);
+        var isStartVariation = (0, _getVariationJsDefault.default)(placement) === (0, _enumsJs.start);
+        var isVertical = [
+            (0, _enumsJs.top),
+            (0, _enumsJs.bottom)
+        ].indexOf(_basePlacement) >= 0;
+        var len = isVertical ? "width" : "height";
+        var overflow = (0, _detectOverflowJsDefault.default)(state, {
+            placement: placement,
+            boundary: boundary,
+            rootBoundary: rootBoundary,
+            altBoundary: altBoundary,
+            padding: padding
+        });
+        var mainVariationSide = isVertical ? isStartVariation ? (0, _enumsJs.right) : (0, _enumsJs.left) : isStartVariation ? (0, _enumsJs.bottom) : (0, _enumsJs.top);
+        if (referenceRect[len] > popperRect[len]) mainVariationSide = (0, _getOppositePlacementJsDefault.default)(mainVariationSide);
+        var altVariationSide = (0, _getOppositePlacementJsDefault.default)(mainVariationSide);
+        var checks = [];
+        if (checkMainAxis) checks.push(overflow[_basePlacement] <= 0);
+        if (checkAltAxis) checks.push(overflow[mainVariationSide] <= 0, overflow[altVariationSide] <= 0);
+        if (checks.every(function(check) {
+            return check;
+        })) {
+            firstFittingPlacement = placement;
+            makeFallbackChecks = false;
+            break;
+        }
+        checksMap.set(placement, checks);
+    }
+    if (makeFallbackChecks) {
+        // `2` may be desired in some cases – research later
+        var numberOfChecks = flipVariations ? 3 : 1;
+        var _loop = function _loop(_i) {
+            var fittingPlacement = placements.find(function(placement) {
+                var checks = checksMap.get(placement);
+                if (checks) return checks.slice(0, _i).every(function(check) {
+                    return check;
+                });
+            });
+            if (fittingPlacement) {
+                firstFittingPlacement = fittingPlacement;
+                return "break";
+            }
+        };
+        for(var _i = numberOfChecks; _i > 0; _i--){
+            var _ret = _loop(_i);
+            if (_ret === "break") break;
+        }
+    }
+    if (state.placement !== firstFittingPlacement) {
+        state.modifiersData[name]._skip = true;
+        state.placement = firstFittingPlacement;
+        state.reset = true;
+    }
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "flip",
+    enabled: true,
+    phase: "main",
+    fn: flip,
+    requiresIfExists: [
+        "offset"
+    ],
+    data: {
+        _skip: false
+    }
+};
+
+},{"../utils/getOppositePlacement.js":"a8CY0","../utils/getBasePlacement.js":"59Wp3","../utils/getOppositeVariationPlacement.js":"bKTLC","../utils/detectOverflow.js":"ltCuw","../utils/computeAutoPlacement.js":"gytMj","../enums.js":"lCAq5","../utils/getVariation.js":"hIo7Y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a8CY0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getOppositePlacement);
+var hash = {
+    left: "right",
+    right: "left",
+    bottom: "top",
+    top: "bottom"
+};
+function getOppositePlacement(placement) {
+    return placement.replace(/left|right|bottom|top/g, function(matched) {
+        return hash[matched];
+    });
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bKTLC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getOppositeVariationPlacement);
+var hash = {
+    start: "end",
+    end: "start"
+};
+function getOppositeVariationPlacement(placement) {
+    return placement.replace(/start|end/g, function(matched) {
+        return hash[matched];
+    });
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ltCuw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>detectOverflow);
+var _getClippingRectJs = require("../dom-utils/getClippingRect.js");
+var _getClippingRectJsDefault = parcelHelpers.interopDefault(_getClippingRectJs);
+var _getDocumentElementJs = require("../dom-utils/getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _getBoundingClientRectJs = require("../dom-utils/getBoundingClientRect.js");
+var _getBoundingClientRectJsDefault = parcelHelpers.interopDefault(_getBoundingClientRectJs);
+var _computeOffsetsJs = require("./computeOffsets.js");
+var _computeOffsetsJsDefault = parcelHelpers.interopDefault(_computeOffsetsJs);
+var _rectToClientRectJs = require("./rectToClientRect.js");
+var _rectToClientRectJsDefault = parcelHelpers.interopDefault(_rectToClientRectJs);
+var _enumsJs = require("../enums.js");
+var _instanceOfJs = require("../dom-utils/instanceOf.js");
+var _mergePaddingObjectJs = require("./mergePaddingObject.js");
+var _mergePaddingObjectJsDefault = parcelHelpers.interopDefault(_mergePaddingObjectJs);
+var _expandToHashMapJs = require("./expandToHashMap.js"); // eslint-disable-next-line import/no-unused-modules
+var _expandToHashMapJsDefault = parcelHelpers.interopDefault(_expandToHashMapJs);
+function detectOverflow(state, options) {
+    if (options === void 0) options = {};
+    var _options = options, _options$placement = _options.placement, placement = _options$placement === void 0 ? state.placement : _options$placement, _options$strategy = _options.strategy, strategy = _options$strategy === void 0 ? state.strategy : _options$strategy, _options$boundary = _options.boundary, boundary = _options$boundary === void 0 ? (0, _enumsJs.clippingParents) : _options$boundary, _options$rootBoundary = _options.rootBoundary, rootBoundary = _options$rootBoundary === void 0 ? (0, _enumsJs.viewport) : _options$rootBoundary, _options$elementConte = _options.elementContext, elementContext = _options$elementConte === void 0 ? (0, _enumsJs.popper) : _options$elementConte, _options$altBoundary = _options.altBoundary, altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary, _options$padding = _options.padding, padding = _options$padding === void 0 ? 0 : _options$padding;
+    var paddingObject = (0, _mergePaddingObjectJsDefault.default)(typeof padding !== "number" ? padding : (0, _expandToHashMapJsDefault.default)(padding, (0, _enumsJs.basePlacements)));
+    var altContext = elementContext === (0, _enumsJs.popper) ? (0, _enumsJs.reference) : (0, _enumsJs.popper);
+    var popperRect = state.rects.popper;
+    var element = state.elements[altBoundary ? altContext : elementContext];
+    var clippingClientRect = (0, _getClippingRectJsDefault.default)((0, _instanceOfJs.isElement)(element) ? element : element.contextElement || (0, _getDocumentElementJsDefault.default)(state.elements.popper), boundary, rootBoundary, strategy);
+    var referenceClientRect = (0, _getBoundingClientRectJsDefault.default)(state.elements.reference);
+    var popperOffsets = (0, _computeOffsetsJsDefault.default)({
+        reference: referenceClientRect,
+        element: popperRect,
+        strategy: "absolute",
+        placement: placement
+    });
+    var popperClientRect = (0, _rectToClientRectJsDefault.default)(Object.assign({}, popperRect, popperOffsets));
+    var elementClientRect = elementContext === (0, _enumsJs.popper) ? popperClientRect : referenceClientRect; // positive = overflowing the clipping rect
+    // 0 or negative = within the clipping rect
+    var overflowOffsets = {
+        top: clippingClientRect.top - elementClientRect.top + paddingObject.top,
+        bottom: elementClientRect.bottom - clippingClientRect.bottom + paddingObject.bottom,
+        left: clippingClientRect.left - elementClientRect.left + paddingObject.left,
+        right: elementClientRect.right - clippingClientRect.right + paddingObject.right
+    };
+    var offsetData = state.modifiersData.offset; // Offsets can be applied only to the popper element
+    if (elementContext === (0, _enumsJs.popper) && offsetData) {
+        var offset = offsetData[placement];
+        Object.keys(overflowOffsets).forEach(function(key) {
+            var multiply = [
+                (0, _enumsJs.right),
+                (0, _enumsJs.bottom)
+            ].indexOf(key) >= 0 ? 1 : -1;
+            var axis = [
+                (0, _enumsJs.top),
+                (0, _enumsJs.bottom)
+            ].indexOf(key) >= 0 ? "y" : "x";
+            overflowOffsets[key] += offset[axis] * multiply;
+        });
+    }
+    return overflowOffsets;
+}
+
+},{"../dom-utils/getClippingRect.js":"eeg2s","../dom-utils/getDocumentElement.js":"eJ9Y1","../dom-utils/getBoundingClientRect.js":"9CFSQ","./computeOffsets.js":"7jtXk","./rectToClientRect.js":"cQ3tg","../enums.js":"lCAq5","../dom-utils/instanceOf.js":"gYFUC","./mergePaddingObject.js":"lEIf9","./expandToHashMap.js":"iQlH5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eeg2s":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getClippingRect);
+var _enumsJs = require("../enums.js");
+var _getViewportRectJs = require("./getViewportRect.js");
+var _getViewportRectJsDefault = parcelHelpers.interopDefault(_getViewportRectJs);
+var _getDocumentRectJs = require("./getDocumentRect.js");
+var _getDocumentRectJsDefault = parcelHelpers.interopDefault(_getDocumentRectJs);
+var _listScrollParentsJs = require("./listScrollParents.js");
+var _listScrollParentsJsDefault = parcelHelpers.interopDefault(_listScrollParentsJs);
+var _getOffsetParentJs = require("./getOffsetParent.js");
+var _getOffsetParentJsDefault = parcelHelpers.interopDefault(_getOffsetParentJs);
+var _getDocumentElementJs = require("./getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _getComputedStyleJs = require("./getComputedStyle.js");
+var _getComputedStyleJsDefault = parcelHelpers.interopDefault(_getComputedStyleJs);
+var _instanceOfJs = require("./instanceOf.js");
+var _getBoundingClientRectJs = require("./getBoundingClientRect.js");
+var _getBoundingClientRectJsDefault = parcelHelpers.interopDefault(_getBoundingClientRectJs);
+var _getParentNodeJs = require("./getParentNode.js");
+var _getParentNodeJsDefault = parcelHelpers.interopDefault(_getParentNodeJs);
+var _containsJs = require("./contains.js");
+var _containsJsDefault = parcelHelpers.interopDefault(_containsJs);
+var _getNodeNameJs = require("./getNodeName.js");
+var _getNodeNameJsDefault = parcelHelpers.interopDefault(_getNodeNameJs);
+var _rectToClientRectJs = require("../utils/rectToClientRect.js");
+var _rectToClientRectJsDefault = parcelHelpers.interopDefault(_rectToClientRectJs);
+var _mathJs = require("../utils/math.js");
+function getInnerBoundingClientRect(element, strategy) {
+    var rect = (0, _getBoundingClientRectJsDefault.default)(element, false, strategy === "fixed");
+    rect.top = rect.top + element.clientTop;
+    rect.left = rect.left + element.clientLeft;
+    rect.bottom = rect.top + element.clientHeight;
+    rect.right = rect.left + element.clientWidth;
+    rect.width = element.clientWidth;
+    rect.height = element.clientHeight;
+    rect.x = rect.left;
+    rect.y = rect.top;
+    return rect;
+}
+function getClientRectFromMixedType(element, clippingParent, strategy) {
+    return clippingParent === (0, _enumsJs.viewport) ? (0, _rectToClientRectJsDefault.default)((0, _getViewportRectJsDefault.default)(element, strategy)) : (0, _instanceOfJs.isElement)(clippingParent) ? getInnerBoundingClientRect(clippingParent, strategy) : (0, _rectToClientRectJsDefault.default)((0, _getDocumentRectJsDefault.default)((0, _getDocumentElementJsDefault.default)(element)));
+} // A "clipping parent" is an overflowable container with the characteristic of
+// clipping (or hiding) overflowing elements with a position different from
+// `initial`
+function getClippingParents(element) {
+    var clippingParents = (0, _listScrollParentsJsDefault.default)((0, _getParentNodeJsDefault.default)(element));
+    var canEscapeClipping = [
+        "absolute",
+        "fixed"
+    ].indexOf((0, _getComputedStyleJsDefault.default)(element).position) >= 0;
+    var clipperElement = canEscapeClipping && (0, _instanceOfJs.isHTMLElement)(element) ? (0, _getOffsetParentJsDefault.default)(element) : element;
+    if (!(0, _instanceOfJs.isElement)(clipperElement)) return [];
+     // $FlowFixMe[incompatible-return]: https://github.com/facebook/flow/issues/1414
+    return clippingParents.filter(function(clippingParent) {
+        return (0, _instanceOfJs.isElement)(clippingParent) && (0, _containsJsDefault.default)(clippingParent, clipperElement) && (0, _getNodeNameJsDefault.default)(clippingParent) !== "body";
+    });
+} // Gets the maximum area that the element is visible in due to any number of
+function getClippingRect(element, boundary, rootBoundary, strategy) {
+    var mainClippingParents = boundary === "clippingParents" ? getClippingParents(element) : [].concat(boundary);
+    var clippingParents = [].concat(mainClippingParents, [
+        rootBoundary
+    ]);
+    var firstClippingParent = clippingParents[0];
+    var clippingRect = clippingParents.reduce(function(accRect, clippingParent) {
+        var rect = getClientRectFromMixedType(element, clippingParent, strategy);
+        accRect.top = (0, _mathJs.max)(rect.top, accRect.top);
+        accRect.right = (0, _mathJs.min)(rect.right, accRect.right);
+        accRect.bottom = (0, _mathJs.min)(rect.bottom, accRect.bottom);
+        accRect.left = (0, _mathJs.max)(rect.left, accRect.left);
+        return accRect;
+    }, getClientRectFromMixedType(element, firstClippingParent, strategy));
+    clippingRect.width = clippingRect.right - clippingRect.left;
+    clippingRect.height = clippingRect.bottom - clippingRect.top;
+    clippingRect.x = clippingRect.left;
+    clippingRect.y = clippingRect.top;
+    return clippingRect;
+}
+
+},{"../enums.js":"lCAq5","./getViewportRect.js":"cnH2G","./getDocumentRect.js":"d94SC","./listScrollParents.js":"2di3T","./getOffsetParent.js":"laoYw","./getDocumentElement.js":"eJ9Y1","./getComputedStyle.js":"3mZjB","./instanceOf.js":"gYFUC","./getBoundingClientRect.js":"9CFSQ","./getParentNode.js":"bIHpd","./contains.js":"4QxRR","./getNodeName.js":"a2Qom","../utils/rectToClientRect.js":"cQ3tg","../utils/math.js":"gQqVe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cnH2G":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getViewportRect);
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+var _getDocumentElementJs = require("./getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _getWindowScrollBarXJs = require("./getWindowScrollBarX.js");
+var _getWindowScrollBarXJsDefault = parcelHelpers.interopDefault(_getWindowScrollBarXJs);
+var _isLayoutViewportJs = require("./isLayoutViewport.js");
+var _isLayoutViewportJsDefault = parcelHelpers.interopDefault(_isLayoutViewportJs);
+function getViewportRect(element, strategy) {
+    var win = (0, _getWindowJsDefault.default)(element);
+    var html = (0, _getDocumentElementJsDefault.default)(element);
+    var visualViewport = win.visualViewport;
+    var width = html.clientWidth;
+    var height = html.clientHeight;
+    var x = 0;
+    var y = 0;
+    if (visualViewport) {
+        width = visualViewport.width;
+        height = visualViewport.height;
+        var layoutViewport = (0, _isLayoutViewportJsDefault.default)();
+        if (layoutViewport || !layoutViewport && strategy === "fixed") {
+            x = visualViewport.offsetLeft;
+            y = visualViewport.offsetTop;
+        }
+    }
+    return {
+        width: width,
+        height: height,
+        x: x + (0, _getWindowScrollBarXJsDefault.default)(element),
+        y: y
+    };
+}
+
+},{"./getWindow.js":"2SkOo","./getDocumentElement.js":"eJ9Y1","./getWindowScrollBarX.js":"sz4Ld","./isLayoutViewport.js":"3ipHv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"sz4Ld":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getWindowScrollBarX);
+var _getBoundingClientRectJs = require("./getBoundingClientRect.js");
+var _getBoundingClientRectJsDefault = parcelHelpers.interopDefault(_getBoundingClientRectJs);
+var _getDocumentElementJs = require("./getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _getWindowScrollJs = require("./getWindowScroll.js");
+var _getWindowScrollJsDefault = parcelHelpers.interopDefault(_getWindowScrollJs);
+function getWindowScrollBarX(element) {
+    // If <html> has a CSS width greater than the viewport, then this will be
+    // incorrect for RTL.
+    // Popper 1 is broken in this case and never had a bug report so let's assume
+    // it's not an issue. I don't think anyone ever specifies width on <html>
+    // anyway.
+    // Browsers where the left scrollbar doesn't cause an issue report `0` for
+    // this (e.g. Edge 2019, IE11, Safari)
+    return (0, _getBoundingClientRectJsDefault.default)((0, _getDocumentElementJsDefault.default)(element)).left + (0, _getWindowScrollJsDefault.default)(element).scrollLeft;
+}
+
+},{"./getBoundingClientRect.js":"9CFSQ","./getDocumentElement.js":"eJ9Y1","./getWindowScroll.js":"1XUtN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1XUtN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getWindowScroll);
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+function getWindowScroll(node) {
+    var win = (0, _getWindowJsDefault.default)(node);
+    var scrollLeft = win.pageXOffset;
+    var scrollTop = win.pageYOffset;
+    return {
+        scrollLeft: scrollLeft,
+        scrollTop: scrollTop
+    };
+}
+
+},{"./getWindow.js":"2SkOo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d94SC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getDocumentRect);
+var _getDocumentElementJs = require("./getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _getComputedStyleJs = require("./getComputedStyle.js");
+var _getComputedStyleJsDefault = parcelHelpers.interopDefault(_getComputedStyleJs);
+var _getWindowScrollBarXJs = require("./getWindowScrollBarX.js");
+var _getWindowScrollBarXJsDefault = parcelHelpers.interopDefault(_getWindowScrollBarXJs);
+var _getWindowScrollJs = require("./getWindowScroll.js");
+var _getWindowScrollJsDefault = parcelHelpers.interopDefault(_getWindowScrollJs);
+var _mathJs = require("../utils/math.js"); // Gets the entire size of the scrollable document area, even extending outside
+function getDocumentRect(element) {
+    var _element$ownerDocumen;
+    var html = (0, _getDocumentElementJsDefault.default)(element);
+    var winScroll = (0, _getWindowScrollJsDefault.default)(element);
+    var body = (_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body;
+    var width = (0, _mathJs.max)(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
+    var height = (0, _mathJs.max)(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
+    var x = -winScroll.scrollLeft + (0, _getWindowScrollBarXJsDefault.default)(element);
+    var y = -winScroll.scrollTop;
+    if ((0, _getComputedStyleJsDefault.default)(body || html).direction === "rtl") x += (0, _mathJs.max)(html.clientWidth, body ? body.clientWidth : 0) - width;
+    return {
+        width: width,
+        height: height,
+        x: x,
+        y: y
+    };
+}
+
+},{"./getDocumentElement.js":"eJ9Y1","./getComputedStyle.js":"3mZjB","./getWindowScrollBarX.js":"sz4Ld","./getWindowScroll.js":"1XUtN","../utils/math.js":"gQqVe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2di3T":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>listScrollParents);
+var _getScrollParentJs = require("./getScrollParent.js");
+var _getScrollParentJsDefault = parcelHelpers.interopDefault(_getScrollParentJs);
+var _getParentNodeJs = require("./getParentNode.js");
+var _getParentNodeJsDefault = parcelHelpers.interopDefault(_getParentNodeJs);
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+var _isScrollParentJs = require("./isScrollParent.js");
+var _isScrollParentJsDefault = parcelHelpers.interopDefault(_isScrollParentJs);
+function listScrollParents(element, list) {
+    var _element$ownerDocumen;
+    if (list === void 0) list = [];
+    var scrollParent = (0, _getScrollParentJsDefault.default)(element);
+    var isBody = scrollParent === ((_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body);
+    var win = (0, _getWindowJsDefault.default)(scrollParent);
+    var target = isBody ? [
+        win
+    ].concat(win.visualViewport || [], (0, _isScrollParentJsDefault.default)(scrollParent) ? scrollParent : []) : scrollParent;
+    var updatedList = list.concat(target);
+    return isBody ? updatedList : updatedList.concat(listScrollParents((0, _getParentNodeJsDefault.default)(target)));
+}
+
+},{"./getScrollParent.js":"jy4ZS","./getParentNode.js":"bIHpd","./getWindow.js":"2SkOo","./isScrollParent.js":"9rLGO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jy4ZS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getScrollParent);
+var _getParentNodeJs = require("./getParentNode.js");
+var _getParentNodeJsDefault = parcelHelpers.interopDefault(_getParentNodeJs);
+var _isScrollParentJs = require("./isScrollParent.js");
+var _isScrollParentJsDefault = parcelHelpers.interopDefault(_isScrollParentJs);
+var _getNodeNameJs = require("./getNodeName.js");
+var _getNodeNameJsDefault = parcelHelpers.interopDefault(_getNodeNameJs);
+var _instanceOfJs = require("./instanceOf.js");
+function getScrollParent(node) {
+    if ([
+        "html",
+        "body",
+        "#document"
+    ].indexOf((0, _getNodeNameJsDefault.default)(node)) >= 0) // $FlowFixMe[incompatible-return]: assume body is always available
+    return node.ownerDocument.body;
+    if ((0, _instanceOfJs.isHTMLElement)(node) && (0, _isScrollParentJsDefault.default)(node)) return node;
+    return getScrollParent((0, _getParentNodeJsDefault.default)(node));
+}
+
+},{"./getParentNode.js":"bIHpd","./isScrollParent.js":"9rLGO","./getNodeName.js":"a2Qom","./instanceOf.js":"gYFUC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9rLGO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>isScrollParent);
+var _getComputedStyleJs = require("./getComputedStyle.js");
+var _getComputedStyleJsDefault = parcelHelpers.interopDefault(_getComputedStyleJs);
+function isScrollParent(element) {
+    // Firefox wants us to check `-x` and `-y` variations as well
+    var _getComputedStyle = (0, _getComputedStyleJsDefault.default)(element), overflow = _getComputedStyle.overflow, overflowX = _getComputedStyle.overflowX, overflowY = _getComputedStyle.overflowY;
+    return /auto|scroll|overlay|hidden/.test(overflow + overflowY + overflowX);
+}
+
+},{"./getComputedStyle.js":"3mZjB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cQ3tg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>rectToClientRect);
+function rectToClientRect(rect) {
+    return Object.assign({}, rect, {
+        left: rect.x,
+        top: rect.y,
+        right: rect.x + rect.width,
+        bottom: rect.y + rect.height
+    });
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7jtXk":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>computeOffsets);
+var _getBasePlacementJs = require("./getBasePlacement.js");
+var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+var _getVariationJs = require("./getVariation.js");
+var _getVariationJsDefault = parcelHelpers.interopDefault(_getVariationJs);
+var _getMainAxisFromPlacementJs = require("./getMainAxisFromPlacement.js");
+var _getMainAxisFromPlacementJsDefault = parcelHelpers.interopDefault(_getMainAxisFromPlacementJs);
+var _enumsJs = require("../enums.js");
+function computeOffsets(_ref) {
+    var reference = _ref.reference, element = _ref.element, placement = _ref.placement;
+    var basePlacement = placement ? (0, _getBasePlacementJsDefault.default)(placement) : null;
+    var variation = placement ? (0, _getVariationJsDefault.default)(placement) : null;
+    var commonX = reference.x + reference.width / 2 - element.width / 2;
+    var commonY = reference.y + reference.height / 2 - element.height / 2;
+    var offsets;
+    switch(basePlacement){
+        case 0, _enumsJs.top:
+            offsets = {
+                x: commonX,
+                y: reference.y - element.height
+            };
+            break;
+        case 0, _enumsJs.bottom:
+            offsets = {
+                x: commonX,
+                y: reference.y + reference.height
+            };
+            break;
+        case 0, _enumsJs.right:
+            offsets = {
+                x: reference.x + reference.width,
+                y: commonY
+            };
+            break;
+        case 0, _enumsJs.left:
+            offsets = {
+                x: reference.x - element.width,
+                y: commonY
+            };
+            break;
+        default:
+            offsets = {
+                x: reference.x,
+                y: reference.y
+            };
+    }
+    var mainAxis = basePlacement ? (0, _getMainAxisFromPlacementJsDefault.default)(basePlacement) : null;
+    if (mainAxis != null) {
+        var len = mainAxis === "y" ? "height" : "width";
+        switch(variation){
+            case 0, _enumsJs.start:
+                offsets[mainAxis] = offsets[mainAxis] - (reference[len] / 2 - element[len] / 2);
+                break;
+            case 0, _enumsJs.end:
+                offsets[mainAxis] = offsets[mainAxis] + (reference[len] / 2 - element[len] / 2);
+                break;
+            default:
+        }
+    }
+    return offsets;
+}
+
+},{"./getBasePlacement.js":"59Wp3","./getVariation.js":"hIo7Y","./getMainAxisFromPlacement.js":"1Xlom","../enums.js":"lCAq5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gytMj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>computeAutoPlacement);
+var _getVariationJs = require("./getVariation.js");
+var _getVariationJsDefault = parcelHelpers.interopDefault(_getVariationJs);
+var _enumsJs = require("../enums.js");
+var _detectOverflowJs = require("./detectOverflow.js");
+var _detectOverflowJsDefault = parcelHelpers.interopDefault(_detectOverflowJs);
+var _getBasePlacementJs = require("./getBasePlacement.js");
+var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+function computeAutoPlacement(state, options) {
+    if (options === void 0) options = {};
+    var _options = options, placement = _options.placement, boundary = _options.boundary, rootBoundary = _options.rootBoundary, padding = _options.padding, flipVariations = _options.flipVariations, _options$allowedAutoP = _options.allowedAutoPlacements, allowedAutoPlacements = _options$allowedAutoP === void 0 ? (0, _enumsJs.placements) : _options$allowedAutoP;
+    var variation = (0, _getVariationJsDefault.default)(placement);
+    var placements = variation ? flipVariations ? (0, _enumsJs.variationPlacements) : (0, _enumsJs.variationPlacements).filter(function(placement) {
+        return (0, _getVariationJsDefault.default)(placement) === variation;
+    }) : (0, _enumsJs.basePlacements);
+    var allowedPlacements = placements.filter(function(placement) {
+        return allowedAutoPlacements.indexOf(placement) >= 0;
+    });
+    if (allowedPlacements.length === 0) allowedPlacements = placements;
+     // $FlowFixMe[incompatible-type]: Flow seems to have problems with two array unions...
+    var overflows = allowedPlacements.reduce(function(acc, placement) {
+        acc[placement] = (0, _detectOverflowJsDefault.default)(state, {
+            placement: placement,
+            boundary: boundary,
+            rootBoundary: rootBoundary,
+            padding: padding
+        })[(0, _getBasePlacementJsDefault.default)(placement)];
+        return acc;
+    }, {});
+    return Object.keys(overflows).sort(function(a, b) {
+        return overflows[a] - overflows[b];
+    });
+}
+
+},{"./getVariation.js":"hIo7Y","../enums.js":"lCAq5","./detectOverflow.js":"ltCuw","./getBasePlacement.js":"59Wp3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2g4OF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _enumsJs = require("../enums.js");
+var _detectOverflowJs = require("../utils/detectOverflow.js");
+var _detectOverflowJsDefault = parcelHelpers.interopDefault(_detectOverflowJs);
+function getSideOffsets(overflow, rect, preventedOffsets) {
+    if (preventedOffsets === void 0) preventedOffsets = {
+        x: 0,
+        y: 0
+    };
+    return {
+        top: overflow.top - rect.height - preventedOffsets.y,
+        right: overflow.right - rect.width + preventedOffsets.x,
+        bottom: overflow.bottom - rect.height + preventedOffsets.y,
+        left: overflow.left - rect.width - preventedOffsets.x
+    };
+}
+function isAnySideFullyClipped(overflow) {
+    return [
+        (0, _enumsJs.top),
+        (0, _enumsJs.right),
+        (0, _enumsJs.bottom),
+        (0, _enumsJs.left)
+    ].some(function(side) {
+        return overflow[side] >= 0;
+    });
+}
+function hide(_ref) {
+    var state = _ref.state, name = _ref.name;
+    var referenceRect = state.rects.reference;
+    var popperRect = state.rects.popper;
+    var preventedOffsets = state.modifiersData.preventOverflow;
+    var referenceOverflow = (0, _detectOverflowJsDefault.default)(state, {
+        elementContext: "reference"
+    });
+    var popperAltOverflow = (0, _detectOverflowJsDefault.default)(state, {
+        altBoundary: true
+    });
+    var referenceClippingOffsets = getSideOffsets(referenceOverflow, referenceRect);
+    var popperEscapeOffsets = getSideOffsets(popperAltOverflow, popperRect, preventedOffsets);
+    var isReferenceHidden = isAnySideFullyClipped(referenceClippingOffsets);
+    var hasPopperEscaped = isAnySideFullyClipped(popperEscapeOffsets);
+    state.modifiersData[name] = {
+        referenceClippingOffsets: referenceClippingOffsets,
+        popperEscapeOffsets: popperEscapeOffsets,
+        isReferenceHidden: isReferenceHidden,
+        hasPopperEscaped: hasPopperEscaped
+    };
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
+        "data-popper-reference-hidden": isReferenceHidden,
+        "data-popper-escaped": hasPopperEscaped
+    });
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "hide",
+    enabled: true,
+    phase: "main",
+    requiresIfExists: [
+        "preventOverflow"
+    ],
+    fn: hide
+};
+
+},{"../enums.js":"lCAq5","../utils/detectOverflow.js":"ltCuw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3GKVY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "distanceAndSkiddingToXY", ()=>distanceAndSkiddingToXY);
+var _getBasePlacementJs = require("../utils/getBasePlacement.js");
+var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+var _enumsJs = require("../enums.js"); // eslint-disable-next-line import/no-unused-modules
+function distanceAndSkiddingToXY(placement, rects, offset) {
+    var basePlacement = (0, _getBasePlacementJsDefault.default)(placement);
+    var invertDistance = [
+        (0, _enumsJs.left),
+        (0, _enumsJs.top)
+    ].indexOf(basePlacement) >= 0 ? -1 : 1;
+    var _ref = typeof offset === "function" ? offset(Object.assign({}, rects, {
+        placement: placement
+    })) : offset, skidding = _ref[0], distance = _ref[1];
+    skidding = skidding || 0;
+    distance = (distance || 0) * invertDistance;
+    return [
+        (0, _enumsJs.left),
+        (0, _enumsJs.right)
+    ].indexOf(basePlacement) >= 0 ? {
+        x: distance,
+        y: skidding
+    } : {
+        x: skidding,
+        y: distance
+    };
+}
+function offset(_ref2) {
+    var state = _ref2.state, options = _ref2.options, name = _ref2.name;
+    var _options$offset = options.offset, offset = _options$offset === void 0 ? [
+        0,
+        0
+    ] : _options$offset;
+    var data = (0, _enumsJs.placements).reduce(function(acc, placement) {
+        acc[placement] = distanceAndSkiddingToXY(placement, state.rects, offset);
+        return acc;
+    }, {});
+    var _data$state$placement = data[state.placement], x = _data$state$placement.x, y = _data$state$placement.y;
+    if (state.modifiersData.popperOffsets != null) {
+        state.modifiersData.popperOffsets.x += x;
+        state.modifiersData.popperOffsets.y += y;
+    }
+    state.modifiersData[name] = data;
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "offset",
+    enabled: true,
+    phase: "main",
+    requires: [
+        "popperOffsets"
+    ],
+    fn: offset
+};
+
+},{"../utils/getBasePlacement.js":"59Wp3","../enums.js":"lCAq5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6I679":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _computeOffsetsJs = require("../utils/computeOffsets.js");
+var _computeOffsetsJsDefault = parcelHelpers.interopDefault(_computeOffsetsJs);
+function popperOffsets(_ref) {
+    var state = _ref.state, name = _ref.name;
+    // Offsets are the actual position the popper needs to have to be
+    // properly positioned near its reference element
+    // This is the most basic placement, and will be adjusted by
+    // the modifiers in the next step
+    state.modifiersData[name] = (0, _computeOffsetsJsDefault.default)({
+        reference: state.rects.reference,
+        element: state.rects.popper,
+        strategy: "absolute",
+        placement: state.placement
+    });
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "popperOffsets",
+    enabled: true,
+    phase: "read",
+    fn: popperOffsets,
+    data: {}
+};
+
+},{"../utils/computeOffsets.js":"7jtXk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1AMhb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _enumsJs = require("../enums.js");
+var _getBasePlacementJs = require("../utils/getBasePlacement.js");
+var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+var _getMainAxisFromPlacementJs = require("../utils/getMainAxisFromPlacement.js");
+var _getMainAxisFromPlacementJsDefault = parcelHelpers.interopDefault(_getMainAxisFromPlacementJs);
+var _getAltAxisJs = require("../utils/getAltAxis.js");
+var _getAltAxisJsDefault = parcelHelpers.interopDefault(_getAltAxisJs);
+var _withinJs = require("../utils/within.js");
+var _getLayoutRectJs = require("../dom-utils/getLayoutRect.js");
+var _getLayoutRectJsDefault = parcelHelpers.interopDefault(_getLayoutRectJs);
+var _getOffsetParentJs = require("../dom-utils/getOffsetParent.js");
+var _getOffsetParentJsDefault = parcelHelpers.interopDefault(_getOffsetParentJs);
+var _detectOverflowJs = require("../utils/detectOverflow.js");
+var _detectOverflowJsDefault = parcelHelpers.interopDefault(_detectOverflowJs);
+var _getVariationJs = require("../utils/getVariation.js");
+var _getVariationJsDefault = parcelHelpers.interopDefault(_getVariationJs);
+var _getFreshSideObjectJs = require("../utils/getFreshSideObject.js");
+var _getFreshSideObjectJsDefault = parcelHelpers.interopDefault(_getFreshSideObjectJs);
+var _mathJs = require("../utils/math.js");
+function preventOverflow(_ref) {
+    var state = _ref.state, options = _ref.options, name = _ref.name;
+    var _options$mainAxis = options.mainAxis, checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis, _options$altAxis = options.altAxis, checkAltAxis = _options$altAxis === void 0 ? false : _options$altAxis, boundary = options.boundary, rootBoundary = options.rootBoundary, altBoundary = options.altBoundary, padding = options.padding, _options$tether = options.tether, tether = _options$tether === void 0 ? true : _options$tether, _options$tetherOffset = options.tetherOffset, tetherOffset = _options$tetherOffset === void 0 ? 0 : _options$tetherOffset;
+    var overflow = (0, _detectOverflowJsDefault.default)(state, {
+        boundary: boundary,
+        rootBoundary: rootBoundary,
+        padding: padding,
+        altBoundary: altBoundary
+    });
+    var basePlacement = (0, _getBasePlacementJsDefault.default)(state.placement);
+    var variation = (0, _getVariationJsDefault.default)(state.placement);
+    var isBasePlacement = !variation;
+    var mainAxis = (0, _getMainAxisFromPlacementJsDefault.default)(basePlacement);
+    var altAxis = (0, _getAltAxisJsDefault.default)(mainAxis);
+    var popperOffsets = state.modifiersData.popperOffsets;
+    var referenceRect = state.rects.reference;
+    var popperRect = state.rects.popper;
+    var tetherOffsetValue = typeof tetherOffset === "function" ? tetherOffset(Object.assign({}, state.rects, {
+        placement: state.placement
+    })) : tetherOffset;
+    var normalizedTetherOffsetValue = typeof tetherOffsetValue === "number" ? {
+        mainAxis: tetherOffsetValue,
+        altAxis: tetherOffsetValue
+    } : Object.assign({
+        mainAxis: 0,
+        altAxis: 0
+    }, tetherOffsetValue);
+    var offsetModifierState = state.modifiersData.offset ? state.modifiersData.offset[state.placement] : null;
+    var data = {
+        x: 0,
+        y: 0
+    };
+    if (!popperOffsets) return;
+    if (checkMainAxis) {
+        var _offsetModifierState$;
+        var mainSide = mainAxis === "y" ? (0, _enumsJs.top) : (0, _enumsJs.left);
+        var altSide = mainAxis === "y" ? (0, _enumsJs.bottom) : (0, _enumsJs.right);
+        var len = mainAxis === "y" ? "height" : "width";
+        var offset = popperOffsets[mainAxis];
+        var min = offset + overflow[mainSide];
+        var max = offset - overflow[altSide];
+        var additive = tether ? -popperRect[len] / 2 : 0;
+        var minLen = variation === (0, _enumsJs.start) ? referenceRect[len] : popperRect[len];
+        var maxLen = variation === (0, _enumsJs.start) ? -popperRect[len] : -referenceRect[len]; // We need to include the arrow in the calculation so the arrow doesn't go
+        // outside the reference bounds
+        var arrowElement = state.elements.arrow;
+        var arrowRect = tether && arrowElement ? (0, _getLayoutRectJsDefault.default)(arrowElement) : {
+            width: 0,
+            height: 0
+        };
+        var arrowPaddingObject = state.modifiersData["arrow#persistent"] ? state.modifiersData["arrow#persistent"].padding : (0, _getFreshSideObjectJsDefault.default)();
+        var arrowPaddingMin = arrowPaddingObject[mainSide];
+        var arrowPaddingMax = arrowPaddingObject[altSide]; // If the reference length is smaller than the arrow length, we don't want
+        // to include its full size in the calculation. If the reference is small
+        // and near the edge of a boundary, the popper can overflow even if the
+        // reference is not overflowing as well (e.g. virtual elements with no
+        // width or height)
+        var arrowLen = (0, _withinJs.within)(0, referenceRect[len], arrowRect[len]);
+        var minOffset = isBasePlacement ? referenceRect[len] / 2 - additive - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis : minLen - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis;
+        var maxOffset = isBasePlacement ? -referenceRect[len] / 2 + additive + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis : maxLen + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis;
+        var arrowOffsetParent = state.elements.arrow && (0, _getOffsetParentJsDefault.default)(state.elements.arrow);
+        var clientOffset = arrowOffsetParent ? mainAxis === "y" ? arrowOffsetParent.clientTop || 0 : arrowOffsetParent.clientLeft || 0 : 0;
+        var offsetModifierValue = (_offsetModifierState$ = offsetModifierState == null ? void 0 : offsetModifierState[mainAxis]) != null ? _offsetModifierState$ : 0;
+        var tetherMin = offset + minOffset - offsetModifierValue - clientOffset;
+        var tetherMax = offset + maxOffset - offsetModifierValue;
+        var preventedOffset = (0, _withinJs.within)(tether ? (0, _mathJs.min)(min, tetherMin) : min, offset, tether ? (0, _mathJs.max)(max, tetherMax) : max);
+        popperOffsets[mainAxis] = preventedOffset;
+        data[mainAxis] = preventedOffset - offset;
+    }
+    if (checkAltAxis) {
+        var _offsetModifierState$2;
+        var _mainSide = mainAxis === "x" ? (0, _enumsJs.top) : (0, _enumsJs.left);
+        var _altSide = mainAxis === "x" ? (0, _enumsJs.bottom) : (0, _enumsJs.right);
+        var _offset = popperOffsets[altAxis];
+        var _len = altAxis === "y" ? "height" : "width";
+        var _min = _offset + overflow[_mainSide];
+        var _max = _offset - overflow[_altSide];
+        var isOriginSide = [
+            (0, _enumsJs.top),
+            (0, _enumsJs.left)
+        ].indexOf(basePlacement) !== -1;
+        var _offsetModifierValue = (_offsetModifierState$2 = offsetModifierState == null ? void 0 : offsetModifierState[altAxis]) != null ? _offsetModifierState$2 : 0;
+        var _tetherMin = isOriginSide ? _min : _offset - referenceRect[_len] - popperRect[_len] - _offsetModifierValue + normalizedTetherOffsetValue.altAxis;
+        var _tetherMax = isOriginSide ? _offset + referenceRect[_len] + popperRect[_len] - _offsetModifierValue - normalizedTetherOffsetValue.altAxis : _max;
+        var _preventedOffset = tether && isOriginSide ? (0, _withinJs.withinMaxClamp)(_tetherMin, _offset, _tetherMax) : (0, _withinJs.within)(tether ? _tetherMin : _min, _offset, tether ? _tetherMax : _max);
+        popperOffsets[altAxis] = _preventedOffset;
+        data[altAxis] = _preventedOffset - _offset;
+    }
+    state.modifiersData[name] = data;
+} // eslint-disable-next-line import/no-unused-modules
+exports.default = {
+    name: "preventOverflow",
+    enabled: true,
+    phase: "main",
+    fn: preventOverflow,
+    requiresIfExists: [
+        "offset"
+    ]
+};
+
+},{"../enums.js":"lCAq5","../utils/getBasePlacement.js":"59Wp3","../utils/getMainAxisFromPlacement.js":"1Xlom","../utils/getAltAxis.js":"59FWE","../utils/within.js":"3glSz","../dom-utils/getLayoutRect.js":"jvjuf","../dom-utils/getOffsetParent.js":"laoYw","../utils/detectOverflow.js":"ltCuw","../utils/getVariation.js":"hIo7Y","../utils/getFreshSideObject.js":"g4xOt","../utils/math.js":"gQqVe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"59FWE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getAltAxis);
+function getAltAxis(axis) {
+    return axis === "x" ? "y" : "x";
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cHuNp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "popperGenerator", ()=>popperGenerator);
+parcelHelpers.export(exports, "createPopper", ()=>createPopper);
+parcelHelpers.export(exports, "detectOverflow", ()=>(0, _detectOverflowJsDefault.default));
+var _getCompositeRectJs = require("./dom-utils/getCompositeRect.js");
+var _getCompositeRectJsDefault = parcelHelpers.interopDefault(_getCompositeRectJs);
+var _getLayoutRectJs = require("./dom-utils/getLayoutRect.js");
+var _getLayoutRectJsDefault = parcelHelpers.interopDefault(_getLayoutRectJs);
+var _listScrollParentsJs = require("./dom-utils/listScrollParents.js");
+var _listScrollParentsJsDefault = parcelHelpers.interopDefault(_listScrollParentsJs);
+var _getOffsetParentJs = require("./dom-utils/getOffsetParent.js");
+var _getOffsetParentJsDefault = parcelHelpers.interopDefault(_getOffsetParentJs);
+var _orderModifiersJs = require("./utils/orderModifiers.js");
+var _orderModifiersJsDefault = parcelHelpers.interopDefault(_orderModifiersJs);
+var _debounceJs = require("./utils/debounce.js");
+var _debounceJsDefault = parcelHelpers.interopDefault(_debounceJs);
+var _mergeByNameJs = require("./utils/mergeByName.js");
+var _mergeByNameJsDefault = parcelHelpers.interopDefault(_mergeByNameJs);
+var _detectOverflowJs = require("./utils/detectOverflow.js");
+var _detectOverflowJsDefault = parcelHelpers.interopDefault(_detectOverflowJs);
+var _instanceOfJs = require("./dom-utils/instanceOf.js");
+var DEFAULT_OPTIONS = {
+    placement: "bottom",
+    modifiers: [],
+    strategy: "absolute"
+};
+function areValidElements() {
+    for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+    return !args.some(function(element) {
+        return !(element && typeof element.getBoundingClientRect === "function");
+    });
+}
+function popperGenerator(generatorOptions) {
+    if (generatorOptions === void 0) generatorOptions = {};
+    var _generatorOptions = generatorOptions, _generatorOptions$def = _generatorOptions.defaultModifiers, defaultModifiers = _generatorOptions$def === void 0 ? [] : _generatorOptions$def, _generatorOptions$def2 = _generatorOptions.defaultOptions, defaultOptions = _generatorOptions$def2 === void 0 ? DEFAULT_OPTIONS : _generatorOptions$def2;
+    return function createPopper(reference, popper, options) {
+        if (options === void 0) options = defaultOptions;
+        var state = {
+            placement: "bottom",
+            orderedModifiers: [],
+            options: Object.assign({}, DEFAULT_OPTIONS, defaultOptions),
+            modifiersData: {},
+            elements: {
+                reference: reference,
+                popper: popper
+            },
+            attributes: {},
+            styles: {}
+        };
+        var effectCleanupFns = [];
+        var isDestroyed = false;
+        var instance = {
+            state: state,
+            setOptions: function setOptions(setOptionsAction) {
+                var options = typeof setOptionsAction === "function" ? setOptionsAction(state.options) : setOptionsAction;
+                cleanupModifierEffects();
+                state.options = Object.assign({}, defaultOptions, state.options, options);
+                state.scrollParents = {
+                    reference: (0, _instanceOfJs.isElement)(reference) ? (0, _listScrollParentsJsDefault.default)(reference) : reference.contextElement ? (0, _listScrollParentsJsDefault.default)(reference.contextElement) : [],
+                    popper: (0, _listScrollParentsJsDefault.default)(popper)
+                }; // Orders the modifiers based on their dependencies and `phase`
+                // properties
+                var orderedModifiers = (0, _orderModifiersJsDefault.default)((0, _mergeByNameJsDefault.default)([].concat(defaultModifiers, state.options.modifiers))); // Strip out disabled modifiers
+                state.orderedModifiers = orderedModifiers.filter(function(m) {
+                    return m.enabled;
+                });
+                runModifierEffects();
+                return instance.update();
+            },
+            // Sync update – it will always be executed, even if not necessary. This
+            // is useful for low frequency updates where sync behavior simplifies the
+            // logic.
+            // For high frequency updates (e.g. `resize` and `scroll` events), always
+            // prefer the async Popper#update method
+            forceUpdate: function forceUpdate() {
+                if (isDestroyed) return;
+                var _state$elements = state.elements, reference = _state$elements.reference, popper = _state$elements.popper; // Don't proceed if `reference` or `popper` are not valid elements
+                // anymore
+                if (!areValidElements(reference, popper)) return;
+                 // Store the reference and popper rects to be read by modifiers
+                state.rects = {
+                    reference: (0, _getCompositeRectJsDefault.default)(reference, (0, _getOffsetParentJsDefault.default)(popper), state.options.strategy === "fixed"),
+                    popper: (0, _getLayoutRectJsDefault.default)(popper)
+                }; // Modifiers have the ability to reset the current update cycle. The
+                // most common use case for this is the `flip` modifier changing the
+                // placement, which then needs to re-run all the modifiers, because the
+                // logic was previously ran for the previous placement and is therefore
+                // stale/incorrect
+                state.reset = false;
+                state.placement = state.options.placement; // On each update cycle, the `modifiersData` property for each modifier
+                // is filled with the initial data specified by the modifier. This means
+                // it doesn't persist and is fresh on each update.
+                // To ensure persistent data, use `${name}#persistent`
+                state.orderedModifiers.forEach(function(modifier) {
+                    return state.modifiersData[modifier.name] = Object.assign({}, modifier.data);
+                });
+                for(var index = 0; index < state.orderedModifiers.length; index++){
+                    if (state.reset === true) {
+                        state.reset = false;
+                        index = -1;
+                        continue;
+                    }
+                    var _state$orderedModifie = state.orderedModifiers[index], fn = _state$orderedModifie.fn, _state$orderedModifie2 = _state$orderedModifie.options, _options = _state$orderedModifie2 === void 0 ? {} : _state$orderedModifie2, name = _state$orderedModifie.name;
+                    if (typeof fn === "function") state = fn({
+                        state: state,
+                        options: _options,
+                        name: name,
+                        instance: instance
+                    }) || state;
+                }
+            },
+            // Async and optimistically optimized update – it will not be executed if
+            // not necessary (debounced to run at most once-per-tick)
+            update: (0, _debounceJsDefault.default)(function() {
+                return new Promise(function(resolve) {
+                    instance.forceUpdate();
+                    resolve(state);
+                });
+            }),
+            destroy: function destroy() {
+                cleanupModifierEffects();
+                isDestroyed = true;
+            }
+        };
+        if (!areValidElements(reference, popper)) return instance;
+        instance.setOptions(options).then(function(state) {
+            if (!isDestroyed && options.onFirstUpdate) options.onFirstUpdate(state);
+        }); // Modifiers have the ability to execute arbitrary code before the first
+        // update cycle runs. They will be executed in the same order as the update
+        // cycle. This is useful when a modifier adds some persistent data that
+        // other modifiers need to use, but the modifier is run after the dependent
+        // one.
+        function runModifierEffects() {
+            state.orderedModifiers.forEach(function(_ref) {
+                var name = _ref.name, _ref$options = _ref.options, options = _ref$options === void 0 ? {} : _ref$options, effect = _ref.effect;
+                if (typeof effect === "function") {
+                    var cleanupFn = effect({
+                        state: state,
+                        name: name,
+                        instance: instance,
+                        options: options
+                    });
+                    var noopFn = function noopFn() {};
+                    effectCleanupFns.push(cleanupFn || noopFn);
+                }
+            });
+        }
+        function cleanupModifierEffects() {
+            effectCleanupFns.forEach(function(fn) {
+                return fn();
+            });
+            effectCleanupFns = [];
+        }
+        return instance;
+    };
+}
+var createPopper = /*#__PURE__*/ popperGenerator(); // eslint-disable-next-line import/no-unused-modules
+
+},{"./dom-utils/getCompositeRect.js":"ijPls","./dom-utils/getLayoutRect.js":"jvjuf","./dom-utils/listScrollParents.js":"2di3T","./dom-utils/getOffsetParent.js":"laoYw","./utils/orderModifiers.js":"N0VO0","./utils/debounce.js":"g6Chr","./utils/mergeByName.js":"2zTVN","./utils/detectOverflow.js":"ltCuw","./dom-utils/instanceOf.js":"gYFUC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ijPls":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getCompositeRect);
+var _getBoundingClientRectJs = require("./getBoundingClientRect.js");
+var _getBoundingClientRectJsDefault = parcelHelpers.interopDefault(_getBoundingClientRectJs);
+var _getNodeScrollJs = require("./getNodeScroll.js");
+var _getNodeScrollJsDefault = parcelHelpers.interopDefault(_getNodeScrollJs);
+var _getNodeNameJs = require("./getNodeName.js");
+var _getNodeNameJsDefault = parcelHelpers.interopDefault(_getNodeNameJs);
+var _instanceOfJs = require("./instanceOf.js");
+var _getWindowScrollBarXJs = require("./getWindowScrollBarX.js");
+var _getWindowScrollBarXJsDefault = parcelHelpers.interopDefault(_getWindowScrollBarXJs);
+var _getDocumentElementJs = require("./getDocumentElement.js");
+var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _isScrollParentJs = require("./isScrollParent.js");
+var _isScrollParentJsDefault = parcelHelpers.interopDefault(_isScrollParentJs);
+var _mathJs = require("../utils/math.js");
+function isElementScaled(element) {
+    var rect = element.getBoundingClientRect();
+    var scaleX = (0, _mathJs.round)(rect.width) / element.offsetWidth || 1;
+    var scaleY = (0, _mathJs.round)(rect.height) / element.offsetHeight || 1;
+    return scaleX !== 1 || scaleY !== 1;
+} // Returns the composite rect of an element relative to its offsetParent.
+function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
+    if (isFixed === void 0) isFixed = false;
+    var isOffsetParentAnElement = (0, _instanceOfJs.isHTMLElement)(offsetParent);
+    var offsetParentIsScaled = (0, _instanceOfJs.isHTMLElement)(offsetParent) && isElementScaled(offsetParent);
+    var documentElement = (0, _getDocumentElementJsDefault.default)(offsetParent);
+    var rect = (0, _getBoundingClientRectJsDefault.default)(elementOrVirtualElement, offsetParentIsScaled, isFixed);
+    var scroll = {
+        scrollLeft: 0,
+        scrollTop: 0
+    };
+    var offsets = {
+        x: 0,
+        y: 0
+    };
+    if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
+        if ((0, _getNodeNameJsDefault.default)(offsetParent) !== "body" || // https://github.com/popperjs/popper-core/issues/1078
+        (0, _isScrollParentJsDefault.default)(documentElement)) scroll = (0, _getNodeScrollJsDefault.default)(offsetParent);
+        if ((0, _instanceOfJs.isHTMLElement)(offsetParent)) {
+            offsets = (0, _getBoundingClientRectJsDefault.default)(offsetParent, true);
+            offsets.x += offsetParent.clientLeft;
+            offsets.y += offsetParent.clientTop;
+        } else if (documentElement) offsets.x = (0, _getWindowScrollBarXJsDefault.default)(documentElement);
+    }
+    return {
+        x: rect.left + scroll.scrollLeft - offsets.x,
+        y: rect.top + scroll.scrollTop - offsets.y,
+        width: rect.width,
+        height: rect.height
+    };
+}
+
+},{"./getBoundingClientRect.js":"9CFSQ","./getNodeScroll.js":"bBjCr","./getNodeName.js":"a2Qom","./instanceOf.js":"gYFUC","./getWindowScrollBarX.js":"sz4Ld","./getDocumentElement.js":"eJ9Y1","./isScrollParent.js":"9rLGO","../utils/math.js":"gQqVe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bBjCr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getNodeScroll);
+var _getWindowScrollJs = require("./getWindowScroll.js");
+var _getWindowScrollJsDefault = parcelHelpers.interopDefault(_getWindowScrollJs);
+var _getWindowJs = require("./getWindow.js");
+var _getWindowJsDefault = parcelHelpers.interopDefault(_getWindowJs);
+var _instanceOfJs = require("./instanceOf.js");
+var _getHTMLElementScrollJs = require("./getHTMLElementScroll.js");
+var _getHTMLElementScrollJsDefault = parcelHelpers.interopDefault(_getHTMLElementScrollJs);
+function getNodeScroll(node) {
+    if (node === (0, _getWindowJsDefault.default)(node) || !(0, _instanceOfJs.isHTMLElement)(node)) return (0, _getWindowScrollJsDefault.default)(node);
+    else return (0, _getHTMLElementScrollJsDefault.default)(node);
+}
+
+},{"./getWindowScroll.js":"1XUtN","./getWindow.js":"2SkOo","./instanceOf.js":"gYFUC","./getHTMLElementScroll.js":"6pwY2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6pwY2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getHTMLElementScroll);
+function getHTMLElementScroll(element) {
+    return {
+        scrollLeft: element.scrollLeft,
+        scrollTop: element.scrollTop
+    };
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"N0VO0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>orderModifiers);
+var _enumsJs = require("../enums.js"); // source: https://stackoverflow.com/questions/49875255
+function order(modifiers) {
+    var map = new Map();
+    var visited = new Set();
+    var result = [];
+    modifiers.forEach(function(modifier) {
+        map.set(modifier.name, modifier);
+    }); // On visiting object, check for its dependencies and visit them recursively
+    function sort(modifier) {
+        visited.add(modifier.name);
+        var requires = [].concat(modifier.requires || [], modifier.requiresIfExists || []);
+        requires.forEach(function(dep) {
+            if (!visited.has(dep)) {
+                var depModifier = map.get(dep);
+                if (depModifier) sort(depModifier);
+            }
+        });
+        result.push(modifier);
+    }
+    modifiers.forEach(function(modifier) {
+        if (!visited.has(modifier.name)) // check for visited object
+        sort(modifier);
+    });
+    return result;
+}
+function orderModifiers(modifiers) {
+    // order based on dependencies
+    var orderedModifiers = order(modifiers); // order based on phase
+    return (0, _enumsJs.modifierPhases).reduce(function(acc, phase) {
+        return acc.concat(orderedModifiers.filter(function(modifier) {
+            return modifier.phase === phase;
+        }));
+    }, []);
+}
+
+},{"../enums.js":"lCAq5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g6Chr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>debounce);
+function debounce(fn) {
+    var pending;
+    return function() {
+        if (!pending) pending = new Promise(function(resolve) {
+            Promise.resolve().then(function() {
+                pending = undefined;
+                resolve(fn());
+            });
+        });
+        return pending;
+    };
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2zTVN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>mergeByName);
+function mergeByName(modifiers) {
+    var merged = modifiers.reduce(function(merged, current) {
+        var existing = merged[current.name];
+        merged[current.name] = existing ? Object.assign({}, existing, current, {
+            options: Object.assign({}, existing.options, current.options),
+            data: Object.assign({}, existing.data, current.data)
+        }) : current;
+        return merged;
+    }, {}); // IE11 does not support Object.values
+    return Object.keys(merged).map(function(key) {
+        return merged[key];
+    });
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1PuRF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createPopperLite", ()=>(0, _popperLiteJs.createPopper)) // eslint-disable-next-line import/no-unused-modules
+;
+parcelHelpers.export(exports, "createPopper", ()=>createPopper) // eslint-disable-next-line import/no-unused-modules
+;
+parcelHelpers.export(exports, "popperGenerator", ()=>(0, _createPopperJs.popperGenerator));
+parcelHelpers.export(exports, "defaultModifiers", ()=>defaultModifiers);
+parcelHelpers.export(exports, "detectOverflow", ()=>(0, _createPopperJs.detectOverflow));
+var _createPopperJs = require("./createPopper.js");
+var _eventListenersJs = require("./modifiers/eventListeners.js");
+var _eventListenersJsDefault = parcelHelpers.interopDefault(_eventListenersJs);
+var _popperOffsetsJs = require("./modifiers/popperOffsets.js");
+var _popperOffsetsJsDefault = parcelHelpers.interopDefault(_popperOffsetsJs);
+var _computeStylesJs = require("./modifiers/computeStyles.js");
+var _computeStylesJsDefault = parcelHelpers.interopDefault(_computeStylesJs);
+var _applyStylesJs = require("./modifiers/applyStyles.js");
+var _applyStylesJsDefault = parcelHelpers.interopDefault(_applyStylesJs);
+var _offsetJs = require("./modifiers/offset.js");
+var _offsetJsDefault = parcelHelpers.interopDefault(_offsetJs);
+var _flipJs = require("./modifiers/flip.js");
+var _flipJsDefault = parcelHelpers.interopDefault(_flipJs);
+var _preventOverflowJs = require("./modifiers/preventOverflow.js");
+var _preventOverflowJsDefault = parcelHelpers.interopDefault(_preventOverflowJs);
+var _arrowJs = require("./modifiers/arrow.js");
+var _arrowJsDefault = parcelHelpers.interopDefault(_arrowJs);
+var _hideJs = require("./modifiers/hide.js");
+var _hideJsDefault = parcelHelpers.interopDefault(_hideJs);
+var _popperLiteJs = require("./popper-lite.js");
+var _indexJs = require("./modifiers/index.js");
+parcelHelpers.exportAll(_indexJs, exports);
+var defaultModifiers = [
+    (0, _eventListenersJsDefault.default),
+    (0, _popperOffsetsJsDefault.default),
+    (0, _computeStylesJsDefault.default),
+    (0, _applyStylesJsDefault.default),
+    (0, _offsetJsDefault.default),
+    (0, _flipJsDefault.default),
+    (0, _preventOverflowJsDefault.default),
+    (0, _arrowJsDefault.default),
+    (0, _hideJsDefault.default)
+];
+var createPopper = /*#__PURE__*/ (0, _createPopperJs.popperGenerator)({
+    defaultModifiers: defaultModifiers
+}); // eslint-disable-next-line import/no-unused-modules
+
+},{"./createPopper.js":"cHuNp","./modifiers/eventListeners.js":"hBKsL","./modifiers/popperOffsets.js":"6I679","./modifiers/computeStyles.js":"gDlm2","./modifiers/applyStyles.js":"4iMn4","./modifiers/offset.js":"3GKVY","./modifiers/flip.js":"fv5wq","./modifiers/preventOverflow.js":"1AMhb","./modifiers/arrow.js":"31HFW","./modifiers/hide.js":"2g4OF","./popper-lite.js":false,"./modifiers/index.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gKW1N":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createPopper", ()=>createPopper);
+parcelHelpers.export(exports, "popperGenerator", ()=>(0, _createPopperJs.popperGenerator));
+parcelHelpers.export(exports, "defaultModifiers", ()=>defaultModifiers);
+parcelHelpers.export(exports, "detectOverflow", ()=>(0, _createPopperJs.detectOverflow));
+var _createPopperJs = require("./createPopper.js");
+var _eventListenersJs = require("./modifiers/eventListeners.js");
+var _eventListenersJsDefault = parcelHelpers.interopDefault(_eventListenersJs);
+var _popperOffsetsJs = require("./modifiers/popperOffsets.js");
+var _popperOffsetsJsDefault = parcelHelpers.interopDefault(_popperOffsetsJs);
+var _computeStylesJs = require("./modifiers/computeStyles.js");
+var _computeStylesJsDefault = parcelHelpers.interopDefault(_computeStylesJs);
+var _applyStylesJs = require("./modifiers/applyStyles.js");
+var _applyStylesJsDefault = parcelHelpers.interopDefault(_applyStylesJs);
+var defaultModifiers = [
+    (0, _eventListenersJsDefault.default),
+    (0, _popperOffsetsJsDefault.default),
+    (0, _computeStylesJsDefault.default),
+    (0, _applyStylesJsDefault.default)
+];
+var createPopper = /*#__PURE__*/ (0, _createPopperJs.popperGenerator)({
+    defaultModifiers: defaultModifiers
+}); // eslint-disable-next-line import/no-unused-modules
+
+},{"./createPopper.js":"cHuNp","./modifiers/eventListeners.js":"hBKsL","./modifiers/popperOffsets.js":"6I679","./modifiers/computeStyles.js":"gDlm2","./modifiers/applyStyles.js":"4iMn4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3QC3y","1xC6H","bB7Pu"], "bB7Pu", "parcelRequire62c4")
+
+//# sourceMappingURL=index.3d214d75.js.map

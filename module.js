@@ -2,6 +2,6 @@ export const data = {
     data: 'data'
 }
 
-export default data2 = {
+export const data2 = {
     data2: 'data2'
 }
