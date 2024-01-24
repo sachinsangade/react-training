@@ -11082,4 +11082,14 @@ textarea.form-control-lg {
   }
 }
 
+.about {
+  background: #1b6062;
+}
+
+.about h2 {
+  text-align: center;
+  color: #fff;
+  padding: 2em;
+}
+
 /*# sourceMappingURL=index.ab0485ab.css.map */

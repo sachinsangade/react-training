@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import PageHeader from "./PageHeader/PageHeader";
 
 const Contact = () => {
   return (
-    <div><h1>Contact Page</h1></div>
-  )
-}
+    <>
+      <PageHeader title="Contact" />
+    </>
+  );
+};
 
-export default Contact
+export default Contact;
