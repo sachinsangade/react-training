@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
+import useProductDetails from "./shared/useProductDetails";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const ProductDetails = () => {
-  const [product, setProduct] = useState([]);
-
   const params = useParams();
 
-  useEffect(() => {
-    fetchProductDetails();
-  }, []);
+  const product = useProductDetails(params);
 
-  const fetchProductDetails = async () => {
-    const productData = await fetch(
-      "https://dummyjson.com/products/" + params.productId
-    );
-    const productDataJson = await productData.json();
-    setProduct(productDataJson);
-  };
+  if (product === null) {
+    return <Skeleton count={5} />
+  }
 
   const { title, thumbnail, description, price, discountPercentage, rating } =
     product;
