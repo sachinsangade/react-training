@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import userContext from "../utils/UserContext";
 
 const Navbar = () => {
+
+  const userData = useContext(userContext)
+
+  console.log(userData)
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -66,6 +72,11 @@ const Navbar = () => {
               <Link className="nav-link" to="/contact" tabIndex="-1">
                 Contact
               </Link>
+            </li>
+            <li className="nav-item">
+            <a className="nav-link" href="#">
+            {userData.loggedInUser}
+            </a>
             </li>
           </ul>
           <form className="d-flex">

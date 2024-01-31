@@ -1,36 +1,50 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.esm";
 import Navbar from "./src/components/Navbar";
 import Body from "./src/components/Body";
-import About from "./src/components/About";
+import About from "./src/components/About/About";
 import Contact from "./src/components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import ProductDetails from "./src/components/ProductDetails";
+import ProductDetails from "./src/components/Products/ProductDetails";
 import Error from "./src/components/Error";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
-//import ProductCategory from "./src/components/ProductCategory";
+import userContext from "./src/utils/UserContext";
 
-// import restaurants from "./src/utils/mock_data";
-
-const ProductCategory = lazy( () => import('./src/components/ProductCategory') )
+// Lazy loading - using Lazy and Suspense.
+const ProductCategory = lazy( () => import('./src/components/Products/ProductCategory') )
 
 // App Component.
 const App = () => {
+
+  // for useContext
+  const [ userInfo, setUserInfo ] = useState("");
+
+  useEffect( () => {
+    // API call to authenticate user
+    const userData = {
+      name: 'John Doe'
+    }
+
+    setUserInfo(userData)
+
+  }, [] )
+
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <Navbar />
-        <Outlet />
+    <userContext.Provider value={{loggedInUser: userInfo.name}} >
+      <div className="container-fluid">
+        <div className="row">
+          <Navbar />
+          <Outlet />
+        </div>
       </div>
-    </div>
+    </userContext.Provider>
   );
 };
 
 // React Router.
-
 const AppRouter = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +68,7 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: '/ProductCategory',
+        // Wrap the lazy loaded component using suspense.
         element: <Suspense fallback={<Skeleton count={5} />} >< ProductCategory /></Suspense>,
       }
     ],

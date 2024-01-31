@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Carousel from "./Carousel";
-import ProductList from "./ProductList";
+import ProductList from "./Products/ProductList";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {

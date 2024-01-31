@@ -2958,51 +2958,73 @@ var _navbar = require("./src/components/Navbar");
 var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 var _body = require("./src/components/Body");
 var _bodyDefault = parcelHelpers.interopDefault(_body);
-var _about = require("./src/components/About");
+var _about = require("./src/components/About/About");
 var _aboutDefault = parcelHelpers.interopDefault(_about);
 var _contact = require("./src/components/Contact");
 var _contactDefault = parcelHelpers.interopDefault(_contact);
 var _reactRouterDom = require("react-router-dom");
-var _productDetails = require("./src/components/ProductDetails");
+var _productDetails = require("./src/components/Products/ProductDetails");
 var _productDetailsDefault = parcelHelpers.interopDefault(_productDetails);
 var _error = require("./src/components/Error");
 var _errorDefault = parcelHelpers.interopDefault(_error);
 var _reactLoadingSkeleton = require("react-loading-skeleton");
 var _reactLoadingSkeletonDefault = parcelHelpers.interopDefault(_reactLoadingSkeleton);
 var _skeletonCss = require("react-loading-skeleton/dist/skeleton.css");
-//import ProductCategory from "./src/components/ProductCategory";
-// import restaurants from "./src/utils/mock_data";
-const ProductCategory = /*#__PURE__*/ (0, _react.lazy)(()=>require("638acaba416e3635"));
+var _userContext = require("./src/utils/UserContext");
+var _userContextDefault = parcelHelpers.interopDefault(_userContext);
+var _s = $RefreshSig$();
+// Lazy loading - using Lazy and Suspense.
+const ProductCategory = /*#__PURE__*/ (0, _react.lazy)(()=>require("e01f58581386a4c2"));
 _c = ProductCategory;
 // App Component.
 const App = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "container-fluid",
+    _s();
+    // for useContext
+    const [userInfo, setUserInfo] = (0, _react.useState)("");
+    (0, _react.useEffect)(()=>{
+        // API call to authenticate user
+        const userData = {
+            name: "John Doe"
+        };
+        setUserInfo(userData);
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userContextDefault.default).Provider, {
+        value: {
+            loggedInUser: userInfo.name
+        },
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "row",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
-                    fileName: "index.js",
-                    lineNumber: 25,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
-                    fileName: "index.js",
-                    lineNumber: 26,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
+            className: "container-fluid",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "row",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
+                        fileName: "index.js",
+                        lineNumber: 39,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
+                        fileName: "index.js",
+                        lineNumber: 40,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "index.js",
+                lineNumber: 38,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
             fileName: "index.js",
-            lineNumber: 24,
+            lineNumber: 37,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "index.js",
-        lineNumber: 23,
+        lineNumber: 36,
         columnNumber: 5
     }, undefined);
 };
+_s(App, "zRbtYSpZI6AuUv2QyWskmDK45Is=");
 _c1 = App;
 // React Router.
 const AppRouter = (0, _reactRouterDom.createBrowserRouter)([
@@ -3010,7 +3032,7 @@ const AppRouter = (0, _reactRouterDom.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "index.js",
-            lineNumber: 37,
+            lineNumber: 51,
             columnNumber: 14
         }, undefined),
         children: [
@@ -3018,7 +3040,7 @@ const AppRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                     fileName: "index.js",
-                    lineNumber: 41,
+                    lineNumber: 55,
                     columnNumber: 18
                 }, undefined)
             },
@@ -3026,7 +3048,7 @@ const AppRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/about",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
                     fileName: "index.js",
-                    lineNumber: 45,
+                    lineNumber: 59,
                     columnNumber: 18
                 }, undefined)
             },
@@ -3034,7 +3056,7 @@ const AppRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/contact",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
                     fileName: "index.js",
-                    lineNumber: 49,
+                    lineNumber: 63,
                     columnNumber: 18
                 }, undefined)
             },
@@ -3042,35 +3064,36 @@ const AppRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/productDetails/:productId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailsDefault.default), {}, void 0, false, {
                     fileName: "index.js",
-                    lineNumber: 53,
+                    lineNumber: 67,
                     columnNumber: 18
                 }, undefined)
             },
             {
                 path: "/ProductCategory",
+                // Wrap the lazy loaded component using suspense.
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
                     fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactLoadingSkeletonDefault.default), {
                         count: 5
                     }, void 0, false, {
                         fileName: "index.js",
-                        lineNumber: 57,
+                        lineNumber: 72,
                         columnNumber: 38
                     }, void 0),
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ProductCategory, {}, void 0, false, {
                         fileName: "index.js",
-                        lineNumber: 57,
+                        lineNumber: 72,
                         columnNumber: 63
                     }, undefined)
                 }, void 0, false, {
                     fileName: "index.js",
-                    lineNumber: 57,
+                    lineNumber: 72,
                     columnNumber: 18
                 }, undefined)
             }
         ],
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "index.js",
-            lineNumber: 60,
+            lineNumber: 75,
             columnNumber: 19
         }, undefined)
     }
@@ -3080,7 +3103,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: AppRouter
 }, void 0, false, {
     fileName: "index.js",
-    lineNumber: 66,
+    lineNumber: 81,
     columnNumber: 13
 }, undefined));
 var _c, _c1;
@@ -3092,7 +3115,7 @@ $RefreshReg$(_c1, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","bootstrap/dist/css/bootstrap.min.css":"i5LP7","bootstrap/dist/js/bootstrap.esm":"h36JB","./src/components/Navbar":"5EEXV","./src/components/Body":"8yaV8","./src/components/About":"9R1Eu","./src/components/Contact":"cgAOG","react-router-dom":"9xmpe","./src/components/ProductDetails":"lLXOm","./src/components/Error":"kvula","react-loading-skeleton":"hqjHO","react-loading-skeleton/dist/skeleton.css":"3ua27","638acaba416e3635":"4J9rp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","bootstrap/dist/css/bootstrap.min.css":"i5LP7","bootstrap/dist/js/bootstrap.esm":"h36JB","./src/components/Navbar":"5EEXV","./src/components/Body":"8yaV8","./src/components/Contact":"cgAOG","react-router-dom":"9xmpe","./src/components/Error":"kvula","react-loading-skeleton":"hqjHO","react-loading-skeleton/dist/skeleton.css":"3ua27","./src/utils/UserContext":"c5vgB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./src/components/About/About":"e7ERY","./src/components/Products/ProductDetails":"aqzrS","e01f58581386a4c2":"9gOsM"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -32730,7 +32753,14 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
+var _react = require("react");
+var _userContext = require("../utils/UserContext");
+var _userContextDefault = parcelHelpers.interopDefault(_userContext);
+var _s = $RefreshSig$();
 const Navbar = ()=>{
+    _s();
+    const userData = (0, _react.useContext)((0, _userContextDefault.default));
+    console.log(userData);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
         className: "navbar navbar-expand-lg navbar-light bg-light",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -32742,7 +32772,7 @@ const Navbar = ()=>{
                     children: "Amazing.com"
                 }, void 0, false, {
                     fileName: "src/components/Navbar.js",
-                    lineNumber: 7,
+                    lineNumber: 13,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -32757,12 +32787,12 @@ const Navbar = ()=>{
                         className: "navbar-toggler-icon"
                     }, void 0, false, {
                         fileName: "src/components/Navbar.js",
-                        lineNumber: 19,
+                        lineNumber: 25,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/Navbar.js",
-                    lineNumber: 10,
+                    lineNumber: 16,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -32781,12 +32811,12 @@ const Navbar = ()=>{
                                         children: "Home"
                                     }, void 0, false, {
                                         fileName: "src/components/Navbar.js",
-                                        lineNumber: 24,
+                                        lineNumber: 30,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/Navbar.js",
-                                    lineNumber: 23,
+                                    lineNumber: 29,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -32797,12 +32827,12 @@ const Navbar = ()=>{
                                         children: "About"
                                     }, void 0, false, {
                                         fileName: "src/components/Navbar.js",
-                                        lineNumber: 29,
+                                        lineNumber: 35,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/Navbar.js",
-                                    lineNumber: 28,
+                                    lineNumber: 34,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -32818,7 +32848,7 @@ const Navbar = ()=>{
                                             children: "Dropdown"
                                         }, void 0, false, {
                                             fileName: "src/components/Navbar.js",
-                                            lineNumber: 34,
+                                            lineNumber: 40,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -32832,12 +32862,12 @@ const Navbar = ()=>{
                                                         children: "Action"
                                                     }, void 0, false, {
                                                         fileName: "src/components/Navbar.js",
-                                                        lineNumber: 46,
+                                                        lineNumber: 52,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/Navbar.js",
-                                                    lineNumber: 45,
+                                                    lineNumber: 51,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -32847,12 +32877,12 @@ const Navbar = ()=>{
                                                         children: "Another action"
                                                     }, void 0, false, {
                                                         fileName: "src/components/Navbar.js",
-                                                        lineNumber: 51,
+                                                        lineNumber: 57,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/Navbar.js",
-                                                    lineNumber: 50,
+                                                    lineNumber: 56,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -32860,12 +32890,12 @@ const Navbar = ()=>{
                                                         className: "dropdown-divider"
                                                     }, void 0, false, {
                                                         fileName: "src/components/Navbar.js",
-                                                        lineNumber: 56,
+                                                        lineNumber: 62,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/Navbar.js",
-                                                    lineNumber: 55,
+                                                    lineNumber: 61,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -32875,24 +32905,24 @@ const Navbar = ()=>{
                                                         children: "Something else here"
                                                     }, void 0, false, {
                                                         fileName: "src/components/Navbar.js",
-                                                        lineNumber: 59,
+                                                        lineNumber: 65,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/Navbar.js",
-                                                    lineNumber: 58,
+                                                    lineNumber: 64,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/Navbar.js",
-                                            lineNumber: 44,
+                                            lineNumber: 50,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/Navbar.js",
-                                    lineNumber: 33,
+                                    lineNumber: 39,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -32904,18 +32934,34 @@ const Navbar = ()=>{
                                         children: "Contact"
                                     }, void 0, false, {
                                         fileName: "src/components/Navbar.js",
-                                        lineNumber: 66,
+                                        lineNumber: 72,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/Navbar.js",
-                                    lineNumber: 65,
+                                    lineNumber: 71,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "nav-item",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                        className: "nav-link",
+                                        href: "#",
+                                        children: userData.loggedInUser
+                                    }, void 0, false, {
+                                        fileName: "src/components/Navbar.js",
+                                        lineNumber: 77,
+                                        columnNumber: 13
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Navbar.js",
+                                    lineNumber: 76,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Navbar.js",
-                            lineNumber: 22,
+                            lineNumber: 28,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -32928,7 +32974,7 @@ const Navbar = ()=>{
                                     "aria-label": "Search"
                                 }, void 0, false, {
                                     fileName: "src/components/Navbar.js",
-                                    lineNumber: 72,
+                                    lineNumber: 83,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -32937,33 +32983,34 @@ const Navbar = ()=>{
                                     children: "Search"
                                 }, void 0, false, {
                                     fileName: "src/components/Navbar.js",
-                                    lineNumber: 78,
+                                    lineNumber: 89,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Navbar.js",
-                            lineNumber: 71,
+                            lineNumber: 82,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Navbar.js",
-                    lineNumber: 21,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/Navbar.js",
-            lineNumber: 6,
+            lineNumber: 12,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Navbar.js",
-        lineNumber: 5,
+        lineNumber: 11,
         columnNumber: 5
     }, undefined);
 };
+_s(Navbar, "Lum89giJ0h+kxpVxJs0Gki5rbsM=");
 _c = Navbar;
 exports.default = Navbar;
 var _c;
@@ -32974,7 +33021,7 @@ $RefreshReg$(_c, "Navbar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","../utils/UserContext":"c5vgB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.21.3
  *
@@ -39451,7 +39498,27 @@ function persistAppliedTransitions(_window, transitions) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c5vgB":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4ca8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4ca8.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+const userContext = /*#__PURE__*/ (0, _react.createContext)({
+    loggedInUser: "default user"
+});
+exports.default = userContext;
+
+  $parcel$ReactRefreshHelpers$4ca8.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -39603,7 +39670,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _carousel = require("./Carousel");
 var _carouselDefault = parcelHelpers.interopDefault(_carousel);
-var _productList = require("./ProductList");
+var _productList = require("./Products/ProductList");
 var _productListDefault = parcelHelpers.interopDefault(_productList);
 var _useOnlineStatus = require("../utils/useOnlineStatus");
 var _useOnlineStatusDefault = parcelHelpers.interopDefault(_useOnlineStatus);
@@ -39648,7 +39715,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Carousel":"eWA0I","./ProductList":"lb7Ay","../utils/useOnlineStatus":"181Ji","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eWA0I":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Carousel":"eWA0I","../utils/useOnlineStatus":"181Ji","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Products/ProductList":"1U3sa"}],"eWA0I":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fec5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -39683,12 +39750,12 @@ const Carousel = ()=>{
                                     alt: "..."
                                 }, void 0, false, {
                                     fileName: "src/components/Carousel.js",
-                                    lineNumber: 12,
+                                    lineNumber: 11,
                                     columnNumber: 29
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Carousel.js",
-                                lineNumber: 11,
+                                lineNumber: 10,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -39699,12 +39766,12 @@ const Carousel = ()=>{
                                     alt: "..."
                                 }, void 0, false, {
                                     fileName: "src/components/Carousel.js",
-                                    lineNumber: 15,
+                                    lineNumber: 14,
                                     columnNumber: 29
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Carousel.js",
-                                lineNumber: 14,
+                                lineNumber: 13,
                                 columnNumber: 25
                             }, undefined)
                         ]
@@ -39724,7 +39791,7 @@ const Carousel = ()=>{
                                 "aria-hidden": "true"
                             }, void 0, false, {
                                 fileName: "src/components/Carousel.js",
-                                lineNumber: 20,
+                                lineNumber: 19,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -39732,13 +39799,13 @@ const Carousel = ()=>{
                                 children: "Previous"
                             }, void 0, false, {
                                 fileName: "src/components/Carousel.js",
-                                lineNumber: 21,
+                                lineNumber: 20,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Carousel.js",
-                        lineNumber: 18,
+                        lineNumber: 17,
                         columnNumber: 21
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -39752,7 +39819,7 @@ const Carousel = ()=>{
                                 "aria-hidden": "true"
                             }, void 0, false, {
                                 fileName: "src/components/Carousel.js",
-                                lineNumber: 25,
+                                lineNumber: 24,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -39760,13 +39827,13 @@ const Carousel = ()=>{
                                 children: "Next"
                             }, void 0, false, {
                                 fileName: "src/components/Carousel.js",
-                                lineNumber: 26,
+                                lineNumber: 25,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Carousel.js",
-                        lineNumber: 23,
+                        lineNumber: 22,
                         columnNumber: 21
                     }, undefined)
                 ]
@@ -39837,367 +39904,7 @@ exports.getOrigin = getOrigin;
 },{}],"btz47":[function(require,module,exports) {
 module.exports = require("3d5cbbd80c59e293").getBundleURL("UckoE") + "banner2.4ab3696f.jpg" + "?" + Date.now();
 
-},{"3d5cbbd80c59e293":"lgJ39"}],"lb7Ay":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$c9fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$c9fb.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _productCard = require("./ProductCard");
-var _productCardDefault = parcelHelpers.interopDefault(_productCard);
-var _reactRouterDom = require("react-router-dom");
-var _constants = require("../utils/constants");
-var _s = $RefreshSig$();
-const ProductList = ()=>{
-    _s();
-    // USE STATE
-    const [products, setProducts] = (0, _react.useState)([]);
-    const [filteredProducts, setFilteredProducts] = (0, _react.useState)([]);
-    const [categories, setCategories] = (0, _react.useState)([]);
-    const [searchText, setSearchText] = (0, _react.useState)("");
-    // USE EFFECT
-    (0, _react.useEffect)(()=>{
-        fetchData();
-    }, []);
-    const fetchData = async ()=>{
-        const data = await fetch("https://dummyjson.com/products");
-        const jsonData = await data.json();
-        setProducts(jsonData.products);
-        jsonData.products.map((product)=>{
-            categories.push(product.category);
-        });
-        //console.log(categories);
-        setCategories([
-            ...new Set(categories)
-        ]);
-    };
-    const filterProducts = (category)=>{
-        const newProducts = products.filter((product)=>{
-            if (category === product.category) return product;
-        });
-        setFilteredProducts(newProducts);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "row mt-5",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "col-8",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                children: "Filter Products"
-                            }, void 0, false, {
-                                fileName: "src/components/ProductList.js",
-                                lineNumber: 50,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "btn-group",
-                                role: "group",
-                                "aria-label": "Basic outlined example",
-                                children: [
-                                    categories.map((category, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                            type: "button",
-                                            className: "btn btn-primary",
-                                            onClick: (e)=>{
-                                                e.preventDefault();
-                                                filterProducts(category);
-                                            },
-                                            children: category.toUpperCase()
-                                        }, index, false, {
-                                            fileName: "src/components/ProductList.js",
-                                            lineNumber: 57,
-                                            columnNumber: 15
-                                        }, undefined)),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        type: "button",
-                                        className: "btn btn-danger",
-                                        onClick: (e)=>{
-                                            e.preventDefault();
-                                            setProducts(products);
-                                            setFilteredProducts([]);
-                                        },
-                                        children: "Clear filter"
-                                    }, void 0, false, {
-                                        fileName: "src/components/ProductList.js",
-                                        lineNumber: 70,
-                                        columnNumber: 13
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/ProductList.js",
-                                lineNumber: 51,
-                                columnNumber: 11
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/ProductList.js",
-                        lineNumber: 49,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "col-4",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "col-auto",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "text",
-                                        className: "form-control",
-                                        value: searchText,
-                                        onChange: (e)=>{
-                                            setSearchText(e.target.value);
-                                        }
-                                    }, void 0, false, {
-                                        fileName: "src/components/ProductList.js",
-                                        lineNumber: 87,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/ProductList.js",
-                                    lineNumber: 86,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "col-auto",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        className: "btn btn-primary mb-3",
-                                        onClick: (e)=>{
-                                            e.preventDefault();
-                                            const matchedProducts = products.filter((product)=>product.title.toLowerCase().includes(searchText.toLowerCase()));
-                                            setProducts(matchedProducts);
-                                        },
-                                        children: "Search"
-                                    }, void 0, false, {
-                                        fileName: "src/components/ProductList.js",
-                                        lineNumber: 98,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/ProductList.js",
-                                    lineNumber: 97,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/ProductList.js",
-                            lineNumber: 85,
-                            columnNumber: 11
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/ProductList.js",
-                        lineNumber: 84,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductList.js",
-                lineNumber: 48,
-                columnNumber: 7
-            }, undefined),
-            filteredProducts.length > 1 && filteredProducts.map((product, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    className: "card mt-5",
-                    style: (0, _constants.CRAD_STYLE),
-                    to: "/productDetails/" + product.id,
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
-                        product: product
-                    }, index, false, {
-                        fileName: "src/components/ProductList.js",
-                        lineNumber: 125,
-                        columnNumber: 13
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/ProductList.js",
-                    lineNumber: 120,
-                    columnNumber: 11
-                }, undefined)),
-            filteredProducts.length === 0 && products.map((product, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    className: "card mt-5",
-                    style: (0, _constants.CRAD_STYLE),
-                    to: "/productDetails/" + product.id,
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
-                        product: product
-                    }, index, false, {
-                        fileName: "src/components/ProductList.js",
-                        lineNumber: 136,
-                        columnNumber: 13
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/ProductList.js",
-                    lineNumber: 131,
-                    columnNumber: 11
-                }, undefined))
-        ]
-    }, void 0, true);
-};
-_s(ProductList, "YtwbWhBnaXiV/BrvdA8CpZB0lEw=");
-_c = ProductList;
-exports.default = ProductList;
-var _c;
-$RefreshReg$(_c, "ProductList");
-
-  $parcel$ReactRefreshHelpers$c9fb.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProductCard":"hPL34","react-router-dom":"9xmpe","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hPL34":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6b87 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6b87.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _constants = require("../utils/constants");
-const ProductCard = (props)=>{
-    const { thumbnail, title, price, description, rating, brand, category } = props.product;
-    //console.log(props.product)
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "image-container",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: thumbnail,
-                    className: "card-img-top img-fluid",
-                    style: (0, _constants.CARD_STYLE2),
-                    alt: "..."
-                }, void 0, false, {
-                    fileName: "src/components/ProductCard.js",
-                    lineNumber: 12,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/ProductCard.js",
-                lineNumber: 11,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "card-body",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
-                        className: "card-title",
-                        children: title
-                    }, void 0, false, {
-                        fileName: "src/components/ProductCard.js",
-                        lineNumber: 20,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "card-text",
-                        children: "$" + price
-                    }, void 0, false, {
-                        fileName: "src/components/ProductCard.js",
-                        lineNumber: 21,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductCard.js",
-                lineNumber: 19,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "list-group list-group-flush",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "list-group-item",
-                        children: description
-                    }, void 0, false, {
-                        fileName: "src/components/ProductCard.js",
-                        lineNumber: 24,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "list-group-item",
-                        children: category
-                    }, void 0, false, {
-                        fileName: "src/components/ProductCard.js",
-                        lineNumber: 25,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "list-group-item",
-                        children: rating
-                    }, void 0, false, {
-                        fileName: "src/components/ProductCard.js",
-                        lineNumber: 26,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "list-group-item",
-                        children: brand
-                    }, void 0, false, {
-                        fileName: "src/components/ProductCard.js",
-                        lineNumber: 27,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductCard.js",
-                lineNumber: 23,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "card-body",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                    href: "#",
-                    className: "btn btn-primary",
-                    children: "Add to cart"
-                }, void 0, false, {
-                    fileName: "src/components/ProductCard.js",
-                    lineNumber: 30,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/ProductCard.js",
-                lineNumber: 29,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/ProductCard.js",
-        lineNumber: 10,
-        columnNumber: 5
-    }, undefined);
-};
-_c = ProductCard;
-exports.default = ProductCard;
-var _c;
-$RefreshReg$(_c, "ProductCard");
-
-  $parcel$ReactRefreshHelpers$6b87.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "CRAD_STYLE", ()=>CRAD_STYLE);
-parcelHelpers.export(exports, "CARD_STYLE2", ()=>CARD_STYLE2);
-parcelHelpers.export(exports, "IMG_URL", ()=>IMG_URL);
-const CRAD_STYLE = {
-    width: "18rem",
-    marginRight: "20px"
-};
-const CARD_STYLE2 = {
-    objectFit: "cover",
-    width: "100%",
-    height: "180px"
-};
-const IMG_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"181Ji":[function(require,module,exports) {
+},{"3d5cbbd80c59e293":"lgJ39"}],"181Ji":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a38f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40209,6 +39916,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
+// Custom Hook to check if user is connected to internet.
 const useOnlineStatus = ()=>{
     _s();
     const [isOnline, setIsOnline] = (0, _react.useState)(true);
@@ -40228,11 +39936,995 @@ exports.default = useOnlineStatus;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9R1Eu":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$5b98 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1U3sa":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$13b6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$5b98.prelude(module);
+$parcel$ReactRefreshHelpers$13b6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _productCard = require("./ProductCard");
+var _productCardDefault = parcelHelpers.interopDefault(_productCard);
+var _reactRouterDom = require("react-router-dom");
+var _constants = require("../../utils/constants");
+var _mockData = require("../../utils/mock_data");
+var _mockDataDefault = parcelHelpers.interopDefault(_mockData);
+var _s = $RefreshSig$();
+const ProductList = ()=>{
+    _s();
+    // USE STATE
+    const [products, setProducts] = (0, _react.useState)([]);
+    const [filteredProducts, setFilteredProducts] = (0, _react.useState)([]);
+    const [categories, setCategories] = (0, _react.useState)([]);
+    const [searchText, setSearchText] = (0, _react.useState)("");
+    // USE EFFECT
+    (0, _react.useEffect)(()=>{
+        // This is where we will make our API call.
+        fetchData();
+    }, []);
+    const fetchData = async ()=>{
+        // const data = await fetch("https://dummyjson.com/products");
+        // const jsonData = await data.json();
+        setProducts((0, _mockDataDefault.default).products);
+        // console.log(products)
+        (0, _mockDataDefault.default).products.map((product)=>{
+            categories.push(product.category);
+        });
+        //console.log(categories);
+        setCategories([
+            ...new Set(categories)
+        ]);
+    };
+    const filterProducts = (category)=>{
+        const newProducts = products.filter((product)=>{
+            if (category === product.category) return product;
+        });
+        setFilteredProducts(newProducts);
+    };
+    const PromotedProductCard = (0, _productCard.PromotedProduct)((0, _productCardDefault.default));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "row mt-5",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "col-8",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                children: "Filter Products"
+                            }, void 0, false, {
+                                fileName: "src/components/Products/ProductList.js",
+                                lineNumber: 58,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "btn-group",
+                                role: "group",
+                                "aria-label": "Basic outlined example",
+                                children: [
+                                    categories.map((category, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            type: "button",
+                                            className: "btn btn-primary",
+                                            onClick: (e)=>{
+                                                e.preventDefault();
+                                                filterProducts(category);
+                                            },
+                                            children: category.toUpperCase()
+                                        }, index, false, {
+                                            fileName: "src/components/Products/ProductList.js",
+                                            lineNumber: 65,
+                                            columnNumber: 15
+                                        }, undefined)),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        type: "button",
+                                        className: "btn btn-danger",
+                                        onClick: (e)=>{
+                                            e.preventDefault();
+                                            setProducts(products);
+                                            setFilteredProducts([]);
+                                        },
+                                        children: "Clear filter"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Products/ProductList.js",
+                                        lineNumber: 78,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Products/ProductList.js",
+                                lineNumber: 59,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Products/ProductList.js",
+                        lineNumber: 57,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "col-4",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "col-auto",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                        type: "text",
+                                        className: "form-control",
+                                        value: searchText,
+                                        onChange: (e)=>{
+                                            setSearchText(e.target.value);
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "src/components/Products/ProductList.js",
+                                        lineNumber: 95,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Products/ProductList.js",
+                                    lineNumber: 94,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "col-auto",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        className: "btn btn-primary mb-3",
+                                        onClick: (e)=>{
+                                            e.preventDefault();
+                                            const matchedProducts = products.filter((product)=>product.title.toLowerCase().includes(searchText.toLowerCase()));
+                                            setProducts(matchedProducts);
+                                        },
+                                        children: "Search"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Products/ProductList.js",
+                                        lineNumber: 106,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Products/ProductList.js",
+                                    lineNumber: 105,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Products/ProductList.js",
+                            lineNumber: 93,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductList.js",
+                        lineNumber: 92,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Products/ProductList.js",
+                lineNumber: 56,
+                columnNumber: 7
+            }, undefined),
+            filteredProducts.length > 1 && filteredProducts.map((product, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                    className: "card mt-5",
+                    style: (0, _constants.CRAD_STYLE),
+                    to: "/productDetails/" + product.id,
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
+                        product: product
+                    }, index, false, {
+                        fileName: "src/components/Products/ProductList.js",
+                        lineNumber: 133,
+                        columnNumber: 13
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Products/ProductList.js",
+                    lineNumber: 128,
+                    columnNumber: 11
+                }, undefined)),
+            filteredProducts.length === 0 && products.map((product, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                    className: "card mt-5",
+                    style: (0, _constants.CRAD_STYLE),
+                    to: "/productDetails/" + product.id,
+                    children: product.promoted ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PromotedProductCard, {
+                        product: product
+                    }, index, false, {
+                        fileName: "src/components/Products/ProductList.js",
+                        lineNumber: 144,
+                        columnNumber: 34
+                    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
+                        product: product
+                    }, index, false, {
+                        fileName: "src/components/Products/ProductList.js",
+                        lineNumber: 144,
+                        columnNumber: 90
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Products/ProductList.js",
+                    lineNumber: 139,
+                    columnNumber: 11
+                }, undefined))
+        ]
+    }, void 0, true);
+};
+_s(ProductList, "YtwbWhBnaXiV/BrvdA8CpZB0lEw=");
+_c = ProductList;
+exports.default = ProductList;
+var _c;
+$RefreshReg$(_c, "ProductList");
+
+  $parcel$ReactRefreshHelpers$13b6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProductCard":"4uXbn","react-router-dom":"9xmpe","../../utils/constants":"hB8jg","../../utils/mock_data":"9lxXW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4uXbn":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$85d6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$85d6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "PromotedProduct", ()=>PromotedProduct);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _userContext = require("../../utils/UserContext");
+var _userContextDefault = parcelHelpers.interopDefault(_userContext);
+var _constants = require("../../utils/constants");
+var _react = require("react");
+var _s = $RefreshSig$();
+const ProductCard = (props)=>{
+    _s();
+    const { thumbnail, title, price, description, rating, brand, category } = props.product;
+    //console.log(props.product)
+    const userInfo = (0, _react.useContext)((0, _userContextDefault.default));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "image-container",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: thumbnail,
+                    className: "card-img-top img-fluid",
+                    style: (0, _constants.CARD_STYLE2),
+                    alt: "..."
+                }, void 0, false, {
+                    fileName: "src/components/Products/ProductCard.js",
+                    lineNumber: 17,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/Products/ProductCard.js",
+                lineNumber: 16,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "card-body",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                        className: "card-title",
+                        children: title
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductCard.js",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "card-text",
+                        children: "$" + price
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductCard.js",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Products/ProductCard.js",
+                lineNumber: 24,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                className: "list-group list-group-flush",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "list-group-item",
+                        children: description
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductCard.js",
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "list-group-item",
+                        children: category
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductCard.js",
+                        lineNumber: 30,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "list-group-item",
+                        children: rating
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductCard.js",
+                        lineNumber: 31,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "list-group-item",
+                        children: brand
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductCard.js",
+                        lineNumber: 32,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Products/ProductCard.js",
+                lineNumber: 28,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "card-body",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                    href: "#",
+                    className: "btn btn-primary",
+                    children: userInfo.loggedInUser
+                }, void 0, false, {
+                    fileName: "src/components/Products/ProductCard.js",
+                    lineNumber: 35,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/Products/ProductCard.js",
+                lineNumber: 34,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Products/ProductCard.js",
+        lineNumber: 15,
+        columnNumber: 5
+    }, undefined);
+};
+_s(ProductCard, "OzPBocceKEGY7MiEwXFY7MRhNPs=");
+_c = ProductCard;
+const PromotedProduct = (ProductCard)=>{
+    return (props)=>{
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    style: (0, _constants.promotedStyle),
+                    children: "Promoted"
+                }, void 0, false, {
+                    fileName: "src/components/Products/ProductCard.js",
+                    lineNumber: 50,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ProductCard, {
+                    ...props
+                }, void 0, false, {
+                    fileName: "src/components/Products/ProductCard.js",
+                    lineNumber: 51,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Products/ProductCard.js",
+            lineNumber: 49,
+            columnNumber: 7
+        }, undefined);
+    };
+};
+_c1 = PromotedProduct;
+exports.default = ProductCard;
+var _c, _c1;
+$RefreshReg$(_c, "ProductCard");
+$RefreshReg$(_c1, "PromotedProduct");
+
+  $parcel$ReactRefreshHelpers$85d6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","../../utils/UserContext":"c5vgB","../../utils/constants":"hB8jg","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CRAD_STYLE", ()=>CRAD_STYLE);
+parcelHelpers.export(exports, "CARD_STYLE2", ()=>CARD_STYLE2);
+parcelHelpers.export(exports, "promotedStyle", ()=>promotedStyle);
+parcelHelpers.export(exports, "IMG_URL", ()=>IMG_URL);
+const CRAD_STYLE = {
+    width: "18rem",
+    marginRight: "20px"
+};
+const CARD_STYLE2 = {
+    objectFit: "cover",
+    width: "100%",
+    height: "180px"
+};
+const promotedStyle = {
+    background: "#000",
+    color: "#fff",
+    padding: "5px 20px",
+    borderRadius: "30px",
+    position: "absolute",
+    marginTop: "10px"
+};
+const IMG_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9lxXW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+const productData = {
+    products: [
+        {
+            id: 1,
+            title: "iPhone 9",
+            description: "An apple mobile which is nothing like apple",
+            price: 549,
+            discountPercentage: 12.96,
+            rating: 4.69,
+            stock: 94,
+            promoted: true,
+            brand: "Apple",
+            category: "smartphones",
+            thumbnail: "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/1/1.jpg",
+                "https://cdn.dummyjson.com/product-images/1/2.jpg",
+                "https://cdn.dummyjson.com/product-images/1/3.jpg",
+                "https://cdn.dummyjson.com/product-images/1/4.jpg",
+                "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 2,
+            title: "iPhone X",
+            description: "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+            price: 899,
+            discountPercentage: 17.94,
+            rating: 4.44,
+            stock: 34,
+            brand: "Apple",
+            category: "smartphones",
+            thumbnail: "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/2/1.jpg",
+                "https://cdn.dummyjson.com/product-images/2/2.jpg",
+                "https://cdn.dummyjson.com/product-images/2/3.jpg",
+                "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 3,
+            title: "Samsung Universe 9",
+            description: "Samsung's new variant which goes beyond Galaxy to the Universe",
+            price: 1249,
+            discountPercentage: 15.46,
+            rating: 4.09,
+            stock: 36,
+            promoted: true,
+            brand: "Samsung",
+            category: "smartphones",
+            thumbnail: "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/3/1.jpg"
+            ]
+        },
+        {
+            id: 4,
+            title: "OPPOF19",
+            description: "OPPO F19 is officially announced on April 2021.",
+            price: 280,
+            discountPercentage: 17.91,
+            rating: 4.3,
+            stock: 123,
+            brand: "OPPO",
+            category: "smartphones",
+            thumbnail: "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/4/1.jpg",
+                "https://cdn.dummyjson.com/product-images/4/2.jpg",
+                "https://cdn.dummyjson.com/product-images/4/3.jpg",
+                "https://cdn.dummyjson.com/product-images/4/4.jpg",
+                "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 5,
+            title: "Huawei P30",
+            description: "Huawei\u2019s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+            price: 499,
+            discountPercentage: 10.58,
+            rating: 4.09,
+            stock: 32,
+            brand: "Huawei",
+            category: "smartphones",
+            thumbnail: "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/5/1.jpg",
+                "https://cdn.dummyjson.com/product-images/5/2.jpg",
+                "https://cdn.dummyjson.com/product-images/5/3.jpg"
+            ]
+        },
+        {
+            id: 6,
+            title: "MacBook Pro",
+            description: "MacBook Pro 2021 with mini-LED display may launch between September, November",
+            price: 1749,
+            discountPercentage: 11.02,
+            rating: 4.57,
+            stock: 83,
+            brand: "Apple",
+            category: "laptops",
+            thumbnail: "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+            images: [
+                "https://cdn.dummyjson.com/product-images/6/1.png",
+                "https://cdn.dummyjson.com/product-images/6/2.jpg",
+                "https://cdn.dummyjson.com/product-images/6/3.png",
+                "https://cdn.dummyjson.com/product-images/6/4.jpg"
+            ]
+        },
+        {
+            id: 7,
+            title: "Samsung Galaxy Book",
+            description: "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+            price: 1499,
+            discountPercentage: 4.15,
+            rating: 4.25,
+            stock: 50,
+            promoted: true,
+            brand: "Samsung",
+            category: "laptops",
+            thumbnail: "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/7/1.jpg",
+                "https://cdn.dummyjson.com/product-images/7/2.jpg",
+                "https://cdn.dummyjson.com/product-images/7/3.jpg",
+                "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 8,
+            title: "Microsoft Surface Laptop 4",
+            description: "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+            price: 1499,
+            discountPercentage: 10.23,
+            rating: 4.43,
+            stock: 68,
+            brand: "Microsoft Surface",
+            category: "laptops",
+            thumbnail: "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/8/1.jpg",
+                "https://cdn.dummyjson.com/product-images/8/2.jpg",
+                "https://cdn.dummyjson.com/product-images/8/3.jpg",
+                "https://cdn.dummyjson.com/product-images/8/4.jpg",
+                "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 9,
+            title: "Infinix INBOOK",
+            description: "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey \u2013 1 Year Warranty",
+            price: 1099,
+            discountPercentage: 11.83,
+            rating: 4.54,
+            stock: 96,
+            brand: "Infinix",
+            category: "laptops",
+            thumbnail: "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/9/1.jpg",
+                "https://cdn.dummyjson.com/product-images/9/2.png",
+                "https://cdn.dummyjson.com/product-images/9/3.png",
+                "https://cdn.dummyjson.com/product-images/9/4.jpg",
+                "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 10,
+            title: "HP Pavilion 15-DK1056WM",
+            description: "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+            price: 1099,
+            discountPercentage: 6.18,
+            rating: 4.43,
+            stock: 89,
+            brand: "HP Pavilion",
+            category: "laptops",
+            thumbnail: "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/10/1.jpg",
+                "https://cdn.dummyjson.com/product-images/10/2.jpg",
+                "https://cdn.dummyjson.com/product-images/10/3.jpg",
+                "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
+            ]
+        },
+        {
+            id: 11,
+            title: "perfume Oil",
+            description: "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+            price: 13,
+            discountPercentage: 8.4,
+            rating: 4.26,
+            stock: 65,
+            brand: "Impression of Acqua Di Gio",
+            category: "fragrances",
+            thumbnail: "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/11/1.jpg",
+                "https://cdn.dummyjson.com/product-images/11/2.jpg",
+                "https://cdn.dummyjson.com/product-images/11/3.jpg",
+                "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 12,
+            title: "Brown Perfume",
+            description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+            price: 40,
+            discountPercentage: 15.66,
+            rating: 4,
+            stock: 52,
+            brand: "Royal_Mirage",
+            category: "fragrances",
+            thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/12/1.jpg",
+                "https://cdn.dummyjson.com/product-images/12/2.jpg",
+                "https://cdn.dummyjson.com/product-images/12/3.png",
+                "https://cdn.dummyjson.com/product-images/12/4.jpg",
+                "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 13,
+            title: "Fog Scent Xpressio Perfume",
+            description: "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+            price: 13,
+            discountPercentage: 8.14,
+            rating: 4.59,
+            stock: 61,
+            brand: "Fog Scent Xpressio",
+            category: "fragrances",
+            thumbnail: "https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
+            images: [
+                "https://cdn.dummyjson.com/product-images/13/1.jpg",
+                "https://cdn.dummyjson.com/product-images/13/2.png",
+                "https://cdn.dummyjson.com/product-images/13/3.jpg",
+                "https://cdn.dummyjson.com/product-images/13/4.jpg",
+                "https://cdn.dummyjson.com/product-images/13/thumbnail.webp"
+            ]
+        },
+        {
+            id: 14,
+            title: "Non-Alcoholic Concentrated Perfume Oil",
+            description: "Original Al Munakh\xae by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+            price: 120,
+            discountPercentage: 15.6,
+            rating: 4.21,
+            stock: 114,
+            brand: "Al Munakh",
+            category: "fragrances",
+            thumbnail: "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/14/1.jpg",
+                "https://cdn.dummyjson.com/product-images/14/2.jpg",
+                "https://cdn.dummyjson.com/product-images/14/3.jpg",
+                "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 15,
+            title: "Eau De Perfume Spray",
+            description: "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+            price: 30,
+            discountPercentage: 10.99,
+            rating: 4.7,
+            stock: 105,
+            brand: "Lord - Al-Rehab",
+            category: "fragrances",
+            thumbnail: "https://cdn.dummyjson.com/product-images/15/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/15/1.jpg",
+                "https://cdn.dummyjson.com/product-images/15/2.jpg",
+                "https://cdn.dummyjson.com/product-images/15/3.jpg",
+                "https://cdn.dummyjson.com/product-images/15/4.jpg",
+                "https://cdn.dummyjson.com/product-images/15/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 16,
+            title: "Hyaluronic Acid Serum",
+            description: "L'Or\xc3\xa9al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+            price: 19,
+            discountPercentage: 13.31,
+            rating: 4.83,
+            stock: 110,
+            brand: "L'Oreal Paris",
+            category: "skincare",
+            thumbnail: "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/16/1.png",
+                "https://cdn.dummyjson.com/product-images/16/2.webp",
+                "https://cdn.dummyjson.com/product-images/16/3.jpg",
+                "https://cdn.dummyjson.com/product-images/16/4.jpg",
+                "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 17,
+            title: "Tree Oil 30ml",
+            description: "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+            price: 12,
+            discountPercentage: 4.09,
+            rating: 4.52,
+            stock: 78,
+            brand: "Hemani Tea",
+            category: "skincare",
+            thumbnail: "https://cdn.dummyjson.com/product-images/17/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/17/1.jpg",
+                "https://cdn.dummyjson.com/product-images/17/2.jpg",
+                "https://cdn.dummyjson.com/product-images/17/3.jpg",
+                "https://cdn.dummyjson.com/product-images/17/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 18,
+            title: "Oil Free Moisturizer 100ml",
+            description: "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+            price: 40,
+            discountPercentage: 13.1,
+            rating: 4.56,
+            stock: 88,
+            brand: "Dermive",
+            category: "skincare",
+            thumbnail: "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/18/1.jpg",
+                "https://cdn.dummyjson.com/product-images/18/2.jpg",
+                "https://cdn.dummyjson.com/product-images/18/3.jpg",
+                "https://cdn.dummyjson.com/product-images/18/4.jpg",
+                "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 19,
+            title: "Skin Beauty Serum.",
+            description: "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+            price: 46,
+            discountPercentage: 10.68,
+            rating: 4.42,
+            stock: 54,
+            brand: "ROREC White Rice",
+            category: "skincare",
+            thumbnail: "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/19/1.jpg",
+                "https://cdn.dummyjson.com/product-images/19/2.jpg",
+                "https://cdn.dummyjson.com/product-images/19/3.png",
+                "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 20,
+            title: "Freckle Treatment Cream- 15gm",
+            description: "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
+            price: 70,
+            discountPercentage: 16.99,
+            rating: 4.06,
+            stock: 140,
+            brand: "Fair & Clear",
+            category: "skincare",
+            thumbnail: "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/20/1.jpg",
+                "https://cdn.dummyjson.com/product-images/20/2.jpg",
+                "https://cdn.dummyjson.com/product-images/20/3.jpg",
+                "https://cdn.dummyjson.com/product-images/20/4.jpg",
+                "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 21,
+            title: "- Daal Masoor 500 grams",
+            description: "Fine quality Branded Product Keep in a cool and dry place",
+            price: 20,
+            discountPercentage: 4.81,
+            rating: 4.44,
+            stock: 133,
+            brand: "Saaf & Khaas",
+            category: "groceries",
+            thumbnail: "https://cdn.dummyjson.com/product-images/21/thumbnail.png",
+            images: [
+                "https://cdn.dummyjson.com/product-images/21/1.png",
+                "https://cdn.dummyjson.com/product-images/21/2.jpg",
+                "https://cdn.dummyjson.com/product-images/21/3.jpg"
+            ]
+        },
+        {
+            id: 22,
+            title: "Elbow Macaroni - 400 gm",
+            description: "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
+            price: 14,
+            discountPercentage: 15.58,
+            rating: 4.57,
+            stock: 146,
+            brand: "Bake Parlor Big",
+            category: "groceries",
+            thumbnail: "https://cdn.dummyjson.com/product-images/22/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/22/1.jpg",
+                "https://cdn.dummyjson.com/product-images/22/2.jpg",
+                "https://cdn.dummyjson.com/product-images/22/3.jpg"
+            ]
+        },
+        {
+            id: 23,
+            title: "Orange Essence Food Flavou",
+            description: "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
+            price: 14,
+            discountPercentage: 8.04,
+            rating: 4.85,
+            stock: 26,
+            brand: "Baking Food Items",
+            category: "groceries",
+            thumbnail: "https://cdn.dummyjson.com/product-images/23/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/23/1.jpg",
+                "https://cdn.dummyjson.com/product-images/23/2.jpg",
+                "https://cdn.dummyjson.com/product-images/23/3.jpg",
+                "https://cdn.dummyjson.com/product-images/23/4.jpg",
+                "https://cdn.dummyjson.com/product-images/23/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 24,
+            title: "cereals muesli fruit nuts",
+            description: "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
+            price: 46,
+            discountPercentage: 16.8,
+            rating: 4.94,
+            stock: 113,
+            brand: "fauji",
+            category: "groceries",
+            thumbnail: "https://cdn.dummyjson.com/product-images/24/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/24/1.jpg",
+                "https://cdn.dummyjson.com/product-images/24/2.jpg",
+                "https://cdn.dummyjson.com/product-images/24/3.jpg",
+                "https://cdn.dummyjson.com/product-images/24/4.jpg",
+                "https://cdn.dummyjson.com/product-images/24/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 25,
+            title: "Gulab Powder 50 Gram",
+            description: "Dry Rose Flower Powder Gulab Powder 50 Gram \u2022 Treats Wounds",
+            price: 70,
+            discountPercentage: 13.58,
+            rating: 4.87,
+            stock: 47,
+            brand: "Dry Rose",
+            category: "groceries",
+            thumbnail: "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/25/1.png",
+                "https://cdn.dummyjson.com/product-images/25/2.jpg",
+                "https://cdn.dummyjson.com/product-images/25/3.png",
+                "https://cdn.dummyjson.com/product-images/25/4.jpg",
+                "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 26,
+            title: "Plant Hanger For Home",
+            description: "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
+            price: 41,
+            discountPercentage: 17.86,
+            rating: 4.08,
+            stock: 131,
+            brand: "Boho Decor",
+            category: "home-decoration",
+            thumbnail: "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/26/1.jpg",
+                "https://cdn.dummyjson.com/product-images/26/2.jpg",
+                "https://cdn.dummyjson.com/product-images/26/3.jpg",
+                "https://cdn.dummyjson.com/product-images/26/4.jpg",
+                "https://cdn.dummyjson.com/product-images/26/5.jpg",
+                "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 27,
+            title: "Flying Wooden Bird",
+            description: "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
+            price: 51,
+            discountPercentage: 15.58,
+            rating: 4.41,
+            stock: 17,
+            brand: "Flying Wooden",
+            category: "home-decoration",
+            thumbnail: "https://cdn.dummyjson.com/product-images/27/thumbnail.webp",
+            images: [
+                "https://cdn.dummyjson.com/product-images/27/1.jpg",
+                "https://cdn.dummyjson.com/product-images/27/2.jpg",
+                "https://cdn.dummyjson.com/product-images/27/3.jpg",
+                "https://cdn.dummyjson.com/product-images/27/4.jpg",
+                "https://cdn.dummyjson.com/product-images/27/thumbnail.webp"
+            ]
+        },
+        {
+            id: 28,
+            title: "3D Embellishment Art Lamp",
+            description: "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
+            price: 20,
+            discountPercentage: 16.49,
+            rating: 4.82,
+            stock: 54,
+            brand: "LED Lights",
+            category: "home-decoration",
+            thumbnail: "https://cdn.dummyjson.com/product-images/28/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/28/1.jpg",
+                "https://cdn.dummyjson.com/product-images/28/2.jpg",
+                "https://cdn.dummyjson.com/product-images/28/3.png",
+                "https://cdn.dummyjson.com/product-images/28/4.jpg",
+                "https://cdn.dummyjson.com/product-images/28/thumbnail.jpg"
+            ]
+        },
+        {
+            id: 29,
+            title: "Handcraft Chinese style",
+            description: "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
+            price: 60,
+            discountPercentage: 15.34,
+            rating: 4.44,
+            stock: 7,
+            brand: "luxury palace",
+            category: "home-decoration",
+            thumbnail: "https://cdn.dummyjson.com/product-images/29/thumbnail.webp",
+            images: [
+                "https://cdn.dummyjson.com/product-images/29/1.jpg",
+                "https://cdn.dummyjson.com/product-images/29/2.jpg",
+                "https://cdn.dummyjson.com/product-images/29/3.webp",
+                "https://cdn.dummyjson.com/product-images/29/4.webp",
+                "https://cdn.dummyjson.com/product-images/29/thumbnail.webp"
+            ]
+        },
+        {
+            id: 30,
+            title: "Key Holder",
+            description: "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
+            price: 30,
+            discountPercentage: 2.92,
+            rating: 4.92,
+            stock: 54,
+            brand: "Golden",
+            category: "home-decoration",
+            thumbnail: "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg",
+            images: [
+                "https://cdn.dummyjson.com/product-images/30/1.jpg",
+                "https://cdn.dummyjson.com/product-images/30/2.jpg",
+                "https://cdn.dummyjson.com/product-images/30/3.jpg",
+                "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg"
+            ]
+        }
+    ],
+    total: 100,
+    skip: 0,
+    limit: 30
+};
+exports.default = productData;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cgAOG":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ee46 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ee46.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -40242,63 +40934,28 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _pageHeader = require("./PageHeader/PageHeader");
 var _pageHeaderDefault = parcelHelpers.interopDefault(_pageHeader);
-var _user = require("./User");
-var _userDefault = parcelHelpers.interopDefault(_user);
-var _userClass = require("./UserClass");
-var _userClassDefault = parcelHelpers.interopDefault(_userClass);
-var _userClass2 = require("./UserClass2");
-var _userClass2Default = parcelHelpers.interopDefault(_userClass2);
-// Lets convert functional component to class based component
-// Functional Component
-// const About = () => {
-//   return (
-//     <>
-//       <PageHeader title={'About'} />
-//       {/* <User username={"John Doe"} role={"Developer"} /> */}
-//       <hr></hr>
-//       <UserClass username={"Elon Musk"} role={"Businessman"} />
-//     </>
-//   )
-// }
-// Class based component
-class About extends (0, _reactDefault.default).Component {
-    constructor(){
-        super();
-    }
-    componentDidMount() {
-        console.log("Parent component did mount");
-    }
-    render() {
-        console.log("Parent component Rendered");
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pageHeaderDefault.default), {
-                    title: "About"
-                }, void 0, false, {
-                    fileName: "src/components/About.js",
-                    lineNumber: 41,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userClassDefault.default), {
-                    username: "Elon Musk",
-                    role: "Businessman"
-                }, void 0, false, {
-                    fileName: "src/components/About.js",
-                    lineNumber: 43,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true);
-    }
-}
-exports.default = About;
+const Contact = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pageHeaderDefault.default), {
+            title: "Contact"
+        }, void 0, false, {
+            fileName: "src/components/Contact.js",
+            lineNumber: 7,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false);
+};
+_c = Contact;
+exports.default = Contact;
+var _c;
+$RefreshReg$(_c, "Contact");
 
-  $parcel$ReactRefreshHelpers$5b98.postlude(module);
+  $parcel$ReactRefreshHelpers$ee46.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./PageHeader/PageHeader":"fa07Y","./User":"4iQHT","./UserClass":"Vp2Fx","./UserClass2":"5cd9s","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fa07Y":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./PageHeader/PageHeader":"fa07Y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fa07Y":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0d50 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40344,275 +41001,11 @@ $RefreshReg$(_c, "PageHeader");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./../PageHeader/pageHeader.css":"dgx76","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dgx76":[function() {},{}],"4iQHT":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$9c32 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./../PageHeader/pageHeader.css":"dgx76","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dgx76":[function() {},{}],"kvula":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0ba4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$9c32.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-const User = ({ username, role })=>{
-    _s();
-    const [count, setCount] = (0, _react.useState)(0);
-    const [count2, setCount2] = (0, _react.useState)(0);
-    (0, _react.useEffect)(()=>{
-        console.log("UseEffect called");
-    }, [
-        count
-    ]);
-    //setCount(0)
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            console.log("Component rendered"),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "User Functional Component"
-            }, void 0, false, {
-                fileName: "src/components/User.js",
-                lineNumber: 16,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "Welcome ",
-                    username
-                ]
-            }, void 0, true, {
-                fileName: "src/components/User.js",
-                lineNumber: 17,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "Role : ",
-                    role
-                ]
-            }, void 0, true, {
-                fileName: "src/components/User.js",
-                lineNumber: 18,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                children: [
-                    "Count: ",
-                    count
-                ]
-            }, void 0, true, {
-                fileName: "src/components/User.js",
-                lineNumber: 19,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    setCount(count + 1);
-                },
-                children: "Increase"
-            }, void 0, false, {
-                fileName: "src/components/User.js",
-                lineNumber: 20,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true);
-};
-_s(User, "XLCqO7oox7TD+QPZtG8o2jOFJvM=");
-_c = User;
-exports.default = User;
-var _c;
-$RefreshReg$(_c, "User");
-
-  $parcel$ReactRefreshHelpers$9c32.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"Vp2Fx":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$46df = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$46df.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-class UserClass extends (0, _reactDefault.default).Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            count: 0,
-            count2: 0,
-            data: ""
-        };
-    }
-    componentDidMount() {
-        this.timer = setInterval(()=>{
-            console.log("Interval");
-        }, 1000);
-    // How can we make API call here -
-    // const data = async() => fetch('URL');
-    // const dataJson = data.json()
-    // this.setState({
-    //     data: dataJson,
-    // })
-    // console.log("Child Component Did Mount")
-    }
-    render() {
-        const { username, role } = this.props;
-        // console.log("Child Component Rendered")
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                    children: "User Class Component"
-                }, void 0, false, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 39,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: [
-                        "Welcome ",
-                        username
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 40,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: [
-                        "Role : ",
-                        role
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 41,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: [
-                        "Count: ",
-                        this.state.count
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 42,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: [
-                        "Count2: ",
-                        this.state.count2
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 43,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: ()=>{
-                        this.setState({
-                            count: this.state.count + 1,
-                            count2: this.state.count2 + 1
-                        });
-                    },
-                    children: "Increase"
-                }, void 0, false, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 44,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true);
-    }
-}
-exports.default = UserClass;
-
-  $parcel$ReactRefreshHelpers$46df.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5cd9s":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$a793 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$a793.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-class User2 extends (0, _reactDefault.default).Component {
-    constructor(){
-        super();
-    }
-    componentDidMount() {
-        console.log("Second Child component did mount");
-    }
-    render() {
-        console.log("Second child Component rendered");
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: "User 2 component"
-        }, void 0, false);
-    }
-}
-exports.default = User2;
-
-  $parcel$ReactRefreshHelpers$a793.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cgAOG":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$ee46 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$ee46.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _pageHeader = require("./PageHeader/PageHeader");
-var _pageHeaderDefault = parcelHelpers.interopDefault(_pageHeader);
-const Contact = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pageHeaderDefault.default), {
-            title: "Contact"
-        }, void 0, false, {
-            fileName: "src/components/Contact.js",
-            lineNumber: 7,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false);
-};
-_c = Contact;
-exports.default = Contact;
-var _c;
-$RefreshReg$(_c, "Contact");
-
-  $parcel$ReactRefreshHelpers$ee46.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./PageHeader/PageHeader":"fa07Y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lLXOm":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2230 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2230.prelude(module);
+$parcel$ReactRefreshHelpers$0ba4.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -40621,195 +41014,39 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-var _useProductDetails = require("./shared/useProductDetails");
-var _useProductDetailsDefault = parcelHelpers.interopDefault(_useProductDetails);
-var _reactLoadingSkeleton = require("react-loading-skeleton");
-var _reactLoadingSkeletonDefault = parcelHelpers.interopDefault(_reactLoadingSkeleton);
-var _skeletonCss = require("react-loading-skeleton/dist/skeleton.css");
 var _s = $RefreshSig$();
-const ProductDetails = ()=>{
+const Error = ()=>{
     _s();
-    const params = (0, _reactRouterDom.useParams)();
-    const product = (0, _useProductDetailsDefault.default)(params);
-    if (product === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactLoadingSkeletonDefault.default), {
-        count: 5
-    }, void 0, false, {
-        fileName: "src/components/ProductDetails.js",
-        lineNumber: 13,
-        columnNumber: 12
+    const error = (0, _reactRouterDom.useRouteError)();
+    console.log(error);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+        children: [
+            error.status,
+            " : ",
+            error.statusText
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Error.js",
+        lineNumber: 8,
+        columnNumber: 5
     }, undefined);
-    const { title, thumbnail, description, price, discountPercentage, rating } = product;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "container",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "row",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "col"
-                    }, void 0, false, {
-                        fileName: "src/components/ProductDetails.js",
-                        lineNumber: 23,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "col-6",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "card mb-3",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    src: thumbnail,
-                                    className: "img-thumbnail",
-                                    alt: "..."
-                                }, void 0, false, {
-                                    fileName: "src/components/ProductDetails.js",
-                                    lineNumber: 26,
-                                    columnNumber: 15
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "card-body",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
-                                            className: "card-title",
-                                            children: title
-                                        }, void 0, false, {
-                                            fileName: "src/components/ProductDetails.js",
-                                            lineNumber: 28,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "card-text",
-                                            children: description
-                                        }, void 0, false, {
-                                            fileName: "src/components/ProductDetails.js",
-                                            lineNumber: 29,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "card-text",
-                                            children: price
-                                        }, void 0, false, {
-                                            fileName: "src/components/ProductDetails.js",
-                                            lineNumber: 30,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "card-text",
-                                            children: discountPercentage
-                                        }, void 0, false, {
-                                            fileName: "src/components/ProductDetails.js",
-                                            lineNumber: 31,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "card-text",
-                                            children: rating
-                                        }, void 0, false, {
-                                            fileName: "src/components/ProductDetails.js",
-                                            lineNumber: 32,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "card-text",
-                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
-                                                className: "text-muted",
-                                                children: "Last updated 3 mins ago"
-                                            }, void 0, false, {
-                                                fileName: "src/components/ProductDetails.js",
-                                                lineNumber: 34,
-                                                columnNumber: 19
-                                            }, undefined)
-                                        }, void 0, false, {
-                                            fileName: "src/components/ProductDetails.js",
-                                            lineNumber: 33,
-                                            columnNumber: 17
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/ProductDetails.js",
-                                    lineNumber: 27,
-                                    columnNumber: 15
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/ProductDetails.js",
-                            lineNumber: 25,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/ProductDetails.js",
-                        lineNumber: 24,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "col"
-                    }, void 0, false, {
-                        fileName: "src/components/ProductDetails.js",
-                        lineNumber: 39,
-                        columnNumber: 11
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 22,
-                columnNumber: 9
-            }, undefined)
-        }, void 0, false, {
-            fileName: "src/components/ProductDetails.js",
-            lineNumber: 21,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false);
 };
-_s(ProductDetails, "1LjjrKGdhOe1KVLdspK4gxNdXHc=", false, function() {
+_s(Error, "oAgjgbJzsRXlB89+MoVumxMQqKM=", false, function() {
     return [
-        (0, _reactRouterDom.useParams),
-        (0, _useProductDetailsDefault.default)
+        (0, _reactRouterDom.useRouteError)
     ];
 });
-_c = ProductDetails;
-exports.default = ProductDetails;
+_c = Error;
+exports.default = Error;
 var _c;
-$RefreshReg$(_c, "ProductDetails");
+$RefreshReg$(_c, "Error");
 
-  $parcel$ReactRefreshHelpers$2230.postlude(module);
+  $parcel$ReactRefreshHelpers$0ba4.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./shared/useProductDetails":"9tx81","react-loading-skeleton":"hqjHO","react-loading-skeleton/dist/skeleton.css":"3ua27","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9tx81":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$a179 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$a179.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _s = $RefreshSig$();
-const useProductDetails = (params)=>{
-    _s();
-    const [product, setProduct] = (0, _react.useState)(null);
-    (0, _react.useEffect)(()=>{
-        fetchProductDetails();
-    }, []);
-    const fetchProductDetails = async ()=>{
-        const data = await fetch("https://dummyjson.com/products/" + params.productId);
-        const dataJson = await data.json();
-        setProduct(dataJson);
-    };
-    return product;
-};
-_s(useProductDetails, "Z7FRHGbVHGCoYLuEmDZnBWnFyd0=");
-exports.default = useProductDetails;
-
-  $parcel$ReactRefreshHelpers$a179.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hqjHO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hqjHO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SkeletonTheme", ()=>SkeletonTheme);
@@ -40904,11 +41141,207 @@ function SkeletonTheme({ children, ...styleOptions }) {
     }, children);
 }
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ua27":[function() {},{}],"kvula":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$0ba4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ua27":[function() {},{}],"e7ERY":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f196 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$0ba4.prelude(module);
+$parcel$ReactRefreshHelpers$f196.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _pageHeader = require("../PageHeader/PageHeader");
+var _pageHeaderDefault = parcelHelpers.interopDefault(_pageHeader);
+// import User from "./User";
+var _userClass = require("./UserClass");
+var _userClassDefault = parcelHelpers.interopDefault(_userClass);
+// import User2 from "./UserClass2";
+var _userContext = require("../../utils/UserContext");
+var _userContextDefault = parcelHelpers.interopDefault(_userContext);
+// Lets convert functional component to class based component
+// Functional Component -
+// const About = () => {
+//   return (
+//     <>
+//       <PageHeader title={'About'} />
+//       {/* <User username={"John Doe"} role={"Developer"} /> */}
+//       <hr></hr>
+//       <UserClass username={"Elon Musk"} role={"Businessman"} />
+//     </>
+//   )
+// }
+// Class based component -
+class About extends (0, _reactDefault.default).Component {
+    constructor(){
+        super();
+    }
+    componentDidMount() {
+        console.log("Parent component did mount");
+    }
+    render() {
+        console.log("Parent component Rendered");
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pageHeaderDefault.default), {
+                    title: "About"
+                }, void 0, false, {
+                    fileName: "src/components/About/About.js",
+                    lineNumber: 42,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userContextDefault.default).Consumer, {
+                    children: [
+                        (data)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                children: `From User context ` - data.loggedInUser
+                            }, void 0, false, {
+                                fileName: "src/components/About/About.js",
+                                lineNumber: 45,
+                                columnNumber: 23
+                            }, this),
+                        " "
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/About/About.js",
+                    lineNumber: 44,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userClassDefault.default), {
+                    username: "Elon Musk",
+                    role: "Businessman"
+                }, void 0, false, {
+                    fileName: "src/components/About/About.js",
+                    lineNumber: 48,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true);
+    }
+}
+exports.default = About;
+
+  $parcel$ReactRefreshHelpers$f196.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./UserClass":"dqnXI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../PageHeader/PageHeader":"fa07Y","../../utils/UserContext":"c5vgB"}],"dqnXI":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$de45 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$de45.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class UserClass extends (0, _reactDefault.default).Component {
+    constructor(props){
+        super(props);
+        // This is how we initiate state variable inside class component.
+        this.state = {
+            count: 0,
+            count2: 0,
+            data: ""
+        };
+    }
+    componentDidMount() {
+    // this.timer = setInterval(() => {
+    //   console.log("Interval");
+    // }, 1000);
+    // We make API call here -
+    // const data = async() => fetch('URL');
+    // const dataJson = data.json()
+    // this.setState({
+    //     data: dataJson,
+    // })
+    // console.log("Child Component Did Mount")
+    }
+    render() {
+        const { username, role } = this.props;
+        // console.log("Child Component Rendered")
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    children: "User Class Component"
+                }, void 0, false, {
+                    fileName: "src/components/About/UserClass.js",
+                    lineNumber: 40,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: [
+                        "Welcome ",
+                        username
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/About/UserClass.js",
+                    lineNumber: 41,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: [
+                        "Role : ",
+                        role
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/About/UserClass.js",
+                    lineNumber: 42,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    children: [
+                        "Count: ",
+                        this.state.count
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/About/UserClass.js",
+                    lineNumber: 43,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    children: [
+                        "Count2: ",
+                        this.state.count2
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/About/UserClass.js",
+                    lineNumber: 44,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: ()=>{
+                        this.setState({
+                            count: this.state.count + 1,
+                            count2: this.state.count2 + 1
+                        });
+                    },
+                    children: "Increase"
+                }, void 0, false, {
+                    fileName: "src/components/About/UserClass.js",
+                    lineNumber: 45,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true);
+    }
+}
+exports.default = UserClass;
+
+  $parcel$ReactRefreshHelpers$de45.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aqzrS":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3a5c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3a5c.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -40917,45 +41350,212 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _useProductDetails = require("../shared/useProductDetails");
+var _useProductDetailsDefault = parcelHelpers.interopDefault(_useProductDetails);
+var _reactLoadingSkeleton = require("react-loading-skeleton");
+var _reactLoadingSkeletonDefault = parcelHelpers.interopDefault(_reactLoadingSkeleton);
+var _skeletonCss = require("react-loading-skeleton/dist/skeleton.css");
+var _userContext = require("../../utils/UserContext");
+var _userContextDefault = parcelHelpers.interopDefault(_userContext);
 var _s = $RefreshSig$();
-const Error = ()=>{
+const ProductDetails = ()=>{
     _s();
-    const error = (0, _reactRouterDom.useRouteError)();
-    console.log(error);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-        children: [
-            error.status,
-            " : ",
-            error.statusText
-        ]
-    }, void 0, true, {
-        fileName: "src/components/Error.js",
-        lineNumber: 8,
-        columnNumber: 5
+    const params = (0, _reactRouterDom.useParams)();
+    const product = (0, _useProductDetailsDefault.default)(params);
+    const userData = (0, _react.useContext)((0, _userContextDefault.default));
+    if (product === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactLoadingSkeletonDefault.default), {
+        count: 5
+    }, void 0, false, {
+        fileName: "src/components/Products/ProductDetails.js",
+        lineNumber: 16,
+        columnNumber: 12
     }, undefined);
+    const { title, thumbnail, description, price, discountPercentage, rating } = product;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "container",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "row",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "col"
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductDetails.js",
+                        lineNumber: 26,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "col-6",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "card mb-3",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: thumbnail,
+                                    className: "img-thumbnail",
+                                    alt: "..."
+                                }, void 0, false, {
+                                    fileName: "src/components/Products/ProductDetails.js",
+                                    lineNumber: 29,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "card-body",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                            className: "card-title",
+                                            children: title
+                                        }, void 0, false, {
+                                            fileName: "src/components/Products/ProductDetails.js",
+                                            lineNumber: 31,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            className: "card-text",
+                                            children: description
+                                        }, void 0, false, {
+                                            fileName: "src/components/Products/ProductDetails.js",
+                                            lineNumber: 32,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            className: "card-text",
+                                            children: price
+                                        }, void 0, false, {
+                                            fileName: "src/components/Products/ProductDetails.js",
+                                            lineNumber: 33,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            className: "card-text",
+                                            children: discountPercentage
+                                        }, void 0, false, {
+                                            fileName: "src/components/Products/ProductDetails.js",
+                                            lineNumber: 34,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            className: "card-text",
+                                            children: rating
+                                        }, void 0, false, {
+                                            fileName: "src/components/Products/ProductDetails.js",
+                                            lineNumber: 35,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            className: "card-text",
+                                            children: userData.loggedInUser
+                                        }, void 0, false, {
+                                            fileName: "src/components/Products/ProductDetails.js",
+                                            lineNumber: 36,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            className: "card-text",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                className: "text-muted",
+                                                children: "Last updated 3 mins ago"
+                                            }, void 0, false, {
+                                                fileName: "src/components/Products/ProductDetails.js",
+                                                lineNumber: 38,
+                                                columnNumber: 19
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/components/Products/ProductDetails.js",
+                                            lineNumber: 37,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/Products/ProductDetails.js",
+                                    lineNumber: 30,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Products/ProductDetails.js",
+                            lineNumber: 28,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductDetails.js",
+                        lineNumber: 27,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "col"
+                    }, void 0, false, {
+                        fileName: "src/components/Products/ProductDetails.js",
+                        lineNumber: 43,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Products/ProductDetails.js",
+                lineNumber: 25,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/components/Products/ProductDetails.js",
+            lineNumber: 24,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false);
 };
-_s(Error, "oAgjgbJzsRXlB89+MoVumxMQqKM=", false, function() {
+_s(ProductDetails, "2MD4zHnCYFcOKF3N58orn0MpDFk=", false, function() {
     return [
-        (0, _reactRouterDom.useRouteError)
+        (0, _reactRouterDom.useParams),
+        (0, _useProductDetailsDefault.default)
     ];
 });
-_c = Error;
-exports.default = Error;
+_c = ProductDetails;
+exports.default = ProductDetails;
 var _c;
-$RefreshReg$(_c, "Error");
+$RefreshReg$(_c, "ProductDetails");
 
-  $parcel$ReactRefreshHelpers$0ba4.postlude(module);
+  $parcel$ReactRefreshHelpers$3a5c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3ua27":[function() {},{}],"4J9rp":[function(require,module,exports) {
-module.exports = require("f41f885b297bab63")(require("fa9c9953267215e2").getBundleURL("UckoE") + "ProductCategory.ca2c7f32.js" + "?" + Date.now()).catch((err)=>{
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../shared/useProductDetails":"9tx81","react-loading-skeleton":"hqjHO","react-loading-skeleton/dist/skeleton.css":"3ua27","../../utils/UserContext":"c5vgB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9tx81":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a179 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a179.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _s = $RefreshSig$();
+const useProductDetails = (params)=>{
+    _s();
+    const [product, setProduct] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetchProductDetails();
+    }, []);
+    const fetchProductDetails = async ()=>{
+        const data = await fetch("https://dummyjson.com/products/" + params.productId);
+        const dataJson = await data.json();
+        setProduct(dataJson);
+    };
+    return product;
+};
+_s(useProductDetails, "Z7FRHGbVHGCoYLuEmDZnBWnFyd0=");
+exports.default = useProductDetails;
+
+  $parcel$ReactRefreshHelpers$a179.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3ua27":[function() {},{}],"9gOsM":[function(require,module,exports) {
+module.exports = require("12da2f190895fef8")(require("9e6f5ab93aa53bf7").getBundleURL("UckoE") + "ProductCategory.4791546c.js" + "?" + Date.now()).catch((err)=>{
     delete module.bundle.cache[module.id];
     throw err;
-}).then(()=>module.bundle.root("hcyyH"));
+}).then(()=>module.bundle.root("cs5Uv"));
 
-},{"f41f885b297bab63":"61B45","fa9c9953267215e2":"lgJ39"}],"61B45":[function(require,module,exports) {
+},{"12da2f190895fef8":"61B45","9e6f5ab93aa53bf7":"lgJ39"}],"61B45":[function(require,module,exports) {
 "use strict";
 var cacheLoader = require("ca2a84f7fa4a3bb0");
 module.exports = cacheLoader(function(bundle) {

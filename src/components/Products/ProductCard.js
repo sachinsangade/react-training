@@ -1,10 +1,15 @@
-import { IMG_URL, CRAD_STYLE, CARD_STYLE2 } from "../utils/constants";
+import userContext from "../../utils/UserContext";
+import { IMG_URL, CRAD_STYLE, CARD_STYLE2, promotedStyle } from "../../utils/constants";
+import { useContext } from "react";
+import userContext from "../../utils/UserContext"; 
 
 const ProductCard = (props) => {
   const { thumbnail, title, price, description, rating, brand, category } =
     props.product;
 
   //console.log(props.product)
+
+  const userInfo = useContext(userContext)
 
   return (
     <div>
@@ -28,11 +33,25 @@ const ProductCard = (props) => {
       </ul>
       <div className="card-body">
         <a href="#" className="btn btn-primary">
-          Add to cart
+        {userInfo.loggedInUser}
         </a>
       </div>
     </div>
   );
 };
+
+// Higher order component
+
+export const PromotedProduct = (ProductCard) => {
+  return (props) => {
+
+    return(
+      <div>
+        <label style={promotedStyle}>Promoted</label>
+        <ProductCard {...props} />
+      </div>
+    )
+  }
+}
 
 export default ProductCard;

@@ -4,6 +4,7 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
 
+    // This is how we initiate state variable inside class component.
     this.state = {
       count: 0,
       count2: 0,
@@ -12,12 +13,12 @@ class UserClass extends React.Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => {
-      console.log("Interval");
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   console.log("Interval");
+    // }, 1000);
 
     
-    // How can we make API call here -
+    // We make API call here -
     
     // const data = async() => fetch('URL');
 

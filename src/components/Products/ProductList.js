@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard, { PromotedProduct } from "./ProductCard";
 import { Link } from "react-router-dom";
-import { CRAD_STYLE } from "../utils/constants";
+import { CRAD_STYLE } from "../../utils/constants";
+import productData from '../../utils/mock_data';
 
 const ProductList = () => {
   // USE STATE
@@ -15,17 +16,22 @@ const ProductList = () => {
 
   // USE EFFECT
   useEffect(() => {
+
+    // This is where we will make our API call.
     fetchData();
+
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("https://dummyjson.com/products");
+    // const data = await fetch("https://dummyjson.com/products");
 
-    const jsonData = await data.json();
+    // const jsonData = await data.json();
 
-    setProducts(jsonData.products);
+    setProducts(productData.products);
+    
+    // console.log(products)
 
-    jsonData.products.map((product) => {
+    productData.products.map((product) => {
       categories.push(product.category);
     });
 
@@ -42,6 +48,8 @@ const ProductList = () => {
     });
     setFilteredProducts(newProducts);
   };
+
+  const PromotedProductCard = PromotedProduct(ProductCard)
 
   return (
     <>
@@ -133,7 +141,8 @@ const ProductList = () => {
             style={CRAD_STYLE}
             to={"/productDetails/" + product.id}
           >
-            <ProductCard key={index} product={product} />
+            { product.promoted ? <PromotedProductCard key={index} product={product} /> : <ProductCard key={index} product={product} /> }
+            
           </Link>
         ))}
     </>

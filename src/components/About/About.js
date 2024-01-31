@@ -1,12 +1,13 @@
 import React from "react";
-import PageHeader from "./PageHeader/PageHeader";
-import User from "./User";
+import PageHeader from "../PageHeader/PageHeader";
+// import User from "./User";
 import UserClass from "./UserClass";
-import User2 from "./UserClass2";
+// import User2 from "./UserClass2";
+import userContext from "../../utils/UserContext";
 
 // Lets convert functional component to class based component
 
-// Functional Component
+// Functional Component -
 
 // const About = () => {
 //   return (
@@ -23,7 +24,7 @@ import User2 from "./UserClass2";
 // }
 
 
-// Class based component
+// Class based component -
 
 class About extends React.Component {
   constructor() {
@@ -39,6 +40,10 @@ class About extends React.Component {
     return (
       <>
         <PageHeader title={"About"} />
+
+        <userContext.Consumer>
+          { (data) => <h3>{ `From User context ` - data.loggedInUser}</h3>} {/* String interpolation is Javascript. */}
+        </userContext.Consumer>
 
         <UserClass username={"Elon Musk"} role={"Businessman"} />
 

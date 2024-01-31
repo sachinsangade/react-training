@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+// Custom Hook to check if user is connected to internet.
 const useOnlineStatus = () => {
 
     const [ isOnline, setIsOnline ] = useState(true)

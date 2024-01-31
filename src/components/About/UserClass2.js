@@ -6,12 +6,12 @@ class User2 extends React.Component {
     }
 
     componentDidMount() {
-        console.log("Second Child component did mount")
+        // console.log("Second Child component did mount")
     }
 
     render() {
 
-        console.log('Second child Component rendered')
+        // console.log('Second child Component rendered')
         return(
             <>User 2 component</>
         )
