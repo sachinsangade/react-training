@@ -42,7 +42,7 @@ class About extends React.Component {
         <PageHeader title={"About"} />
 
         <userContext.Consumer>
-          { (data) => <h3>{ `From User context ` - data.loggedInUser}</h3>} {/* String interpolation is Javascript. */}
+          { (data) => <h3>{ `From User context ` - data.loggedInUser}</h3>}
         </userContext.Consumer>
 
         <UserClass username={"Elon Musk"} role={"Businessman"} />

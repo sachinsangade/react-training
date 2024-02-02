@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import userContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const userData = useContext(userContext);
 
-  const userData = useContext(userContext)
+  const cartItems = useSelector((store) => store.cart.items);
 
-  console.log(userData)
+  //console.log(cartItems);
+
+  //console.log(userData);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -74,9 +78,14 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-            <a className="nav-link" href="#">
-            {userData.loggedInUser}
-            </a>
+              <a className="nav-link" href="#">
+                {userData.loggedInUser}
+              </a>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cart" tabIndex="-1">
+                Cart - ({cartItems.length})
+              </Link>
             </li>
           </ul>
           <form className="d-flex">

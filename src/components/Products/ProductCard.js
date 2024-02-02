@@ -1,7 +1,9 @@
 import userContext from "../../utils/UserContext";
 import { IMG_URL, CRAD_STYLE, CARD_STYLE2, promotedStyle } from "../../utils/constants";
-import { useContext } from "react";
-import userContext from "../../utils/UserContext"; 
+import { useContext, useState } from "react";
+import userContext from "../../utils/UserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
 
 const ProductCard = (props) => {
   const { thumbnail, title, price, description, rating, brand, category } =
@@ -10,6 +12,22 @@ const ProductCard = (props) => {
   //console.log(props.product)
 
   const userInfo = useContext(userContext)
+
+  //const [ isLiked, setIsLiked ] = useState(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    props.setLikedProduct();
+   // setIsLiked(!isLiked);
+  }
+
+  // Redux toolkit
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (e, title) => {
+    e.preventDefault();
+    dispatch(addItem(title));
+  }
 
   return (
     <div>
@@ -30,10 +48,11 @@ const ProductCard = (props) => {
         <li className="list-group-item">{category}</li>
         <li className="list-group-item">{rating}</li>
         <li className="list-group-item">{brand}</li>
+        <li className="list-group-item" onClick={ handleClick } >{ props.isLiked ? `Liked` : `Like` }</li>
       </ul>
       <div className="card-body">
-        <a href="#" className="btn btn-primary">
-        {userInfo.loggedInUser}
+        <a href="#" className="btn btn-primary" onClick = { (e) => { handleAddToCart(e, title) } } >
+          Add to cart
         </a>
       </div>
     </div>

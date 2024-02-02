@@ -12,6 +12,9 @@ import Error from "./src/components/Error";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import userContext from "./src/utils/UserContext";
+import appStore from "./src/utils/appStore";
+import { Provider } from "react-redux";
+import Cart from "./src/components/Cart";
 
 // Lazy loading - using Lazy and Suspense.
 const ProductCategory = lazy( () => import('./src/components/Products/ProductCategory') )
@@ -33,14 +36,16 @@ const App = () => {
   }, [] )
 
   return (
-    <userContext.Provider value={{loggedInUser: userInfo.name}} >
-      <div className="container-fluid">
-        <div className="row">
-          <Navbar />
-          <Outlet />
+    <Provider store={ appStore } >
+      <userContext.Provider value={{loggedInUser: userInfo.name}} >
+        <div className="container-fluid">
+          <div className="row">
+            <Navbar />
+            <Outlet />
+          </div>
         </div>
-      </div>
-    </userContext.Provider>
+      </userContext.Provider>
+    </Provider>
   );
 };
 
@@ -70,6 +75,10 @@ const AppRouter = createBrowserRouter([
         path: '/ProductCategory',
         // Wrap the lazy loaded component using suspense.
         element: <Suspense fallback={<Skeleton count={5} />} >< ProductCategory /></Suspense>,
+      },
+      {
+        path: '/cart',
+        element: <Cart />
       }
     ],
     errorElement: <Error />,

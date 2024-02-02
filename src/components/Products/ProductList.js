@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard, { PromotedProduct } from "./ProductCard";
 import { Link } from "react-router-dom";
 import { CRAD_STYLE } from "../../utils/constants";
-import productData from '../../utils/mock_data';
+import productData from "../../utils/mock_data";
 
 const ProductList = () => {
   // USE STATE
@@ -16,10 +16,8 @@ const ProductList = () => {
 
   // USE EFFECT
   useEffect(() => {
-
     // This is where we will make our API call.
     fetchData();
-
   }, []);
 
   const fetchData = async () => {
@@ -28,7 +26,7 @@ const ProductList = () => {
     // const jsonData = await data.json();
 
     setProducts(productData.products);
-    
+
     // console.log(products)
 
     productData.products.map((product) => {
@@ -49,7 +47,11 @@ const ProductList = () => {
     setFilteredProducts(newProducts);
   };
 
-  const PromotedProductCard = PromotedProduct(ProductCard)
+  const PromotedProductCard = PromotedProduct(ProductCard);
+
+  // Controlled Components
+
+  const [ likedProduct, setLikedProduct ] = useState("");
 
   return (
     <>
@@ -128,6 +130,7 @@ const ProductList = () => {
           <Link
             className="card mt-5"
             style={CRAD_STYLE}
+            key={index}
             to={"/productDetails/" + product.id}
           >
             <ProductCard key={index} product={product} />
@@ -139,10 +142,23 @@ const ProductList = () => {
           <Link
             className="card mt-5"
             style={CRAD_STYLE}
+            key={index}
             to={"/productDetails/" + product.id}
           >
-            { product.promoted ? <PromotedProductCard key={index} product={product} /> : <ProductCard key={index} product={product} /> }
-            
+            {product.promoted ? (
+              <PromotedProductCard
+                isLiked={true}
+                key={index}
+                product={product}
+              />
+            ) : (
+              <ProductCard
+                setLikedProduct = { () => setLikedProduct(product.id) }
+                isLiked={ product.id === likedProduct ? true : false }
+                key={index}
+                product={product}
+              />
+            )}
           </Link>
         ))}
     </>
